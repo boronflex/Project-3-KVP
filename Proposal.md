@@ -14,12 +14,12 @@ This app will handle the hiring process and allow the survey managers and HR to 
 
 #Must Haves
 
-*Login*
--This data will have sensitive data, such as addresses and drug testing results. Login is necessary
--Look into node passport and hash for this
+* Login *
+- This data will have sensitive data, such as addresses and drug testing results. Login is necessary
+- Look into node passport and hash for this
 
-*Add Prospect input Form section/page*
--An input form for adding prospective employees is necessary
+* Add Prospect input Form section/page *
+- An input form for adding prospective employees is necessary
   --Name
   --Last Name
   --NickName or alias
@@ -35,9 +35,9 @@ This app will handle the hiring process and allow the survey managers and HR to 
   --Years of Experience
   --Comments
 
-*Add A project input Section/page*
+* Add A project input Section/page *
 
--Employees will be assigned to individual projects then spreads, so entering those project is necessary
+- Employees will be assigned to individual projects then spreads, so entering those project is necessary
   --Project Number- assigned outside the scope of this app
   --Project Name
   --Survey Manager
@@ -53,31 +53,31 @@ This app will handle the hiring process and allow the survey managers and HR to 
     ---phone assignment
     ---utv assignment
 
-*A Section/page to filter and select prospects to move forward*
-  -Needs to filter by:
+* A Section/page to filter and select prospects to move forward *
+  - Needs to filter by:
     --Location - State
     --Qualified Position
     --Probably search directly by name
     --A way to exportor just show all candidates
-  -Select multiple candidates
+  - Select multiple candidates
 
-*Interview section/page*
-  -Track the interview process
-  -Perhaps on the filter page the requested project/spread assignment
-  -A way wo reject a candidate
+* Interview section/page*
+  - Track the interview process
+  - Perhaps on the filter page the requested project/spread assignment
+  - A way wo reject a candidate
     --reason
     --notes
-  -A way to assign the below to a candidate
+  - A way to assign the below to a candidate
     --Project
     --Spread
     --Title
     --Pay
     --Requested Start Date
-  -Make official request to HR
+  - Make official request to HR
 
-*HR section*
+* HR section*
 
-  -HR has authorization for this page
+  - HR has authorization for this page
     --show a list of hire requests with
       ---Project
       ---Spread
@@ -103,7 +103,7 @@ This app will handle the hiring process and allow the survey managers and HR to 
         ----Waiting on fitness test
         ----Fitness test complete
 
-*Completed Section*
+* Completed Section*
 
   -Hiring complete
     --set start date
@@ -112,5 +112,5 @@ This app will handle the hiring process and allow the survey managers and HR to 
 
 #Nice to haves
 
-*Picture of prospects
+* Picture of prospects
 
