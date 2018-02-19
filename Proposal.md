@@ -1,57 +1,57 @@
-#The goal of this app is to create a field staff hiring tracker
+# The goal of this app is to create a field staff hiring tracker
 
 At my job, when we land a big project we have to hire a great many contractors that have to go through multiple hurdles to get hired such as drug and fitness testing.  Plus, our managers have to coordinate with HR who has resources that they can't share due to privacy concerns.  An app would be a good way to coordinate these two concerns.
 
-#Name 
+# Name 
 
 Total Station.
 
   The total station was a significant advance in survey technology, it combined several concerns and moved the field of data collection forward very quickly.  The name represents my ambition to extend my app in the future to be a full fledged land surveying management suite.  I want this to be scalable.  There are many other processes in the surveying industry that most firms are behind on.  I hope to be able to fix this.
 
-#Philosophy
+# Philosophy
 
 This app will handle the hiring process and allow the survey managers and HR to login and coordinate with each other.  
 
-#Must Haves
+# Must Haves
 
 * Login *
-- This data will have sensitive data, such as addresses and drug testing results. Login is necessary
-- Look into node passport and hash for this
+  - This data will have sensitive data, such as addresses and drug testing results. Login is necessary
+  - Look into node passport and hash for this
 
 * Add Prospect input Form section/page *
-- An input form for adding prospective employees is necessary
-  --Name
-  --Last Name
-  --NickName or alias
-  --Qualified for position such as PC, IM, or RM
-  --Address
-    ---Street
-    ---City
-    ---State
-    ---Zip
-  --Phone1
-  --Phone2
-  --E-mail
-  --Years of Experience
-  --Comments
+  - An input form for adding prospective employees is necessary
+    --Name
+    --Last Name
+    --NickName or alias
+    --Qualified for position such as PC, IM, or RM
+    --Address
+      ---Street
+      ---City
+      ---State
+      ---Zip
+    --Phone1
+    --Phone2
+    --E-mail
+    --Years of Experience
+    --Comments
 
 * Add A project input Section/page *
 
-- Employees will be assigned to individual projects then spreads, so entering those project is necessary
-  --Project Number- assigned outside the scope of this app
-  --Project Name
-  --Survey Manager
-  --Project Spread - projects have multiple spreads
-    ---number or name
-    ---city
-    ---state
-    ---supervisor name
-    ---per diem
-    ---vehicle
-    ---mileage
-    ---computer assignment
-    ---phone assignment
-    ---utv assignment
+  - Employees will be assigned to individual projects then spreads, so entering those project is necessary
+    --Project Number- assigned outside the scope of this app
+    --Project Name
+    --Survey Manager
+    --Project Spread - projects have multiple spreads
+      ---number or name
+      ---city
+      ---state
+      ---supervisor name
+      ---per diem
+      ---vehicle
+      ---mileage
+      ---computer assignment
+      ---phone assignment
+      ---utv assignment
 
 * A Section/page to filter and select prospects to move forward *
   - Needs to filter by:
@@ -105,12 +105,12 @@ This app will handle the hiring process and allow the survey managers and HR to 
 
 * Completed Section*
 
-  -Hiring complete
+  - Hiring complete
     --set start date
     --set mobilization date
-  -Hired List
+  - Hired List
 
-#Nice to haves
+# Nice to haves
 
 * Picture of prospects
 
