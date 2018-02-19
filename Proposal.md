@@ -14,100 +14,100 @@ This app will handle the hiring process and allow the survey managers and HR to 
 
 # Must Haves
 
-* Login *
+* Login
   - This data will have sensitive data, such as addresses and drug testing results. Login is necessary
   - Look into node passport and hash for this
 
-* Add Prospect input Form section/page *
+* Add Prospect input Form section/page
   - An input form for adding prospective employees is necessary
-    ..- Name
-    ..- Last Name
-    ..- NickName or alias
-    ..- Qualified for position such as PC, IM, or RM
-    ..- Address
-      ---Street
-      ---City
-      ---State
-      ---Zip
-    ..- Phone1
-    ..- Phone2
-    ..- E-mail
-    ..- Years of Experience
-    ..- Comments
+    - Name
+    - Last Name
+    - NickName or alias
+    - Qualified for position such as PC, IM, or RM
+    - Address
+      - Street
+      - City
+      - State
+      - Zip
+    - Phone1
+    - Phone2
+    - E-mail
+    - Years of Experience
+    - Comments
 
-* Add A project input Section/page *
+* Add A project input Section/page
 
   - Employees will be assigned to individual projects then spreads, so entering those project is necessary
-    --Project Number- assigned outside the scope of this app
-    --Project Name
-    --Survey Manager
-    --Project Spread - projects have multiple spreads
-      ---number or name
-      ---city
-      ---state
-      ---supervisor name
-      ---per diem
-      ---vehicle
-      ---mileage
-      ---computer assignment
-      ---phone assignment
-      ---utv assignment
+    - Project Number- assigned outside the scope of this app
+    - Project Name
+    - Survey Manager
+    - Project Spread - projects have multiple spreads
+      - number or name
+      - city
+      - state
+      - supervisor name
+      - per diem
+      - vehicle
+      - mileage
+      - computer assignment
+      - phone assignment
+      - utv assignment
 
 * A Section/page to filter and select prospects to move forward *
   - Needs to filter by:
-    --Location - State
-    --Qualified Position
-    --Probably search directly by name
-    --A way to exporter just show all candidates
+    - Location - State
+    - Qualified Position
+    - Probably search directly by name
+    - A way to exporter just show all candidates
   - Select multiple candidates
 
 * Interview section/page*
   - Track the interview process
   - Perhaps on the filter page the requested project/spread assignment
   - A way wo reject a candidate
-    --reason
-    --notes
+    - reason
+    - notes
   - A way to assign the below to a candidate
-    --Project
-    --Spread
-    --Title
-    --Pay
-    --Requested Start Date
+    - Project
+    - Spread
+    - Title
+    - Pay
+    - Requested Start Date
   - Make official request to HR
 
 * HR section*
 
   - HR has authorization for this page
-    --show a list of hire requests with
-      ---Project
-      ---Spread
-      ---Title
-      ---Pay
-      ---Requested Start Date
-    --Remove Candidate from consideration
-      ---Notes
-    --Phases
-      ---Application
-        ----Application sent
-        ----Application returned
-      ---Reference checks
-        ----Reference checks in progress
-        ----Reference checks complete
-      ---Offer leter and new hire paperwork
-        ----Offer letter and new hire paperwork sent
-        ----Offer letter and new hire paperwork returned
-      ---Drug Test
-        ----Waiting on drug test
-        ----Drug test complete
-      ---Fitness Test
-        ----Waiting on fitness test
-        ----Fitness test complete
+    - show a list of hire requests with
+      - Project
+      - Spread
+      - Title
+      - Pay
+      - Requested Start Date
+    - Remove Candidate from consideration
+      - Notes
+    - Phases
+      - Application
+        - Application sent
+        - Application returned
+      - Reference checks
+        - Reference checks in progress
+        - Reference checks complete
+      - Offer leter and new hire paperwork
+        - Offer letter and new hire paperwork sent
+        - Offer letter and new hire paperwork returned
+      - Drug Test
+        - Waiting on drug test
+        - Drug test complete
+      - Fitness Test
+        - Waiting on fitness test
+        - Fitness test complete
 
 * Completed Section*
 
   - Hiring complete
-    --set start date
-    --set mobilization date
+    - set start date
+    - set mobilization date
   - Hired List
 
 # Nice to haves
