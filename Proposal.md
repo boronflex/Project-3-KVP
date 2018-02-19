@@ -20,20 +20,20 @@ This app will handle the hiring process and allow the survey managers and HR to 
 
 * Add Prospect input Form section/page *
   - An input form for adding prospective employees is necessary
-    --Name
-    --Last Name
-    --NickName or alias
-    --Qualified for position such as PC, IM, or RM
-    --Address
+    ..- Name
+    ..- Last Name
+    ..- NickName or alias
+    ..- Qualified for position such as PC, IM, or RM
+    ..- Address
       ---Street
       ---City
       ---State
       ---Zip
-    --Phone1
-    --Phone2
-    --E-mail
-    --Years of Experience
-    --Comments
+    ..- Phone1
+    ..- Phone2
+    ..- E-mail
+    ..- Years of Experience
+    ..- Comments
 
 * Add A project input Section/page *
 
