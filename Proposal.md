@@ -14,11 +14,11 @@ This app will handle the hiring process and allow the survey managers and HR to 
 
 # Must Haves
 
-1. Login
+## 1. Login
   * This data will have sensitive data, such as addresses and drug testing results. Login is necessary
   * Look into node passport and hash for this
 
-2. Add Prospect input Form section/page
+## 2. Add Prospect input Form section/page
   * An input form for adding prospective employees is necessary
     - Name
     - Last Name
@@ -35,7 +35,7 @@ This app will handle the hiring process and allow the survey managers and HR to 
     - Years of Experience
     - Comments
 
-3. Add A project input Section/page
+## 3. Add A project input Section/page
 
   * Employees will be assigned to individual projects then spreads, so entering those project is necessary
     - Project Number- assigned outside the scope of this app
@@ -53,7 +53,7 @@ This app will handle the hiring process and allow the survey managers and HR to 
       + phone assignment
       + utv assignment
 
-4. A Section/page to filter and select prospects to move forward *
+## 4. A Section/page to filter and select prospects to move forward *
   * Needs to filter by:
     - Location - State
     - Qualified Position
@@ -61,7 +61,7 @@ This app will handle the hiring process and allow the survey managers and HR to 
     - A way to exporter just show all candidates
   * Select multiple candidates
 
-5. Interview section/page
+## 5. Interview section/page
   * Track the interview process
   * Perhaps on the filter page the requested project/spread assignment
   * A way wo reject a candidate
@@ -75,7 +75,7 @@ This app will handle the hiring process and allow the survey managers and HR to 
     - Requested Start Date
   * Make official request to HR
 
-6. HR section
+## 6. HR section
 
   * HR has authorization for this page
     - show a list of hire requests with
@@ -103,7 +103,7 @@ This app will handle the hiring process and allow the survey managers and HR to 
         - Waiting on fitness test
         - Fitness test complete
 
-7. Completed Section
+## 7. Completed Section
 
   * Hiring complete
     - set start date
