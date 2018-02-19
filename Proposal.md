@@ -58,7 +58,7 @@ This app will handle the hiring process and allow the survey managers and HR to 
     --Location - State
     --Qualified Position
     --Probably search directly by name
-    --A way to exportor just show all candidates
+    --A way to exporter just show all candidates
   - Select multiple candidates
 
 * Interview section/page*
@@ -113,4 +113,4 @@ This app will handle the hiring process and allow the survey managers and HR to 
 # Nice to haves
 
 * Picture of prospects
-
+* export to csv
