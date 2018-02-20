@@ -7,14 +7,14 @@ import Interview from "./pages/interview";
 import Login from "./pages/login";
 import Search_Select from "./pages/search_select";
 
-//import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 //import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 
 const App = () =>
   <Router>
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Wrapper>
         <Route exact path="/" component={Login} />
         <Route exact path="/inputs" component={Inputs} />
