@@ -6,6 +6,7 @@ import "./Navbar.css";
 const Navbar = props => 
 
   <nav>
+
     <div className="nav-wrapper">
       <a href="/" className="brand-logo">Total Station</a>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
@@ -14,6 +15,7 @@ const Navbar = props =>
         <li><a href="/interview">Interview</a></li>
       </ul>
     </div>
+
   </nav>;
 
 export default Navbar;
