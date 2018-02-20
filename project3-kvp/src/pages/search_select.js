@@ -1,7 +1,8 @@
 import React from "react";
 //import Container from "../components/Container";
 //import Row from "../components/Row";
-//import Col from "../components/Col";
+import ProspectList from "../components/Prospects";
+
 
 const Search_Select = () =>
   <div>
@@ -14,6 +15,9 @@ const Search_Select = () =>
       <Row>
         <Col size="md-12"> */}
           <h1>Search and select </h1>
+
+          <ProspectList />
+
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
             aliquet diam tortor, id consequat mauris ullamcorper eu. Orci varius
