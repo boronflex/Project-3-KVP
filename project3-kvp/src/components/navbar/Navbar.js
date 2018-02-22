@@ -1,12 +1,15 @@
 import React from "react";
 //import { Link } from "react-router-dom"; -need to set this up for persistence i think
 import "./Navbar.css";
+import Container from "../Container";
+
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => 
 
   <nav>
-
+    
+    <Container>
     <div className="nav-wrapper">
       <a href="/" className="brand-logo">Total Station</a>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
@@ -15,6 +18,7 @@ const Navbar = props =>
         <li><a href="/interview">Interview</a></li>
       </ul>
     </div>
+    </Container>
 
   </nav>;
 

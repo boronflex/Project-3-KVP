@@ -4,7 +4,7 @@ import "./TabCard.css";
 const TabCard = props =>
 
 
-  <div className="col s6 m4">
+  <div className="col s12 m6">
     <div className="card small">
       <div className="card-content">
         <p>{props.note}</p>

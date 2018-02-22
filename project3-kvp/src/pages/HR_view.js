@@ -7,14 +7,7 @@ import TabCard from "../components/TabCard";
 
 const HR_view = () =>
   <div>
-    {/* <Container style={{ marginTop: 30 }}>
-      <Row>
-        <Col size="md-12">
-          <h1>Welcome To Pupster!</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col size="md-12"> */}
+
     <h1>HR View </h1>
 
     <div className="row">
@@ -43,9 +36,7 @@ const HR_view = () =>
             suscipit orci neque, vestibulum tincidunt augue tincidunt non. Duis
             consequat mattis tortor vitae mattis.
     </p>
-    {/* </Col>
-      </Row>
-    </Container> */}
+
   </div>;
 
 export default HR_view;
