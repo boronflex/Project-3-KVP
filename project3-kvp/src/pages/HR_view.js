@@ -3,6 +3,7 @@ import React from "react";
 //import Row from "../components/Row";
 //import Col from "../components/Col";
 import Card from "../components/Card";
+import TabCard from "../components/TabCard";
 
 const HR_view = () =>
   <div>
@@ -19,10 +20,13 @@ const HR_view = () =>
     <div className="row">
 
       <Card note={"this will have request info"} />
-
-      <Card note={"this will show stages complete"} />
-
+      
+      <TabCard note={"maybe this will show the stages of employment"} />
+      
     </div>
+    
+    
+
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
             aliquet diam tortor, id consequat mauris ullamcorper eu. Orci varius

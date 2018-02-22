@@ -3,7 +3,7 @@ import "./ProspectList.css";
 
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
 const ProspectList = props =>
-  <table class="bordered highlight">
+  <table className="bordered highlight">
     <thead>
       <tr>
           <th>Name</th>
