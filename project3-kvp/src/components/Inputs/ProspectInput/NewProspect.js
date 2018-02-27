@@ -94,7 +94,7 @@ class NewProspect extends React.Component {
             </div>
 
             <div className="section">
-              <div className="input-field col s5">
+              <div className="input-field col s4">
                 <input
                   id="street"
                   name="street"
@@ -104,7 +104,7 @@ class NewProspect extends React.Component {
                   className="validate" />
                 <label htmlFor="first_name">Street</label>
               </div>
-              <div className="input-field col s3">
+              <div className="input-field col s4">
                 <input
                   id="city"
                   name="city"
@@ -124,7 +124,6 @@ class NewProspect extends React.Component {
                   <option value="2">Oklahoma</option>
                   <option value="3">Louisiana</option>
                 </select>
-                <label>State</label>
               </div>
               <div className="input-field col s2">
                 <input
@@ -192,7 +191,7 @@ class NewProspect extends React.Component {
                   <option value="2">IM</option>
                   <option value="3">RM</option>
                 </select>
-                <label>Previous Position</label>
+                {/* <label>Previous Position</label> */}
               </div>
               <div className="input-field col s4">
                 <input

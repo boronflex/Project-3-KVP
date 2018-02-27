@@ -2,15 +2,16 @@ import React from "react";
 import "./NewSpread.css";
 
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
-class NewProspect extends React.Component {
+class NewSpread extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
+      project_idfk: 0,
       spread_num: 0,
       spread_city: '',
-      Spread_state: '',
+      spread_state: '',
       supervisor_name: '',
       supervisor_id: 0,
       per_diem: 0,
@@ -18,14 +19,13 @@ class NewProspect extends React.Component {
       vehicle: '',
       computer: '',
       phone: '',
-      utv: '',
-      comments: ''
+      utv: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
 
   handleChange(event) {
 
@@ -61,61 +61,65 @@ class NewProspect extends React.Component {
 
             <div className="section">
               <div className="input-field col s4">
-                <label htmlFor="first_name">First Name</label>
-                <input
-                  id="first_name"
-                  name="first_name"
+                <select
+                  name="project_idfk"
                   value={this.state.value}
-                  onChange={this.handleChange}
-                  type="text"
-                  className="validate" />
+                  onChange={this.handleChange}>
+                  <option value="" disable="true">project</option>
+                  <option value="project 1">project 1</option>
+                  <option value="project 2">project 2</option>
+                  <option value="project 3">project 3</option>
+                </select>
               </div>
               <div className="input-field col s4">
-                <label htmlFor="last_name">Last Name</label>
+                <label htmlFor="spread_num">number</label>
                 <input
-                  id="last_name"
-                  name="last_name"
+                  id="spread_num"
+                  name="spread_num"
                   value={this.state.value}
                   onChange={this.handleChange}
-                  type="text"
-                  className="validate" />
-              </div>
-              <div className="input-field col s4">
-                <label htmlFor="last_name">Nick Name</label>
-                <input
-                  id="nick_name"
-                  name="nick_name"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                  type="text"
+                  type="number"
                   className="validate" />
               </div>
             </div>
 
             <div className="section">
-              <div className="input-field col s5">
+              <div className="input-field col s8">
+                <label htmlFor="supervisor_name">supervisor name</label>
                 <input
-                  id="street"
-                  name="street"
+                  id="supervisor_name"
+                  name="supervisor_name"
                   value={this.state.value}
                   onChange={this.handleChange}
                   type="text"
                   className="validate" />
-                <label htmlFor="first_name">Street</label>
               </div>
-              <div className="input-field col s3">
+              <div className="input-field col s4">
+                <label htmlFor="supervisor_id">supervisor id</label>
                 <input
-                  id="city"
-                  name="city"
+                  id="supervisor_id"
+                  name="supervisor_id"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  type="number"
+                  className="validate" />
+              </div>
+            </div>
+
+            <div className="section">
+              <div className="input-field col s8">
+                <input
+                  id="spread_city"
+                  name="spread_city"
                   value={this.state.value}
                   onChange={this.handleChange}
                   type="text"
                   className="validate" />
-                <label htmlFor="city">City</label>
+                <label htmlFor="spread_city">City</label>
               </div>
-              <div className="input-field col s2">
+              <div className="input-field col s4">
                 <select
-                  name="state"
+                  name="spread_state"
                   value={this.state.value}
                   onChange={this.handleChange}>
                   <option value="" disable="true" >Choose a State</option>
@@ -123,90 +127,82 @@ class NewProspect extends React.Component {
                   <option value="2">Oklahoma</option>
                   <option value="3">Louisiana</option>
                 </select>
-                <label>State</label>
-              </div>
-              <div className="input-field col s2">
-                <input
-                  id="zip"
-                  name="zip"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                  type="text"
-                  className="validate" />
-                <label htmlFor="zip`">Zip</label>
               </div>
             </div>
 
             <div className="section">
               <div className="input-field col s4">
                 <input
-                  id="phone_1"
-                  name="phone_1"
+                  id="per_diem"
+                  name="per_diem"
                   value={this.state.value}
                   onChange={this.handleChange}
-                  type="tel"
+                  type="number"
                   className="validate" />
-                <label htmlFor="phone_1">Phone 1</label>
+                <label htmlFor="per_diem">Per Diem</label>
               </div>
               <div className="input-field col s4">
                 <input
-                  id="phone_2"
-                  name="phone_2"
+                  id="mileage"
+                  name="mileage"
                   value={this.state.value}
                   onChange={this.handleChange}
-                  type="tel"
+                  type="number"
                   className="validate" />
-                <label htmlFor="phone_2">Phone 2</label>
-              </div>
-              <div className="input-field col s4">
-                <input
-                  id="email"
-                  name="email"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                  type="email"
-                  className="validate" />
-                <label htmlFor="email">E-mail</label>
-              </div>
-            </div>
-
-            <div className="section">
-              <div className="input-field col s4">
-                <input
-                  id="years_exp"
-                  name="years_exp"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                  type="text"
-                  className="validate" />
-                <label htmlFor="years_exp">Years Experience</label>
+                <label htmlFor="mileage">mileage</label>
               </div>
               <div className="input-field col s4">
                 <select
-                  name="prev_position"
+                  name="vehicle"
                   value={this.state.value}
                   onChange={this.handleChange}>
-                  <option value="" disable="true">Last held position</option>
-                  <option value="1">PC</option>
-                  <option value="2">IM</option>
-                  <option value="3">RM</option>
+                  <option value="" disable="true">vehicle</option>
+                  <option value="true">true</option>
+                  <option value="false">false</option>
                 </select>
-                <label>Previous Position</label>
-              </div>
-              <div className="input-field col s4">
-                <input
-                  id="comments"
-                  name="comments"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                  type="text"
-                  className="validate" />
-                <label htmlFor="comments">Comments</label>
+                <label htmlFor="vehicle">vehicle</label>
               </div>
             </div>
-            <button className="waves-effect waves-light btn">Submit</button>
+
+            <div className="section">
+              <div className="input-field col s4">
+                <select
+                  name="computer"
+                  value={this.state.value}
+                  onChange={this.handleChange}>
+                  <option value="" disable="true">computer</option>
+                  <option value="true">yes</option>
+                  <option value="false">no</option>
+                </select>
+              </div>
+              <div className="input-field col s4">
+                <select
+                  name="phone"
+                  value={this.state.value}
+                  onChange={this.handleChange}>
+                  <option value="" disable="true">phone</option>
+                  <option value="true">yes</option>
+                  <option value="false">no</option>
+                </select>
+              </div>
+              <div className="input-field col s4">
+                <select
+                  name="utv"
+                  value={this.state.value}
+                  onChange={this.handleChange}>
+                  <option value="" disable="true">utv</option>
+                  <option value="true">yes</option>
+                  <option value="false">no</option>
+                </select>
+              </div>
+
+              <button className="waves-effect waves-light btn">Submit</button>
+
+            </div>
 
           </div>
+
+
 
         </div>
 
