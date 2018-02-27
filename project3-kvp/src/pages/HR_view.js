@@ -5,8 +5,11 @@ import React from "react";
 import Card from "../components/Card";
 import TabCard from "../components/TabCard";
 
+import Container from "../components/Container";
+
 const HR_view = () =>
-  <div>
+
+  <Container>
 
     <h1>HR View </h1>
 
@@ -18,8 +21,6 @@ const HR_view = () =>
       
     </div>
     
-    
-
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
             aliquet diam tortor, id consequat mauris ullamcorper eu. Orci varius
@@ -37,6 +38,6 @@ const HR_view = () =>
             consequat mattis tortor vitae mattis.
     </p>
 
-  </div>;
+  </Container>
 
 export default HR_view;
