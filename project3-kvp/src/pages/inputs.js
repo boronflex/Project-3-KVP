@@ -2,9 +2,12 @@ import React from "react";
 //import Container from "../components/Container";
 //import Row from "../components/Row";
 //import Col from "../components/Col";
-import NewProspect from "../components/Inputs";
+
 import Card from "../components/Card";
 import Container from "../components/Container";
+
+import NewProspect from "../components/Inputs/ProspectInput";
+import NewProject from "../components/Inputs/ProjectInput";
 
 const Inputs = () =>
 
@@ -14,10 +17,18 @@ const Inputs = () =>
 
     <div className="row">
 
-      <div className="col s6">
+      <div className="col s12">
 
-        <Card>
+        <Card column_size="col s12" title="New Prospect">
           <NewProspect />
+        </Card>
+
+        <Card column_size="col s6" title="New Project">
+          <NewProject />
+        </Card>
+
+        <Card column_size="col s6" title="New Spread">
+          
         </Card>
 
       </div>

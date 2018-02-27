@@ -20,6 +20,7 @@ CREATE TABLE projects
     project_name VARCHAR(40) NOT NULL,
     project_number VARCHAR(40) NOT NULL,
     survey_manager VARCHAR(100) NOT NULL,
+    number_spreads INT(2) NOT NULL,
     PRIMARY KEY (id)
 );
 

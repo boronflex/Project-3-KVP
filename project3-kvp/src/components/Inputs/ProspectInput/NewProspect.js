@@ -205,7 +205,7 @@ class NewProspect extends React.Component {
                 <label htmlFor="comments">Comments</label>
               </div>
             </div>
-            <button className="waves-effect waves-light btn">Send data!</button>
+            <button className="waves-effect waves-light btn">Submit</button>
 
           </div>
 

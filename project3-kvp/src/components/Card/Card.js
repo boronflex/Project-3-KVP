@@ -1,13 +1,12 @@
 import React from "react";
 import "./Card.css";
 
-const Card = props =>
-
+const Card = props => 
   
-  <div className="col s12">
+  <div className={props.column_size}>
     <div className="card blue-grey darken-1">
       <div className="card-content white-text">
-        <span className="card-title">Card Title</span>
+        <span className="card-title">{props.title}</span>
         <div>{props.children}</div>
       </div>
       <div className="card-action">
