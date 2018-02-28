@@ -4,36 +4,39 @@ import React from "react";
 import Card from "../components/Card";
 import Container from "../components/Container";
 
+import OfferData from "../components/Inputs/OfferData";
+
 const Interview = () =>
 
   <Container>
 
-    <h1>Interview </h1>
+    <h2>Interview Dashboard</h2>
 
     <div className="row">
 
-      <Card note={"you'll need to change this to pull employee info"}/>
+      <div className="section col s4">
 
-      <Card note={"this will have offer parameters"}/>
+        <Card column_size="col s12" title="New Prospect">
+        </Card>
+
+        <Card column_size="col s12" title="Project Info">
+        </Card>
+
+      </div>
+
+
+      <Card column_size="col s4" title="Offer Data">
+        <OfferData />
+      </Card>
+
+      <div className="section col s4">
+
+        <Card column_size="col s12" title="HR Update">
+        </Card>
+
+      </div>
 
     </div>
-
-    <div className="row">
-
-      <Card note={"this will show hr stage"}/>
-
-    </div>
-      
-    <p>
-      Phasellus at rutrum nisl. Praesent sed massa ut ipsum bibendum
-      porttitor. Sed malesuada molestie velit ac viverra. Quisque a
-      ullamcorper purus. Curabitur luctus mi ac mi hendrerit semper. Nulla
-      tincidunt accumsan lobortis. Mauris convallis sapien non nibh porta
-      accumsan. Nunc volutpat tempus porttitor. Nunc congue dictum
-      egestas. Aliquam blandit mi eu urna scelerisque, vitae volutpat
-      ligula ultricies. Maecenas vel porta augue. Fusce mauris ex,
-      dignissim et lacinia ut, tempus eget nibh.
-    </p>
 
   </Container>
 

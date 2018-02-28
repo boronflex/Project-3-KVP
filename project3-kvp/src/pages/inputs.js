@@ -14,7 +14,7 @@ const Inputs = () =>
 
   <Container>
 
-    <h1>Inputs </h1>
+    <h2>Inputs Dashboard</h2>
 
     <div className="row">
 
@@ -24,11 +24,11 @@ const Inputs = () =>
           <NewProspect />
         </Card>
 
-        <Card column_size="col s6" title="New Project">
+        <Card column_size="col s4" title="New Project">
           <NewProject />
         </Card>
 
-        <Card column_size="col s6" title="New Spread">
+        <Card column_size="col s8" title="New Spread">
           <NewSpread />
         </Card>
 

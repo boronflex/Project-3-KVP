@@ -160,7 +160,6 @@ class NewSpread extends React.Component {
                   <option value="true">true</option>
                   <option value="false">false</option>
                 </select>
-                <label htmlFor="vehicle">vehicle</label>
               </div>
             </div>
 
@@ -201,8 +200,6 @@ class NewSpread extends React.Component {
             </div>
 
           </div>
-
-
 
         </div>
 

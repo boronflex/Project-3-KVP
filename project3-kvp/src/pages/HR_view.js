@@ -11,7 +11,7 @@ const HR_view = () =>
 
   <Container>
 
-    <h1>HR View </h1>
+    <h2>HR View </h2>
 
     <div className="row">
 
