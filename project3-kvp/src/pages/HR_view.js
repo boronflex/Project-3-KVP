@@ -2,7 +2,7 @@ import React from "react";
 //import Container from "../components/Container";
 //import Row from "../components/Row";
 //import Col from "../components/Col";
-import Card from "../components/Card";
+import Card from "../components/Card/Card";
 import TabCard from "../components/TabCard";
 
 import Container from "../components/Container";

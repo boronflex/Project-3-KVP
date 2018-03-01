@@ -3,7 +3,7 @@ import React from "react";
 //import Row from "../components/Row";
 //import Col from "../components/Col";
 
-import Card from "../components/Card";
+import Card from "../components/Card/Card";
 import Container from "../components/Container";
 
 import NewProspect from "../components/Inputs/ProspectInput";

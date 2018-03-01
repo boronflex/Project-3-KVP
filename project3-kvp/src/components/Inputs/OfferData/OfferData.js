@@ -9,6 +9,8 @@ class OfferData extends React.Component {
     super(props);
 
     this.state = {
+      offer_project: 0,
+      offer_spread: 0,
       offer_title: 0,
       offer_pay: 0,
       requested_start_date: '',
@@ -56,20 +58,48 @@ class OfferData extends React.Component {
             <div className="section">
               <div className="input-field col s12">
                 <select
-                  name="offer_title"
+                  name="offer_project"
                   value={this.state.value}
                   onChange={this.handleChange}>
-                  <option value="" disable="true">Title</option>
-                  <option value="project 1">PC</option>
-                  <option value="project 2">IM</option>
-                  <option value="project 3">RM</option>
+                  <option value="" disable="true">Project</option>
+                  <option value="project 1">Project 1</option>
+                  <option value="project 2">Project 2</option>
+                  <option value="project 3">Project 3</option>
                 </select>
               </div>
             </div>
 
             <div className="section">
               <div className="input-field col s12">
-                <label htmlFor="spread_num">offered pay</label>
+                <select
+                  name="offer_spread"
+                  value={this.state.value}
+                  onChange={this.handleChange}>
+                  <option value="" disable="true">Spread</option>
+                  <option value="spread 1">spread 1</option>
+                  <option value="spread 2">spread 2</option>
+                  <option value="spread 3">spread 3</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="section">
+              <div className="input-field col s12">
+                <select
+                  name="offer_title"
+                  value={this.state.value}
+                  onChange={this.handleChange}>
+                  <option value="" disable="true">Title</option>
+                  <option value="PC">PC</option>
+                  <option value="IM">IM</option>
+                  <option value="RM">RM</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="section">
+              <div className="input-field col s12">
+                <label htmlFor="offer_pay">offered pay</label>
                 <input
                   id="offer_pay"
                   name="offer_pay"

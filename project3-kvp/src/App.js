@@ -10,6 +10,7 @@ import Search_Select from "./pages/search_select";
 import Navbar from "./components/Navbar";
 //import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
+import Overview from "./pages/Overview";
 
 const App = () =>
   <Router>
@@ -20,6 +21,7 @@ const App = () =>
         <Route exact path="/inputs" component={Inputs} />
         <Route exact path="/search" component={Search_Select} />
         <Route exact path="/interview" component={Interview} />
+        <Route exact path="/overview" component={Overview} />
         <Route exact path="/hr" component={HR_view} />
       </Wrapper>
       {/* <Footer /> */}
