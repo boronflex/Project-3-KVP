@@ -144,7 +144,7 @@ class SortableTable extends React.Component {
     };
 
     return (
-      <div>
+      <div id="">
         <button onClick={logSelection}>Log Selection</button>
         <CheckboxTable
           ref={(r)=>this.checkboxTable=r}
