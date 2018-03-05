@@ -12,6 +12,12 @@ import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import Overview from "./pages/Overview";
 
+import 'normalize.css/normalize.css';
+
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
+
+
 const App = () =>
   <Router>
     <div>

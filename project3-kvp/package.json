@@ -6,6 +6,7 @@
     "chance": "^1.0.13",
     "materialize-css": "^0.100.2",
     "namor": "^1.0.1",
+    "normalize.css": "^8.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
