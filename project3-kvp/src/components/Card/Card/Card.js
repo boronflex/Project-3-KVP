@@ -9,10 +9,10 @@ const Card = props =>
         <span className="card-title">{props.title}</span>
         <div>{props.children}</div>
       </div>
-      <div className="card-action">
+      {/* <div className="card-action">
         <a href="">scroll button?</a>
         <a href="">scroll button?</a>
-      </div>
+      </div> */}
     </div>
 
   </div>;

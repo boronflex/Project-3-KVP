@@ -44,7 +44,7 @@ function getColumns(data)
   return columns;
 }
 
-class SortableTable extends React.Component {
+class SelectableTable extends React.Component {
 
   constructor() {
     super();
@@ -145,7 +145,9 @@ class SortableTable extends React.Component {
 
     return (
       <div id="">
-        <button onClick={logSelection}>Log Selection</button>
+        <button className="waves-effect waves-light btn" onClick={logSelection}>Submit</button>
+        <br/>
+        <br/>
         <CheckboxTable
           ref={(r)=>this.checkboxTable=r}
           data={data}
@@ -164,4 +166,4 @@ class SortableTable extends React.Component {
   }
 }
 
-export default SortableTable;
+export default SelectableTable;

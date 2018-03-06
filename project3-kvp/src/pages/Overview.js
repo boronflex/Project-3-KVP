@@ -3,7 +3,7 @@ import React from "react";
 //import Row from "../components/Row";
 import Container from "../components/Container";
 
-import SortableTable from "../components/Table";
+import SelectableTable from "../components/Table/SelectableTable";
 
 const Overview = () =>
 
@@ -11,7 +11,7 @@ const Overview = () =>
 
     <h2>Overview page for candidates</h2>
 
-    <SortableTable />
+    <SelectableTable />
 
   </Container>
 
