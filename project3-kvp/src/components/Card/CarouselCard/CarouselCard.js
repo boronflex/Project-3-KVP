@@ -1,7 +1,10 @@
 import React from "react";
 import "./CarouselCard.css";
 
-class CarouselCard extends React.Component { 
+class CarouselCard extends React.Component {
+
+  // will have to break this out to grab selected employees per user
+  // and dynamically creates cards from database
 
   // componentDidMount() {
   //   this.$el = $(this.el);
@@ -16,7 +19,7 @@ class CarouselCard extends React.Component {
 
     return (
 
-      <div className="">
+      <div className="col s12">
         
         <div className="carousel carousel-slider center" data-indicators="true">
         <div className="carousel-fixed-item center">
@@ -24,7 +27,7 @@ class CarouselCard extends React.Component {
         </div>
         <div className="carousel-item red white-text" href="#one!">
           <h2>First Panel</h2>
-          <p className="white-text">This is your first panel</p>
+          <p className="white-text">This will show selected employee data</p>
         </div>
         <div className="carousel-item amber white-text" href="#two!">
           <h2>Second Panel</h2>
@@ -32,7 +35,7 @@ class CarouselCard extends React.Component {
         </div>
         <div className="carousel-item green white-text" href="#three!">
           <h2>Third Panel</h2>
-          <p class="white-text">This is your third panel</p>
+          <p className="white-text">This is your third panel</p>
         </div>
         <div className="carousel-item blue white-text" href="#four!">
           <h2>Fourth Panel</h2>

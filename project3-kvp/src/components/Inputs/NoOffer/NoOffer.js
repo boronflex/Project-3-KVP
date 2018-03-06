@@ -1,23 +1,22 @@
 import React from "react";
-import "./LoginForm.css";
-
-//this is not final, just setting it quickly up to take input
+import "./NoOffer.css";
 
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
-class LoginForm extends React.Component {
+class NoOffer extends React.Component {
 
   constructor(props) {
+
     super(props);
 
     this.state = {
-      user_name: '',
-      password: '',
+      no_offer_reason: "",
+      no_offer_notes: "",
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
 
   handleChange(event) {
 
@@ -53,38 +52,44 @@ class LoginForm extends React.Component {
 
             <div className="section">
               <div className="input-field col s12">
-                <label htmlFor="user_name">user name</label>
-                <input
-                  id="user_name"
-                  name="user_name"
+                <select
+                  name="no_offer_reason"
                   value={this.state.value}
-                  onChange={this.handleChange}
-                  type="text"
-                  className="validate" />
+                  onChange={this.handleChange}>
+                  <option value="" disable="true">No Offer</option>
+                  <option value="not available">Not available</option>
+                  <option value="not qualified">Not qualified</option>
+                  <option value="too expensive">Too expensive</option>
+                  <option value="not interested">Not Interested</option>
+                  <option value="other">Other (see notes)</option>
+                </select>
               </div>
             </div>
 
             <div className="section">
               <div className="input-field col s12">
                 <input
-                  id="password"
-                  name="password"
+                  id="no_offer_notes"
+                  name="no_offer_notes"
                   value={this.state.value}
                   onChange={this.handleChange}
-                  type="password"
+                  type="text"
                   className="validate" />
-                <label htmlFor="password">password</label>
+                <label htmlFor="no_offer_notes">Notes</label>
               </div>
             </div>
+
+            <button className="waves-effect waves-light btn">Submit</button>
 
           </div>
 
         </div>
 
       </form>
+
     );
   }
 
 }
 
-export default LoginForm;
+export default NoOffer;

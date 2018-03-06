@@ -13,9 +13,7 @@ class OfferData extends React.Component {
       offer_spread: 0,
       offer_title: 0,
       offer_pay: 0,
-      requested_start_date: '',
-      job_offered: '',
-      offer_notes: ''
+      requested_start_date: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -56,7 +54,7 @@ class OfferData extends React.Component {
           <div className="col s12">
 
             <div className="section">
-              <div className="input-field col s12">
+              <div className="input-field col s6">
                 <select
                   name="offer_project"
                   value={this.state.value}
@@ -67,10 +65,8 @@ class OfferData extends React.Component {
                   <option value="project 3">Project 3</option>
                 </select>
               </div>
-            </div>
 
-            <div className="section">
-              <div className="input-field col s12">
+              <div className="input-field col s6">
                 <select
                   name="offer_spread"
                   value={this.state.value}
@@ -84,7 +80,7 @@ class OfferData extends React.Component {
             </div>
 
             <div className="section">
-              <div className="input-field col s12">
+              <div className="input-field col s6">
                 <select
                   name="offer_title"
                   value={this.state.value}
@@ -95,10 +91,8 @@ class OfferData extends React.Component {
                   <option value="RM">RM</option>
                 </select>
               </div>
-            </div>
 
-            <div className="section">
-              <div className="input-field col s12">
+              <div className="input-field col s6">
                 <label htmlFor="offer_pay">offered pay</label>
                 <input
                   id="offer_pay"
@@ -123,33 +117,7 @@ class OfferData extends React.Component {
               </div>
             </div>
 
-            <div className="section">
-              <div className="input-field col s12">
-                <select
-                  name="job_offered"
-                  value={this.state.value}
-                  onChange={this.handleChange}>
-                  <option value="" disable="true">job offered</option>
-                  <option value="true">yes</option>
-                  <option value="false">no</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="section">
-              <div className="input-field col s12">
-                <input
-                  id="offer_notes"
-                  name="offer_notes"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                  type="text"
-                  className="validate" />
-                <label htmlFor="offer_notes">offer notes</label>
-              </div>
-            </div>
-
-              <button className="waves-effect waves-light btn">Submit</button>
+            <button className="waves-effect waves-light btn">Submit</button>
 
           </div>
 

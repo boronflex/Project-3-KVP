@@ -6,6 +6,7 @@ import CarouselCard from "../components/Card/CarouselCard";
 import Container from "../components/Container";
 
 import OfferData from "../components/Inputs/OfferData";
+import NoOffer from "../components/Inputs/NoOffer";
 
 const Interview = () =>
 
@@ -15,31 +16,33 @@ const Interview = () =>
 
     <div className="row">
 
-      <div className="section col s4">
-
-        <CarouselCard column_size="col s12">
+      <div className="col s3">
+        <CarouselCard column_size="">
         </CarouselCard>
-
-        <Card column_size="col s12" title="Project Info">
-          <p>this will show the info about the project and spread</p>
-        </Card>
-
       </div>
 
-
-      <Card column_size="col s4" title="Offer Data">
+      <Card column_size="col s6" title="Offer Data">
         <OfferData />
       </Card>
 
-      <div className="section col s4">
-
-        <Card column_size="col s12" title="HR Update">
-          <p>this will update based on hr's application progress</p>
-        </Card>
-
-      </div>
+      <Card column_size="col s3" title="No Offer">
+        <NoOffer />
+      </Card>
 
     </div>
+
+    <div className="row">
+
+      <Card column_size="col s6" title="Project Info">
+        <p>this will show the info about the project and spread</p>
+      </Card>
+
+      <Card column_size="col s6" title="HR Update">
+        <p>this will update based on hr's application progress</p>
+      </Card>
+
+    </div>
+
 
   </Container>
 
