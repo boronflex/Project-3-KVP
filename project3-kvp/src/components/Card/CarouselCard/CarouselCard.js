@@ -23,28 +23,15 @@ class CarouselCard extends React.Component {
   //   this.$el.somePlugin('destroy');
   // }
 
-  render(){
+  render() {
 
     return (
 
       <div className={this.state.column_size}>
-        
+
         <div className="carousel carousel-slider center" data-indicators="true">
 
-          {/* <div className="carousel-fixed-item center">
-            <a className="btn waves-effect white grey-text darken-text-2">button</a>
-          </div> */}
-
-          <div className="carousel-item red white-text" href="#one!">
-            <h2>First Panel</h2>
-            <p className="white-text">This will show selected employee data</p>
-            <p>{this.props.children}</p>
-          </div>
-
-          <div className="carousel-item amber white-text" href="#two!">
-            <h2>Second Panel</h2>
-            <p className="white-text">This is your second panel</p>
-          </div>
+          <div>{this.props.children}</div>
 
         </div>
 

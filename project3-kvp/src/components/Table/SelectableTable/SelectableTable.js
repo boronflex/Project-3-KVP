@@ -7,7 +7,8 @@ import "react-table/react-table.css";
 import Chance from 'chance';
 import checkboxHOC from 'react-table/lib/hoc/selectTable';
 import { Logo, Tips } from "./data";
-import testData from './test_data';
+//import testData from './test_data';
+import testData from '../../SampleData/prospects';
 
 const CheckboxTable = checkboxHOC(ReactTable);
 
