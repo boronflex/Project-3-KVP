@@ -157,8 +157,8 @@ class NewSpread extends React.Component {
                   value={this.state.value}
                   onChange={this.handleChange}>
                   <option value="" disable="true">vehicle</option>
-                  <option value="true">true</option>
-                  <option value="false">false</option>
+                  <option value="true">yes</option>
+                  <option value="false">no</option>
                 </select>
               </div>
             </div>
