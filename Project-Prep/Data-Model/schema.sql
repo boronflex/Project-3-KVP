@@ -77,7 +77,7 @@ CREATE TABLE prospects_history
     job_offer BOOLEAN DEFAULT FALSE,
     no_offer_reason VARCHAR(40) NOT NULL,
     no_offer_note VARCHAR(40) NOT NULL,
-    yes_offer_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
+    offer_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
     spread_idfk INT(4) NOT NULL AUTO_INCREMENT,
     offer_title VARCHAR(2) NOT NULL,
     offer_pay INT(4) NOT NULL AUTO_INCREMENT,
