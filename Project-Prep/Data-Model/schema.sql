@@ -11,6 +11,8 @@ CREATE TABLE users
     last_name VARCHAR(40) NOT NULL,
     first_name VARCHAR(40) NOT NULL,
     user_type VARCHAR(40) NOT NULL,
+    user_name VARCHAR(40) NOT NULL,
+    user_pword VARCHAR(40) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -19,7 +21,9 @@ CREATE TABLE projects
     id INT(4) NOT NULL AUTO_INCREMENT,
     project_name VARCHAR(40) NOT NULL,
     project_number VARCHAR(40) NOT NULL,
+    client_name VARCHAR(40) NOT NULL,
     survey_manager VARCHAR(100) NOT NULL,
+    survey_manager_empid INT(5) NOT NULL,
     number_spreads INT(2) NOT NULL,
     PRIMARY KEY (id)
 );
@@ -33,8 +37,8 @@ CREATE TABLE spreads
     spread_state VARCHAR(100) NOT NULL,
     supervisor_name VARCHAR(40) NOT NULL,
     supervisor_id INT(5) NOT NULL,
-    per_diem int(3) NOT NULL,
-    mileage int(2) NOT NULL,
+    per_diem INT(3) NOT NULL,
+    mileage FLOAT(2) NOT NULL,
     vehicle BOOLEAN DEFAULT FALSE,
     computer BOOLEAN DEFAULT FALSE,
     phone BOOLEAN DEFAULT FALSE,
@@ -57,8 +61,10 @@ CREATE TABLE prospects
     email VARCHAR(40) NOT NULL,
     years_experience INT(2) NOT NULL,
     prev_position VARCHAR(2) NOT NULL,
-    driver_comments TEXT,
-    --driver_img VARCHAR(100),
+    comments TEXT,
+    eligible BOOLEAN DEFAULT TRUE,
+    in_hiring_process BOOLEAN DEFAULT FALSE,
+    hired BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (id)
 );
 
@@ -66,13 +72,11 @@ CREATE TABLE prospects_history
 (
     id INT(4) NOT NULL AUTO_INCREMENT,
     prospect_idfk INT(4) NOT NULL AUTO_INCREMENT,
-    spread_idfk INT(4) NOT NULL AUTO_INCREMENT,
-    users_idfk INT(4) NOT NULL AUTO_INCREMENT,
+    added_by INT(4) NOT NULL AUTO_INCREMENT,
     added_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
-    no_offer BOOLEAN DEFAULT FALSE,
+    job_offer BOOLEAN DEFAULT FALSE,
     no_offer_reason VARCHAR(40) NOT NULL,
     no_offer_note VARCHAR(40) NOT NULL,
-    yes_offer BOOLEAN DEFAULT FALSE,
     yes_offer_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
     spread_idfk INT(4) NOT NULL AUTO_INCREMENT,
     offer_title VARCHAR(2) NOT NULL,
@@ -82,8 +86,8 @@ CREATE TABLE prospects_history
     app_sent_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
     app_returned INT(5) NOT NULL,
     app_returned_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
-    ref_checks INT(5) NOT NULL,
-    ref_checks_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
+    ref_checks_ip INT(5) NOT NULL,
+    ref_checks_ip_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
     ref_checks_complete TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
     ref_checks_complete_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
     off_nh_pkg_sent INT(5) NOT NULL,
@@ -98,9 +102,10 @@ CREATE TABLE prospects_history
     fitness_test_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
     fitness_test_complete INT(5) NOT NULL,
     fitness_test_complete_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
-    final_offer_letter INT(5) NOT NULL,
-    ostart_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
-    mob_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
+    final_offer_letter_sent INT(5) NOT NULL,
+    final_offer_letter_sent_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
+    official_start_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
+    mobilization_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
     hired BOOLEAN DEFAULT FALSE,
     issue INT(5) NOT NULL,
     issue_date TIMESTAMP WITH TIME ZONE DEFAULT now() AT TIME ZONE 'CST',
