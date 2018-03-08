@@ -9,13 +9,15 @@ class CarouselPage extends React.Component {
 
     return(
 
-      <div className="carousel-item red white-text" href="anything can go here">
+      <div className="carousel-item red white-text" href="this can be anything">
+
 
         {React.Children.map(children, (child, i) => {
 
           return child
 
         })}
+
 
       </div>
 

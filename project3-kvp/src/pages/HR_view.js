@@ -9,100 +9,184 @@ import CarouselCard from "../components/Card/CarouselCard"
 
 import Container from "../components/Container";
 
+import testData from '../components/SampleData/prospects';
 
-const HR_view = () =>
+function getData() {
+  const data = testData.map((item) => {
+    return {
+      ...item
+    }
+  })
+  return data;
+}
 
-  <Container>
+console.log(getData());
 
-    <h2>HR View </h2>
 
-    <div className="row">
+class HR_view extends React.Component {
 
-      <CarouselCard column_size="col s4">
+  constructor(props) {
+    super(props);
 
-        <CarouselPage>
-          <h2>First Panel</h2>
-          <p>this will show an employee in progress</p>
-        </CarouselPage>
+    this.state = {
+      candidates: getData(),
+      current: ""
+    }
 
-        <CarouselPage>
-          <h2>Second Panel</h2>
-          <p>this will show an employee in progress</p>
-        </CarouselPage>
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-        <CarouselPage>
-          <h2>Third Panel</h2>
-          <p>this will show an employee in progress</p>
-        </CarouselPage>
+  handleChange(event) {
 
-      </CarouselCard>
+    const target = event.target;
+    const value = target.value;
 
-      <div className="section col s8">
+    console.log("this is the current card: " + value)
 
-        <Card column_size="center col s4">
+    this.setState({
+      current: value
+    })
 
-          <CardPage>
-            <div>
-              <h6>Application</h6>
-              <p>not started</p>
-              <button className="center waves-effect waves-light btn" >In Progress</button>
+  }
+
+  render() {
+
+    return (
+
+      <Container>
+
+        <h2>HR View </h2>
+
+        <div className="row">
+
+          <CarouselCard column_size="col s3">
+
+            {this.state.candidates.map(candidate => {
+
+              return (
+
+                <CarouselPage key={candidate.id} value={candidate.id} onChange={this.handleChange}>
+
+                  <form>
+                    <h2>
+                      {candidate.first_name + " " + candidate.last_name}
+                    </h2>
+                    <p className="center col s12">"{candidate.nick_name}"</p>
+
+                    <div className="section col s6">
+                      <div className="col s12">
+                        <p className="center">phone 1:</p>
+                        <p className="center">{candidate.phone_1}</p>
+                      </div>
+                    </div>
+                    <div className="section col s6">
+                      <div className="col s12">
+                        <p className="center">phone 2:</p>
+                        <p className="center">{candidate.phone_2}</p>
+                      </div>
+                    </div>
+                    <div className="section col s12">
+                      <div className="col s12">
+                        <p className="center">address:</p>
+                        <p className="center">{candidate.address_st + " " + candidate.city + " " + candidate.address_state + " " + candidate.zip}</p>
+                      </div>
+                    </div>
+                    <div className="section col s12">
+                      <div className="col s12">
+                        <p className="center">email:</p>
+                        <p className="center">{candidate.email}</p>
+                      </div>
+                    </div>
+                  </form>
+
+                </CarouselPage>
+
+              );
+
+            })}
+
+          </CarouselCard>
+
+          <Card column_size="col s2">
+            <h6 className="center">Offer Details</h6>
+            <div className="center">
+              <p>requested by:</p>
+              <p>title:</p>
+              <p>pay:</p>
+              <p>requested start date:</p>
+              <p>project number:</p>
             </div>
-          </CardPage>
+          </Card>
 
-        </Card>
+          <div className="section col s7">
 
-        <Card column_size="center col s4">
+            <Card column_size="center col s4">
 
-          <CardPage>
-            <div>
-              <h6>Reference checks</h6>
-              <p>not started</p>
-              <button className="center waves-effect waves-light btn" >In Progress</button>
-            </div>
-          </CardPage>
+              <CardPage>
+                <div>
+                  <h6>Application</h6>
+                  <p>not started</p>
+                  <button className="center waves-effect waves-light btn" >In Progress</button>
+                </div>
+              </CardPage>
 
-        </Card>
+            </Card>
 
-        <Card column_size="center col s4">
+            <Card column_size="center col s4">
 
-          <CardPage>
-            <div>
-              <h6>Offer Letter & New Hire Paperwork</h6>
-              <p>not started</p>
-              <button className="center waves-effect waves-light btn" >In Progress</button>
-            </div>
-          </CardPage>
+              <CardPage>
+                <div>
+                  <h6>Reference checks</h6>
+                  <p>not started</p>
+                  <button className="center waves-effect waves-light btn" >In Progress</button>
+                </div>
+              </CardPage>
 
-        </Card>
+            </Card>
 
-        <Card column_size="center col s4">
+            <Card column_size="center col s4">
 
-          <CardPage>
-            <div>
-              <h6>Drug Test</h6>
-              <p>not started</p>
-              <button className="center waves-effect waves-light btn" >In Progress</button>
-            </div>
-          </CardPage>
+              <CardPage>
+                <div>
+                  <h6>Offer Letter & New Hire Paperwork</h6>
+                  <p>not started</p>
+                  <button className="center waves-effect waves-light btn" >In Progress</button>
+                </div>
+              </CardPage>
 
-        </Card>
+            </Card>
 
-        <Card column_size="center col s4">
+            <Card column_size="center col s4">
 
-          <CardPage>
-            <div>
-              <h6>Fitness Test</h6>
-              <p>not started</p>
-              <button className="center waves-effect waves-light btn" >In Progress</button>
-            </div>
-          </CardPage>
+              <CardPage>
+                <div>
+                  <h6>Drug Test</h6>
+                  <p>not started</p>
+                  <button className="center waves-effect waves-light btn" >In Progress</button>
+                </div>
+              </CardPage>
 
-        </Card>
+            </Card>
 
-      </div>
+            <Card column_size="center col s4">
 
-    </div>
+              <CardPage>
+                <div>
+                  <h6>Fitness Test</h6>
+                  <p>not started</p>
+                  <button className="center waves-effect waves-light btn" >In Progress</button>
+                </div>
+              </CardPage>
 
-  </Container>
+            </Card>
+
+          </div>
+
+        </div>
+
+      </Container>
+    )
+  }
+}
 
 export default HR_view;
