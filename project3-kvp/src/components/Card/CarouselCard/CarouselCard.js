@@ -9,7 +9,9 @@ class CarouselCard extends React.Component {
     this.state = {
       column_size: props.column_size
     };
+
   }
+
 
   // will have to break this out to grab selected employees per user
   // and dynamically creates cards from database

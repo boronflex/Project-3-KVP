@@ -1,28 +1,27 @@
 import React from "react";
 import "./CarouselPage.css";
 
-class CarouselPage extends React.Component {
-
-  render(){
+function CarouselPage(props) {
     
-    const children = this.props.children
+  //const children = props.children
 
-    return(
+  return(
 
-      <div className="carousel-item red white-text" href="this can be anything">
+    <div className="carousel-item red white-text" href="nothing is here">
 
-
-        {React.Children.map(children, (child, i) => {
-
-          return child
-
-        })}
+      <div>{props.children}</div>
 
 
-      </div>
+      {/* {React.Children.map(children, (child, i) => {
 
-    );
-  }
+        return child
+
+      })} */}
+
+
+    </div>
+
+  );
 }
 
 export default CarouselPage;
