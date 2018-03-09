@@ -1,12 +1,10 @@
 import React from "react";
-//import Container from "../components/Container";
-//import Row from "../components/Row";
-//import Col from "../components/Col";
+
 import Card from "../components/Card/Card";
 import CardPage from "../components/Card/CardPage"
 import Collapsible from "../components/Card/Collapsible"
 import CollapsibleItem from "../components/Card/Collapsible/CollapsibleItem"
-
+import StatusButton from '../components/Buttons/StatusButton';
 import Container from "../components/Container";
 
 import testData from '../components/SampleData/prospects';
@@ -22,7 +20,6 @@ function getData() {
 
 //console.log(getData());
 
-
 class HR_view extends React.Component {
 
   constructor(props) {
@@ -32,15 +29,7 @@ class HR_view extends React.Component {
       candidates: getData()
     }
 
-    this.changeHandler = this.changeHandler.bind(this)
-
     // this.handleChange = this.handleChange.bind(this);
-  }
-
-  changeHandler(e) {
-    const target = e.target;
-    const value = target.value;
-    console.log("event fired: " + value);
   }
 
   // handleChange(event) {
@@ -125,7 +114,7 @@ class HR_view extends React.Component {
                   <div>
                     <h6>Application</h6>
                     <p>not started</p>
-                    <button className="center waves-effect waves-light btn" >In Progress</button>
+                    <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
 
@@ -137,7 +126,7 @@ class HR_view extends React.Component {
                   <div>
                     <h6>Reference checks</h6>
                     <p>not started</p>
-                    <button className="center waves-effect waves-light btn" >In Progress</button>
+                    <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
 
@@ -149,7 +138,7 @@ class HR_view extends React.Component {
                   <div>
                     <h6>Offer Letter & New Hire Paperwork</h6>
                     <p>not started</p>
-                    <button className="center waves-effect waves-light btn" >In Progress</button>
+                    <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
 
@@ -161,7 +150,7 @@ class HR_view extends React.Component {
                   <div>
                     <h6>Drug Test</h6>
                     <p>not started</p>
-                    <button className="center waves-effect waves-light btn" >In Progress</button>
+                    <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
 
@@ -173,7 +162,7 @@ class HR_view extends React.Component {
                   <div>
                     <h6>Fitness Test</h6>
                     <p>not started</p>
-                    <button className="center waves-effect waves-light btn" >In Progress</button>
+                    <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
 
@@ -182,7 +171,6 @@ class HR_view extends React.Component {
             </div>
 
           );
-
 
         })}
 
