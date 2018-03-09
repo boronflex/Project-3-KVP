@@ -108,60 +108,55 @@ class HR_view extends React.Component {
 
               </Collapsible>
 
-              <Card column_size="center col s2">
+              <Card column_size="center col s2" title="Application">
 
                 <CardPage>
                   <div>
-                    <h6>Application</h6>
-                    <p>not started</p>
+                    <p>Status</p>
                     <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
 
               </Card>
 
-              <Card column_size="center col s2">
+              <Card column_size="center col s2" title="Reference Checks">
 
                 <CardPage>
                   <div>
-                    <h6>Reference checks</h6>
-                    <p>not started</p>
+                    <p>Status</p>
                     <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
 
               </Card>
 
-              <Card column_size="center col s2">
+              <Card column_size="center col s2" title="offer letter & new hire paperwork">
 
                 <CardPage>
                   <div>
-                    <h6>Offer Letter & New Hire Paperwork</h6>
-                    <p>not started</p>
+                    <p>status</p>
                     <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
 
               </Card>
 
-              <Card column_size="center col s2">
+              <Card column_size="center col s2" title="Drug Test">
 
                 <CardPage>
                   <div>
-                    <h6>Drug Test</h6>
-                    <p>not started</p>
+                    <p>status</p>
                     <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
 
               </Card>
 
-              <Card column_size="center col s2">
+              <Card column_size="center col s2" title="Fitness Test">
 
                 <CardPage>
                   <div>
-                    <h6>Fitness Test</h6>
-                    <p>not started</p>
+                    <p>status</p>
                     <StatusButton>In Progress</StatusButton>
                   </div>
                 </CardPage>
