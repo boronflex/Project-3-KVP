@@ -1,11 +1,8 @@
 import React from "react";
 
-import Card from "../components/Card/Card";
-import CardPage from "../components/Card/CardPage"
-import Collapsible from "../components/Card/Collapsible"
-import CollapsibleItem from "../components/Card/Collapsible/CollapsibleItem"
-import StatusButton from '../components/Buttons/StatusButton';
 import Container from "../components/Container";
+
+import InfoBlock from '../components/InfoBlock/InfoBlock';
 
 import testData from '../components/SampleData/hr_sampledata';
 
@@ -61,106 +58,7 @@ class HR_view extends React.Component {
 
           return (
 
-            // candidate.app_sent_by this will b status
-
-            <div className="row" key={candidate.id}>
-
-              <Collapsible status="red" column_size="col s2">
-
-                <CollapsibleItem status="red" collapsible_heading={candidate.first_name + " " + candidate.last_name}>
-
-                  <p>"{candidate.nick_name}"</p>
-
-                </CollapsibleItem>
-
-                <CollapsibleItem status="red" collapsible_heading="Candidate Info">
-
-                  <p className="center">phone 1:</p>
-                  <p className="center">{candidate.phone_1}</p>
-
-                  <p className="center">phone 2:</p>
-                  <p className="center">{candidate.phone_2}</p>
-
-                  <p className="center">address:</p>
-                  <p className="center">{candidate.address_st + " " + candidate.city + " " + candidate.address_state + " " + candidate.zip}</p>
-
-                  <p className="center">email:</p>
-                  <p className="center">{candidate.email}</p>
-
-                </CollapsibleItem>
-
-                <CollapsibleItem status="red" collapsible_heading="Offer Info">
-
-                  <p className="center">Requested By:</p>
-                  <p className="center">added_by</p>
-
-                  <p className="center">Title:</p>
-                  <p className="center">offer_title</p>
-
-                  <p className="center">Pay:</p>
-                  <p className="center">offer_pay</p>
-
-                  <p className="center">Start Date:</p>
-                  <p className="center">requested_start_date</p>
-
-                  <p className="center">Project Number:</p>
-                  <p className="center">project_number</p>
-
-                </CollapsibleItem>
-
-              </Collapsible>
-
-              <Card column_size="center col s2" title="Application">
-
-                <CardPage>
-                  <div>
-                    <StatusButton/>
-                  </div>
-                </CardPage>
-
-              </Card>
-
-              <Card column_size="center col s2" title="Reference Checks">
-
-                <CardPage>
-                  <div>
-                    <StatusButton/>
-                  </div>
-                </CardPage>
-
-              </Card>
-
-              <Card column_size="center col s2" title="offer letter & new hire paperwork">
-
-                <CardPage>
-                  <div>
-                    <StatusButton/>
-                  </div>
-                </CardPage>
-
-              </Card>
-
-              <Card column_size="center col s2" title="Drug Test">
-
-                <CardPage>
-                  <div>
-                    <StatusButton/>
-                  </div>
-                </CardPage>
-
-              </Card>
-
-              <Card column_size="center col s2" title="Fitness Test">
-
-                <CardPage>
-                  <div>
-                    <StatusButton/>
-                  </div>
-                </CardPage>
-
-              </Card>
-
-            </div>
+            <InfoBlock key={candidate.id} candidate_info={candidate}/>
 
           );
 

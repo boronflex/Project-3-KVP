@@ -17,7 +17,7 @@ class Collapsible extends React.Component {
 
     return (
 
-      <ul className={`${this.state.status} collapsible ${this.props.column_size}`} data-collapsible="expandable">
+      <ul className={`${status} collapsible ${this.props.column_size}`} data-collapsible="expandable">
         {this.props.children}
       </ul>
     )
