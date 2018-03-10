@@ -7,7 +7,7 @@ import CollapsibleItem from "../components/Card/Collapsible/CollapsibleItem"
 import StatusButton from '../components/Buttons/StatusButton';
 import Container from "../components/Container";
 
-import testData from '../components/SampleData/prospects';
+import testData from '../components/SampleData/hr_sampledata';
 
 function getData() {
   const data = testData.map((item) => {
@@ -61,9 +61,11 @@ class HR_view extends React.Component {
 
           return (
 
-            <div className="row">
+            // candidate.app_sent_by this will b status
 
-              <Collapsible status="red" column_size="col s2" key={candidate.id}>
+            <div className="row" key={candidate.id}>
+
+              <Collapsible status="red" column_size="col s2">
 
                 <CollapsibleItem status="red" collapsible_heading={candidate.first_name + " " + candidate.last_name}>
 
@@ -90,19 +92,19 @@ class HR_view extends React.Component {
                 <CollapsibleItem status="red" collapsible_heading="Offer Info">
 
                   <p className="center">Requested By:</p>
-                  <p className="center">Kory Baxley</p>
+                  <p className="center">added_by</p>
 
                   <p className="center">Title:</p>
-                  <p className="center">PC</p>
+                  <p className="center">offer_title</p>
 
                   <p className="center">Pay:</p>
-                  <p className="center">20</p>
+                  <p className="center">offer_pay</p>
 
                   <p className="center">Start Date:</p>
-                  <p className="center">3/25/18</p>
+                  <p className="center">requested_start_date</p>
 
                   <p className="center">Project Number:</p>
-                  <p className="center">777777</p>
+                  <p className="center">project_number</p>
 
                 </CollapsibleItem>
 
@@ -112,8 +114,7 @@ class HR_view extends React.Component {
 
                 <CardPage>
                   <div>
-                    <p>Status</p>
-                    <StatusButton>In Progress</StatusButton>
+                    <StatusButton/>
                   </div>
                 </CardPage>
 
@@ -123,8 +124,7 @@ class HR_view extends React.Component {
 
                 <CardPage>
                   <div>
-                    <p>Status</p>
-                    <StatusButton>In Progress</StatusButton>
+                    <StatusButton/>
                   </div>
                 </CardPage>
 
@@ -134,8 +134,7 @@ class HR_view extends React.Component {
 
                 <CardPage>
                   <div>
-                    <p>status</p>
-                    <StatusButton>In Progress</StatusButton>
+                    <StatusButton/>
                   </div>
                 </CardPage>
 
@@ -145,8 +144,7 @@ class HR_view extends React.Component {
 
                 <CardPage>
                   <div>
-                    <p>status</p>
-                    <StatusButton>In Progress</StatusButton>
+                    <StatusButton/>
                   </div>
                 </CardPage>
 
@@ -156,8 +154,7 @@ class HR_view extends React.Component {
 
                 <CardPage>
                   <div>
-                    <p>status</p>
-                    <StatusButton>In Progress</StatusButton>
+                    <StatusButton/>
                   </div>
                 </CardPage>
 

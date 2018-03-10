@@ -13,6 +13,8 @@ class Collapsible extends React.Component {
 
   render() {
 
+    const status = this.state.status;
+
     return (
 
       <ul className={`${this.state.status} collapsible ${this.props.column_size}`} data-collapsible="expandable">

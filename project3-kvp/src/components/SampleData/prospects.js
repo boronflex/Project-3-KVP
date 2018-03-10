@@ -18,7 +18,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 2,
@@ -37,7 +36,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 3,
@@ -56,7 +54,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 4,
@@ -75,7 +72,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 5,
@@ -94,7 +90,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 6,
@@ -113,7 +108,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 7,
@@ -132,7 +126,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 8,
@@ -151,7 +144,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 9,
@@ -170,7 +162,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 10,
@@ -189,7 +180,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": false,
-      "hired": false
     },
     {
       "id": 11,
@@ -208,7 +198,6 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": true,
-      "hired": false
     },
     {
       "id": 12,
@@ -227,6 +216,5 @@ export default
       "comments": "",
       "eligible": true,
       "in_hiring_process": true,
-      "hired": false
     },
   ];

@@ -13,7 +13,9 @@ class CardPage extends React.Component {
         
         {React.Children.map(children, (child, i) => {
 
-          return child
+          return (
+            child
+          )
 
         })}
 

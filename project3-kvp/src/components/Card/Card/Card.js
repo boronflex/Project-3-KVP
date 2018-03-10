@@ -20,6 +20,8 @@ class Card extends React.Component {
             <strong>
               {this.props.title}
             </strong>
+            <br/>
+            <br/>
             <div>{this.props.children}</div>
           </div>
         </div>
