@@ -28,7 +28,7 @@ export default
     "offer_title": "PC",
     "offer_pay": 21,
     "requested_start_date": "3/15/2018",
-    "app_sent_by": null,
+    "app_sent_by": 76759,
     "app_sent_date": "",
     "app_returned": null,
     "app_returned_date": "",

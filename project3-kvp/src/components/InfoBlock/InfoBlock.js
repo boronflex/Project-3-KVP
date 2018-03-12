@@ -102,9 +102,9 @@ class InfoBlock extends React.Component {
     let collapseCardColor = null;
     if (isNull(candidate.app_sent_by)) {
       collapseCardColor = "red";
-    } else if (!(isNull(candidate.app_sent_by)) && candidate.hired === false) {
+    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
       collapseCardColor = "amber";
-    } else if (candidate.hired === false){
+    } else if (candidate.hired){
       collapseCardColor = "green";
     }
 
