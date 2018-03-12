@@ -144,6 +144,9 @@ class InfoBlock extends React.Component {
     } else if (candidate.ref_checks_complete) {
       referencesColor = "green";
       referencesStatus = "complete";
+    } else {
+      referencesColor = "red";
+      referencesStatus = "not started";
     }
 
     //offer letter & new hire paperwork status/control
@@ -158,6 +161,9 @@ class InfoBlock extends React.Component {
     } else if (candidate.off_nh_pkg_returned) {
       offerLetterColor = "green";
       offerLetterStatus = "complete";
+    } else {
+      offerLetterColor = "red";
+      offerLetterStatus = "not started";
     }
 
     //drug test
@@ -172,6 +178,9 @@ class InfoBlock extends React.Component {
     } else if (candidate.drug_test_complete) {
       drugTestColor = "green";
       drugTestStatus = "complete";
+    } else {
+      drugTestColor = "red";
+      drugTestStatus = "not started";
     }
 
     //fitness test
@@ -186,6 +195,9 @@ class InfoBlock extends React.Component {
     } else if (candidate.fitness_test_complete) {
       fitnessTestColor = "green";
       fitnessTestStatus = "complete";
+    } else {
+      fitnessTestColor = "red";
+      fitnessTestStatus = "not started";
     }
 
 
@@ -228,25 +240,25 @@ class InfoBlock extends React.Component {
           <CollapsibleItem color={collapseCardColor} collapsible_heading="Offer Info">
 
             <p className="center">Requested By:</p>
-            <p className="center">added_by</p>
+            <p className="center">{candidate.added_by}</p>
 
             <p className="center">Title:</p>
-            <p className="center">offer_title</p>
+            <p className="center">{candidate.offer_title}</p>
 
             <p className="center">Pay:</p>
-            <p className="center">offer_pay</p>
+            <p className="center">{candidate.offer_pay}</p>
 
             <p className="center">Start Date:</p>
-            <p className="center">requested_start_date</p>
+            <p className="center">{candidate.requested_start_date}</p>
 
             <p className="center">Project Number:</p>
-            <p className="center">project_number</p>
+            <p className="center">{candidate.project_number}</p>
 
           </CollapsibleItem>
 
         </Collapsible>
 
-        <Card column_size="center col s2" title="Application">
+        <Card color={applicationColor} column_size="center col s2" title="Application">
 
           <CardPage>
             <div>
@@ -256,7 +268,7 @@ class InfoBlock extends React.Component {
 
         </Card>
 
-        <Card column_size="center col s2" title="Reference Checks">
+        <Card color={referencesColor} column_size="center col s2" title="Reference Checks">
 
           <CardPage>
             <div>
@@ -266,7 +278,7 @@ class InfoBlock extends React.Component {
 
         </Card>
 
-        <Card column_size="center col s2" title="offer letter & new hire paperwork">
+        <Card color={offerLetterColor} column_size="center col s2" title="offer letter & new hire paperwork">
 
           <CardPage>
             <div>
@@ -276,7 +288,7 @@ class InfoBlock extends React.Component {
 
         </Card>
 
-        <Card column_size="center col s2" title="Drug Test">
+        <Card color={drugTestColor} column_size="center col s2" title="Drug Test">
 
           <CardPage>
             <div>
@@ -286,7 +298,7 @@ class InfoBlock extends React.Component {
 
         </Card>
 
-        <Card column_size="center col s2" title="Fitness Test">
+        <Card color={fitnessTestColor} column_size="center col s2" title="Fitness Test">
 
           <CardPage>
             <div>
