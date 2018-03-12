@@ -17,35 +17,112 @@ import CardPage from "../Card/CardPage"
 import Collapsible from "../Card/Collapsible"
 import CollapsibleItem from "../Card/Collapsible/CollapsibleItem"
 import StatusButton from '../Buttons/StatusButton';
+import { isNull } from "util";
 
 class InfoBlock extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      status: this.props.status,
-      candidate: this.props.candidate_info
+      candidate: this.props.candidate_info,
+      collapsible_status: "",
+      application_status: "",
+      reference_status: "",
+      offerpaperwork_status: "",
+      drugtest_status: "",
+      fitness_status: ""
     };
   }
+
+  //collapsible card,
+  //if the application field is empty status or color is red
+  //if the application field has data status or color is amber
+  //if the drug test and fitness test have data, color is green
+  //eventially add in the collapsible a hold field --low priority
+  //if else function- see status button
+
+  //application card
+  //want to show:
+  //who sent and date
+  //who received and date
+  //button
+  // not started
+  // in progress
+  // complete
+
+  //reference checks
+  //dependent on application returned
+  //want to show:
+  //who sent and date
+  //who received and date
+  //button
+  // not started
+  // in progress
+  // complete
+
+  //offer letter and new hire paperwork
+  //dependent on reference checks completion
+  //want to show:
+  //who sent and date
+  //who received and date
+  //button
+  // not started
+  // in progress
+  // complete
+
+  //drug test
+  //dependent on offer letter and new hire paperwork
+  //want to show:
+  //who sent and date
+  //who received and date
+  //button
+  // not started
+  // in progress
+  // complete
+
+  //fitness test
+  //dependent on offer letter and new hire paperwork
+  //want to show:
+  //who sent and date
+  //who received and date
+  //button
+  // not started
+  // in progress
+  // complete
+
+  //status buttons
+  //need click events for these here, they change status, maybe they take stage (i.e. application, so they know what to update) name
+
 
   render() {
 
     const candidate = this.state.candidate;
 
-    console.log(candidate)
+    //collapsible color control
+    let collapseCardColor = null;
+    if (isNull(candidate.app_sent_by)) {
+      collapseCardColor = "red";
+    } else if (!(isNull(candidate.app_sent_by)) && candidate.hired === false) {
+      collapseCardColor = "amber";
+    } else if (candidate.hired === false){
+      collapseCardColor = "green";
+    }
+
+
+    //console.log(candidate)
 
     return (
       <div className="row">
 
-        <Collapsible status="red" column_size="col s2">
+        <Collapsible color={collapseCardColor} column_size="col s2">
 
-          <CollapsibleItem status="red" collapsible_heading={candidate.first_name + " " + candidate.last_name}>
+          <CollapsibleItem color={collapseCardColor} collapsible_heading={candidate.first_name + " " + candidate.last_name}>
 
             <p>"{candidate.nick_name}"</p>
 
           </CollapsibleItem>
 
-          <CollapsibleItem status="red" collapsible_heading="Candidate Info">
+          <CollapsibleItem color={collapseCardColor} collapsible_heading="Candidate Info">
 
             <p className="center">phone 1:</p>
             <p className="center">{candidate.phone_1}</p>
@@ -61,7 +138,7 @@ class InfoBlock extends React.Component {
 
           </CollapsibleItem>
 
-          <CollapsibleItem status="red" collapsible_heading="Offer Info">
+          <CollapsibleItem color={collapseCardColor} collapsible_heading="Offer Info">
 
             <p className="center">Requested By:</p>
             <p className="center">added_by</p>
@@ -140,59 +217,6 @@ class InfoBlock extends React.Component {
 
 export default InfoBlock;
 
-//collapsible card,
-//if the application field is empty status or color is red
-//if the application field has data status or color is amber
-//if the drug test and fitness test have data, color is green
-//eventially add in the collapsible a hold field --low priority
 
-//application card
-//want to show:
-//who sent and date
-//who received and date
-//button
-  // not started
-  // in progress
-  // complete
-
-//reference checks
-//dependent on application returned
-//want to show:
-//who sent and date
-//who received and date
-//button
-  // not started
-  // in progress
-  // complete
-
-//offer letter and new hire paperwork
-//dependent on reference checks completion
-//want to show:
-//who sent and date
-//who received and date
-//button
-  // not started
-  // in progress
-  // complete
-
-//drug test
-//dependent on offer letter and new hire paperwork
-//want to show:
-//who sent and date
-//who received and date
-//button
-  // not started
-  // in progress
-  // complete
-
-//fitness test
-//dependent on offer letter and new hire paperwork
-//want to show:
-//who sent and date
-//who received and date
-//button
-  // not started
-  // in progress
-  // complete
 
 

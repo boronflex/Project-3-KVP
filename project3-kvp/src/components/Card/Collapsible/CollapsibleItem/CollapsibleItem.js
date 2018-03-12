@@ -7,7 +7,7 @@ class CollapsibleItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: this.props.status,
+      color: this.props.color,
     };
   }
 
@@ -18,8 +18,8 @@ class CollapsibleItem extends React.Component {
     return (
 
       <li>
-        <div className={`collapsible-header ${this.state.status} white-text`}>{this.props.collapsible_heading}</div>
-        <div className={`collapsible-body ${this.state.status} white-text`}>
+        <div className={`collapsible-header ${this.state.color} white-text`}>{this.props.collapsible_heading}</div>
+        <div className={`collapsible-body ${this.state.color} white-text`}>
 
           {this.props.children}
         
