@@ -92,24 +92,104 @@ class InfoBlock extends React.Component {
 
   //status buttons
   //need click events for these here, they change status, maybe they take stage (i.e. application, so they know what to update) name
+  //these probably need to inherit from cards to change-that makes the most sense
 
 
   render() {
 
     const candidate = this.state.candidate;
+    //console.log(candidate)
 
-    //collapsible color control
+    //#############begin color control/status control block###############
+
+    //all the if statements are split out for planning and my organizition, if there is time, refactor down to single handler function
+    // function (progress, hired){
+    //if statements
+    //return color
+    //}
+
+    //collapsible status/color control
     let collapseCardColor = null;
     if (isNull(candidate.app_sent_by)) {
       collapseCardColor = "red";
     } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
       collapseCardColor = "amber";
-    } else if (candidate.hired){
+    } else if (candidate.hired) {
       collapseCardColor = "green";
     }
 
+    //application status/control
+    let applicationColor = null;
+    let applicationStatus = null;
+    if (isNull(candidate.app_sent_by)) {
+      applicationColor = "red";
+      applicationStatus = "not started";
+    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+      applicationColor = "amber";
+      applicationStatus = "in progress";
+    } else if (candidate.hired) {
+      applicationColor = "green";
+      applicationStatus = "complete";
+    }
 
-    //console.log(candidate)
+    //reference status/control
+    let referencesColor = null;
+    let referencesStatus = null;
+    if (isNull(candidate.app_sent_by)) {
+      referencesColor = "red";
+      referencesStatus = "not started";
+    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+      referencesColor = "amber";
+      referencesStatus = "in progress";
+    } else if (candidate.hired) {
+      referencesColor = "green";
+      referencesStatus = "complete";
+    }
+
+    //offer letter & new hire paperwork status/control
+    let offerLetterColor = null;
+    let offerLetterStatus = null;
+    if (isNull(candidate.app_sent_by)) {
+      offerLetterColor = "red";
+      offerLetterStatus = "not started";
+    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+      offerLetterColor = "amber";
+      offerLetterStatus = "in progress";
+    } else if (candidate.hired) {
+      offerLetterColor = "green";
+      offerLetterStatus = "complete";
+    }
+
+    //drug test
+    let drugTestColor = null;
+    let drugTestStatus = null;
+    if (isNull(candidate.app_sent_by)) {
+      drugTestColor = "red";
+      drugTestStatus = "not started";
+    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+      drugTestColor = "amber";
+      drugTestStatus = "in progress";
+    } else if (candidate.hired) {
+      drugTestColor = "green";
+      drugTestStatus = "complete";
+    }
+
+    //fitness test
+    let fitnessTestColor = null;
+    let fitnessTestStatus = null;
+    if (isNull(candidate.app_sent_by)) {
+      fitnessTestColor = "red";
+      fitnessTestStatus = "not started";
+    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+      fitnessTestColor = "amber";
+      fitnessTestStatus = "in progress";
+    } else if (candidate.hired) {
+      fitnessTestColor = "green";
+      fitnessTestStatus = "complete";
+    }
+
+    //#############end color control/status control block###############
+
 
     return (
       <div className="row">

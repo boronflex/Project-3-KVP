@@ -64,10 +64,6 @@ class HR_view extends React.Component {
 
         })}
 
-        <div className="section col s7">
-
-        </div>
-
       </Container >
     )
   }

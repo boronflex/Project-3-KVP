@@ -10,6 +10,8 @@ class CardPage extends React.Component {
     return(
 
       <div>
+
+        <p>{this.props.color}</p>
         
         {React.Children.map(children, (child, i) => {
 
