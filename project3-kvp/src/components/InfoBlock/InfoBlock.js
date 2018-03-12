@@ -112,7 +112,7 @@ class InfoBlock extends React.Component {
     let collapseCardColor = null;
     if (isNull(candidate.app_sent_by)) {
       collapseCardColor = "red";
-    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+    } else if (candidate.app_sent_by && !(candidate.hired)) {
       collapseCardColor = "amber";
     } else if (candidate.hired) {
       collapseCardColor = "green";
@@ -124,10 +124,10 @@ class InfoBlock extends React.Component {
     if (isNull(candidate.app_sent_by)) {
       applicationColor = "red";
       applicationStatus = "not started";
-    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+    } else if (candidate.app_sent_by && isNull(candidate.app_returned)) {
       applicationColor = "amber";
       applicationStatus = "in progress";
-    } else if (candidate.hired) {
+    } else if (candidate.app_returned) {
       applicationColor = "green";
       applicationStatus = "complete";
     }
@@ -135,13 +135,13 @@ class InfoBlock extends React.Component {
     //reference status/control
     let referencesColor = null;
     let referencesStatus = null;
-    if (isNull(candidate.app_sent_by)) {
+    if (candidate.app_returned && isNull(candidate.ref_checks_ip)) {
       referencesColor = "red";
       referencesStatus = "not started";
-    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+    } else if (candidate.ref_checks_ip && isNull(candidate.ref_checks_complete)) {
       referencesColor = "amber";
       referencesStatus = "in progress";
-    } else if (candidate.hired) {
+    } else if (candidate.ref_checks_complete) {
       referencesColor = "green";
       referencesStatus = "complete";
     }
@@ -149,13 +149,13 @@ class InfoBlock extends React.Component {
     //offer letter & new hire paperwork status/control
     let offerLetterColor = null;
     let offerLetterStatus = null;
-    if (isNull(candidate.app_sent_by)) {
+    if (candidate.ref_checks_complete && isNull(candidate.off_nh_pkg_sent)) {
       offerLetterColor = "red";
       offerLetterStatus = "not started";
-    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+    } else if (candidate.off_nh_pkg_sent && isNull(candidate.off_nh_pkg_returned)) {
       offerLetterColor = "amber";
       offerLetterStatus = "in progress";
-    } else if (candidate.hired) {
+    } else if (candidate.off_nh_pkg_returned) {
       offerLetterColor = "green";
       offerLetterStatus = "complete";
     }
@@ -163,13 +163,13 @@ class InfoBlock extends React.Component {
     //drug test
     let drugTestColor = null;
     let drugTestStatus = null;
-    if (isNull(candidate.app_sent_by)) {
+    if (candidate.off_nh_pkg_returned && isNull(candidate.drug_test)) {
       drugTestColor = "red";
       drugTestStatus = "not started";
-    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+    } else if (candidate.drug_test && isNull(candidate.drug_test_complete)) {
       drugTestColor = "amber";
       drugTestStatus = "in progress";
-    } else if (candidate.hired) {
+    } else if (candidate.drug_test_complete) {
       drugTestColor = "green";
       drugTestStatus = "complete";
     }
@@ -177,15 +177,22 @@ class InfoBlock extends React.Component {
     //fitness test
     let fitnessTestColor = null;
     let fitnessTestStatus = null;
-    if (isNull(candidate.app_sent_by)) {
+    if (candidate.off_nh_pkg_returned && isNull(candidate.fitness_test)) {
       fitnessTestColor = "red";
       fitnessTestStatus = "not started";
-    } else if (!(isNull(candidate.app_sent_by)) && !(candidate.hired)) {
+    } else if (candidate.fitness_test && isNull(candidate.fitness_test_complete)) {
       fitnessTestColor = "amber";
       fitnessTestStatus = "in progress";
-    } else if (candidate.hired) {
+    } else if (candidate.fitness_test_complete) {
       fitnessTestColor = "green";
       fitnessTestStatus = "complete";
+    }
+
+
+    //place holder for now don't forget to switch hired status on drug and fitness test complete.
+    let isHired = false;
+    if (candidate.fitness_test_complete && candidate.drug_test_complete) {
+      isHired = true;
     }
 
     //#############end color control/status control block###############

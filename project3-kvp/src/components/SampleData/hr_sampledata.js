@@ -32,7 +32,7 @@ export default
     "app_sent_date": "",
     "app_returned": null,
     "app_returned_date": "",
-    "ref_checks_ip": 0,
+    "ref_checks_ip": null,
     "ref_checks_ip_date": "",
     "ref_checks_complete": 0,
     "ref_checks_complete_date": "",
