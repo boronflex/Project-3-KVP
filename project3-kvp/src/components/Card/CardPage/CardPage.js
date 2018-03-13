@@ -1,32 +1,27 @@
 import React from "react";
 import "./CardPage.css";
 
-class CardPage extends React.Component {
+function CardPage(props) {
 
-//this doesnt need state-change to functional component
+  const children = props.children
 
-  render(){
-    
-    const children = this.props.children
+  return (
 
-    return(
+    <div>
 
-      <div>
+      <p>{props.status}</p>
 
-        <p>{this.props.status}</p>
-        
-        {React.Children.map(children, (child, i) => {
+      {React.Children.map(children, (child, i) => {
 
-          return (
-            child
-          )
+        return (
+          child
+        )
 
-        })}
+      })}
 
-      </div>
+    </div>
 
-    );
-  }
+  );
 }
 
 export default CardPage;

@@ -213,102 +213,109 @@ class InfoBlock extends React.Component {
 
 
     return (
-      <div className="row">
 
-        <Collapsible color={collapseCardColor} column_size="col s2">
+      <div className="section">
 
-          <CollapsibleItem color={collapseCardColor} collapsible_heading={candidate.first_name + " " + candidate.last_name}>
+        <div className="row">
 
-            <p>"{candidate.nick_name}"</p>
+          <Collapsible color={collapseCardColor} column_size="col s2">
 
-          </CollapsibleItem>
+            <CollapsibleItem color={collapseCardColor} collapsible_heading={candidate.first_name + " " + candidate.last_name}>
 
-          <CollapsibleItem color={collapseCardColor} collapsible_heading="Candidate Info">
+              <p>"{candidate.nick_name}"</p>
 
-            <p className="center">phone 1:</p>
-            <p className="center">{candidate.phone_1}</p>
+            </CollapsibleItem>
 
-            <p className="center">phone 2:</p>
-            <p className="center">{candidate.phone_2}</p>
+            <CollapsibleItem color={collapseCardColor} collapsible_heading="Candidate Info">
 
-            <p className="center">address:</p>
-            <p className="center">{candidate.address_st + " " + candidate.city + " " + candidate.address_state + " " + candidate.zip}</p>
+              <p className="center">phone 1:</p>
+              <p className="center">{candidate.phone_1}</p>
 
-            <p className="center">email:</p>
-            <p className="center">{candidate.email}</p>
+              <p className="center">phone 2:</p>
+              <p className="center">{candidate.phone_2}</p>
 
-          </CollapsibleItem>
+              <p className="center">address:</p>
+              <p className="center">{candidate.address_st + " " + candidate.city + " " + candidate.address_state + " " + candidate.zip}</p>
 
-          <CollapsibleItem color={collapseCardColor} collapsible_heading="Offer Info">
+              <p className="center">email:</p>
+              <p className="center">{candidate.email}</p>
 
-            <p className="center">Requested By:</p>
-            <p className="center">{candidate.added_by}</p>
+            </CollapsibleItem>
 
-            <p className="center">Title:</p>
-            <p className="center">{candidate.offer_title}</p>
+            <CollapsibleItem color={collapseCardColor} collapsible_heading="Offer Info">
 
-            <p className="center">Pay:</p>
-            <p className="center">{candidate.offer_pay}</p>
+              <p className="center">Requested By:</p>
+              <p className="center">{candidate.added_by}</p>
 
-            <p className="center">Start Date:</p>
-            <p className="center">{candidate.requested_start_date}</p>
+              <p className="center">Title:</p>
+              <p className="center">{candidate.offer_title}</p>
 
-            <p className="center">Project Number:</p>
-            <p className="center">{candidate.project_number}</p>
+              <p className="center">Pay:</p>
+              <p className="center">{candidate.offer_pay}</p>
 
-          </CollapsibleItem>
+              <p className="center">Start Date:</p>
+              <p className="center">{candidate.requested_start_date}</p>
 
-        </Collapsible>
+              <p className="center">Project Number:</p>
+              <p className="center">{candidate.project_number}</p>
 
-        <Card color={applicationColor} column_size="center col s2" title="Application">
+            </CollapsibleItem>
 
-          <CardPage>
-            <div>
-              <StatusButton status={applicationStatus}/>
-            </div>
-          </CardPage>
+          </Collapsible>
 
-        </Card>
+          <Card color={applicationColor} column_size="center col s2" title="Application">
 
-        <Card color={referencesColor} column_size="center col s2" title="Reference Checks">
+            <CardPage>
+              <div>
+                <StatusButton status={applicationStatus} />
+              </div>
+            </CardPage>
 
-          <CardPage>
-            <div>
-              <StatusButton status={referencesStatus}/>
-            </div>
-          </CardPage>
+          </Card>
 
-        </Card>
+          <Card color={referencesColor} column_size="center col s2" title="Reference Checks">
 
-        <Card color={offerLetterColor} column_size="center col s2" title="offer letter & new hire paperwork">
+            <CardPage>
+              <div>
+                <StatusButton status={referencesStatus} />
+              </div>
+            </CardPage>
 
-          <CardPage>
-            <div>
-              <StatusButton status={offerLetterStatus}/>
-            </div>
-          </CardPage>
+          </Card>
 
-        </Card>
+          <Card color={offerLetterColor} column_size="center col s2" title="offer letter & new hire paperwork">
 
-        <Card color={drugTestColor} column_size="center col s2" title="Drug Test">
+            <CardPage>
+              <div>
+                <StatusButton status={offerLetterStatus} />
+              </div>
+            </CardPage>
 
-          <CardPage>
-            <div>
-              <StatusButton status={drugTestStatus}/>
-            </div>
-          </CardPage>
+          </Card>
 
-        </Card>
+          <Card color={drugTestColor} column_size="center col s2" title="Drug Test">
 
-        <Card color={fitnessTestColor} column_size="center col s2" title="Fitness Test">
+            <CardPage>
+              <div>
+                <StatusButton status={drugTestStatus} />
+              </div>
+            </CardPage>
 
-          <CardPage>
-            <div>
-              <StatusButton status={fitnessTestStatus}/>
-            </div>
-          </CardPage>
+          </Card>
 
-        </Card>
+          <Card color={fitnessTestColor} column_size="center col s2" title="Fitness Test">
+
+            <CardPage>
+              <div>
+                <StatusButton status={fitnessTestStatus} />
+              </div>
+            </CardPage>
+
+          </Card>
+
+        </div>
+
+        <div className="divider">></div>
 
       </div>
     )
