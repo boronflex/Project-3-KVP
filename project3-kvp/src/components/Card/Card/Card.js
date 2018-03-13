@@ -4,6 +4,8 @@ import "./Card.css";
 
 class Card extends React.Component {
 
+//this doesnt need state-change to functional component
+
   constructor(props) {
     super(props);
     this.state = {

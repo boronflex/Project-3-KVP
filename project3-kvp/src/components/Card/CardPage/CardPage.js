@@ -3,6 +3,8 @@ import "./CardPage.css";
 
 class CardPage extends React.Component {
 
+//this doesnt need state-change to functional component
+
   render(){
     
     const children = this.props.children
@@ -11,7 +13,7 @@ class CardPage extends React.Component {
 
       <div>
 
-        <p>{this.props.color}</p>
+        <p>{this.props.status}</p>
         
         {React.Children.map(children, (child, i) => {
 

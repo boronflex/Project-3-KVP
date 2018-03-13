@@ -204,10 +204,10 @@ class InfoBlock extends React.Component {
 
 
     //place holder for now don't forget to switch hired status on drug and fitness test complete.
-    let isHired = false;
-    if (candidate.fitness_test_complete && candidate.drug_test_complete) {
-      isHired = true;
-    }
+    // let isHired = false;
+    // if (candidate.fitness_test_complete && candidate.drug_test_complete) {
+    //   isHired = true;
+    // }
 
     //#############end color control/status control block###############
 

@@ -3,18 +3,14 @@ import "./StatusButton.css"
 
 class StatusButton extends React.Component {
 
+//this doesnt need state-change to functional component
+
   constructor(props) {
     super(props);
     this.state = {
       status: this.props.status
     }
   }
-
-  //possibly pass the field from the home page to state dynamically render these buttons
-  //i.e application sent field is not null sent to state somehow
-
-  //lift clicks to info block
-
 
   render() {
 
