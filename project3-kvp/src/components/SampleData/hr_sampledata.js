@@ -30,7 +30,7 @@ export default
     "requested_start_date": "3/15/2018",
     "app_sent_by": 76759,
     "app_sent_date": "",
-    "app_returned": null,
+    "app_returned": 76759,
     "app_returned_date": "",
     "ref_checks_ip": null,
     "ref_checks_ip_date": "",
