@@ -26,6 +26,7 @@ class StatusButton extends React.Component {
   }
 
   render() {
+    
     const buttonStatus = this.state.status;
 
     let button = null;
