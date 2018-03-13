@@ -116,6 +116,8 @@ class InfoBlock extends React.Component {
       collapseCardColor = "amber";
     } else if (candidate.hired) {
       collapseCardColor = "green";
+    } else {
+      collapseCardColor = "red";
     }
 
     //application status/control
@@ -262,7 +264,7 @@ class InfoBlock extends React.Component {
 
           <CardPage>
             <div>
-              <StatusButton />
+              <StatusButton status={applicationStatus}/>
             </div>
           </CardPage>
 
@@ -272,7 +274,7 @@ class InfoBlock extends React.Component {
 
           <CardPage>
             <div>
-              <StatusButton />
+              <StatusButton status={referencesStatus}/>
             </div>
           </CardPage>
 
@@ -282,7 +284,7 @@ class InfoBlock extends React.Component {
 
           <CardPage>
             <div>
-              <StatusButton />
+              <StatusButton status={offerLetterStatus}/>
             </div>
           </CardPage>
 
@@ -292,7 +294,7 @@ class InfoBlock extends React.Component {
 
           <CardPage>
             <div>
-              <StatusButton />
+              <StatusButton status={drugTestStatus}/>
             </div>
           </CardPage>
 
@@ -302,7 +304,7 @@ class InfoBlock extends React.Component {
 
           <CardPage>
             <div>
-              <StatusButton />
+              <StatusButton status={fitnessTestStatus}/>
             </div>
           </CardPage>
 

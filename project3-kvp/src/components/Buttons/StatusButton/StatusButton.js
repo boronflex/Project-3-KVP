@@ -5,66 +5,27 @@ class StatusButton extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleinProgressClick = this.handleInProgressClick.bind(this);
-    this.handleCompleteClick = this.handleCompleteClick.bind(this);
     this.state = {
-      status:"start"
+      status: this.props.status
     }
   }
 
   //possibly pass the field from the home page to state dynamically render these buttons
   //i.e application sent field is not null sent to state somehow
 
-  handleInProgressClick() {
-    this.setState({status:"in progress"});
-  }
+  //lift clicks to info block
 
-  handleCompleteClick() {
-    this.setState({status:"complete"});
-  }
 
   render() {
+
     const buttonStatus = this.state.status;
 
-    let button = null;
-    if (buttonStatus === "start") {
-      button = <StartButton onClick={this.handleinProgressClick} />;
-    } else if (buttonStatus === "in progress") {
-      button = <ProgressButton onClick={this.handleCompleteClick} />;
-    } else {
-      button = <CompleteButton />;
-    }
-
     return (
-      <div>
-        {button}
-      </div>
+      <button className="center grey waves-effect waves-light btn">
+        {buttonStatus}
+      </button>
     );
   }
-}
-
-function StartButton(props) {
-  return (
-    <button className="center red waves-effect waves-light btn" onClick={props.onClick}>
-      start
-    </button>
-  );
-}
-
-function ProgressButton(props) {
-  return (
-    <button className="center amber waves-effect waves-light btn" onClick={props.onClick}>
-      In Progress
-    </button>
-  );
-}
-
-function CompleteButton(props) {
-  return (
-    <button className="center green waves-effect waves-light btn" >
-      Complete
-    </button>
-  );
 }
 
 
