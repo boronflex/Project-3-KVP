@@ -26,73 +26,21 @@ class InfoBlock extends React.Component {
     this.state = {
       candidate: this.props.candidate_info,
       collapsible_status: "",
-      application_status: "",
-      reference_status: "",
-      offerpaperwork_status: "",
-      drugtest_status: "",
-      fitness_status: ""
+      application_status: null,
+      reference_status: null,
+      offerpaperwork_status: null,
+      drugtest_status: null,
+      fitness_status: null
     };
   }
 
-  //collapsible card,
-  //if the application field is empty status or color is red
-  //if the application field has data status or color is amber
-  //if the drug test and fitness test have data, color is green
-  //eventially add in the collapsible a hold field --low priority
-  //if else function- see status button
-
-  //application card
-  //want to show:
-  //who sent and date
-  //who received and date
-  //button
-  // not started
-  // in progress
-  // complete
-
-  //reference checks
-  //dependent on application returned
-  //want to show:
-  //who sent and date
-  //who received and date
-  //button
-  // not started
-  // in progress
-  // complete
-
-  //offer letter and new hire paperwork
-  //dependent on reference checks completion
-  //want to show:
-  //who sent and date
-  //who received and date
-  //button
-  // not started
-  // in progress
-  // complete
-
-  //drug test
-  //dependent on offer letter and new hire paperwork
-  //want to show:
-  //who sent and date
-  //who received and date
-  //button
-  // not started
-  // in progress
-  // complete
-
-  //fitness test
-  //dependent on offer letter and new hire paperwork
-  //want to show:
-  //who sent and date
-  //who received and date
-  //button
-  // not started
-  // in progress
-  // complete
-
   //status buttons
-  //need click events for these here, they change status, maybe they take stage (i.e. application, so they know what to update) name
+  //need click events for these here, they change status, maybe they take state (i.e. application, so they know what to update) name
   //these probably need to inherit from cards to change-that makes the most sense
+
+  StatusUpdates() {
+
+  }
 
 
   render() {
@@ -122,84 +70,83 @@ class InfoBlock extends React.Component {
 
     //application status/control
     let applicationColor = null;
-    let applicationStatus = null;
     if (isNull(candidate.app_sent_by)) {
       applicationColor = "red";
-      applicationStatus = "not started";
+      this.setState({application_status: "not started"});
     } else if (candidate.app_sent_by && isNull(candidate.app_returned)) {
       applicationColor = "amber";
-      applicationStatus = "in progress";
+      this.setState({application_status: "in progress"});
     } else if (candidate.app_returned) {
       applicationColor = "green";
-      applicationStatus = "complete";
+      this.setState({application_status: "complete"});
     }
 
     //reference status/control
     let referencesColor = null;
-    let referencesStatus = null;
+    //let referencesStatus = null;
     if (candidate.app_returned && isNull(candidate.ref_checks_ip)) {
       referencesColor = "red";
-      referencesStatus = "not started";
+      this.setState({reference_status: "not started"});
     } else if (candidate.ref_checks_ip && isNull(candidate.ref_checks_complete)) {
       referencesColor = "amber";
-      referencesStatus = "in progress";
+      this.setState({reference_status: "in progress"});
     } else if (candidate.ref_checks_complete) {
       referencesColor = "green";
-      referencesStatus = "complete";
+      this.setState({reference_status: "complete"});
     } else {
       referencesColor = "red";
-      referencesStatus = "not started";
+      this.setState({reference_status: "not started"});
     }
 
     //offer letter & new hire paperwork status/control
     let offerLetterColor = null;
-    let offerLetterStatus = null;
+    //let offerLetterStatus = null;
     if (candidate.ref_checks_complete && isNull(candidate.off_nh_pkg_sent)) {
       offerLetterColor = "red";
-      offerLetterStatus = "not started";
+      this.setState({offerpaperwork_status: "not started"});
     } else if (candidate.off_nh_pkg_sent && isNull(candidate.off_nh_pkg_returned)) {
       offerLetterColor = "amber";
-      offerLetterStatus = "in progress";
+      this.setState({offerpaperwork_status: "in progress"});
     } else if (candidate.off_nh_pkg_returned) {
       offerLetterColor = "green";
-      offerLetterStatus = "complete";
+      this.setState({offerpaperwork_status: "complete"});
     } else {
       offerLetterColor = "red";
-      offerLetterStatus = "not started";
+      this.setState({offerpaperwork_status: "not started"});
     }
 
     //drug test
     let drugTestColor = null;
-    let drugTestStatus = null;
+    //let drugTestStatus = null;
     if (candidate.off_nh_pkg_returned && isNull(candidate.drug_test)) {
       drugTestColor = "red";
-      drugTestStatus = "not started";
+      this.setState({drugtest_status: "not started"});
     } else if (candidate.drug_test && isNull(candidate.drug_test_complete)) {
       drugTestColor = "amber";
-      drugTestStatus = "in progress";
+      this.setState({drugtest_status: "in progress"});
     } else if (candidate.drug_test_complete) {
       drugTestColor = "green";
-      drugTestStatus = "complete";
+      this.setState({drugtest_status: "complete"});
     } else {
       drugTestColor = "red";
-      drugTestStatus = "not started";
+      this.setState({drugtest_status: "not started"});
     }
 
     //fitness test
     let fitnessTestColor = null;
-    let fitnessTestStatus = null;
+    //let fitnessTestStatus = null;
     if (candidate.off_nh_pkg_returned && isNull(candidate.fitness_test)) {
       fitnessTestColor = "red";
-      fitnessTestStatus = "not started";
+      this.setState({fitness_status: "not started"});
     } else if (candidate.fitness_test && isNull(candidate.fitness_test_complete)) {
       fitnessTestColor = "amber";
-      fitnessTestStatus = "in progress";
+      this.setState({fitness_status: "in progress"});
     } else if (candidate.fitness_test_complete) {
       fitnessTestColor = "green";
-      fitnessTestStatus = "complete";
+      this.setState({fitness_status: "complete"});
     } else {
       fitnessTestColor = "red";
-      fitnessTestStatus = "not started";
+      this.setState({fitness_status: "not started"});
     }
 
 
@@ -272,8 +219,12 @@ class InfoBlock extends React.Component {
             <Card color={applicationColor} column_size="center col s12 m12 l4" title="Application">
 
               <CardPage>
-                <div>
-                  <StatusButton status={applicationStatus} />
+                <div className="row button-row-override">
+                  <br/>
+                  <StatusButton 
+                    status={this.state.application_status} 
+                    column_size="center col s6 offset-s3 m6 offset-m3 l10 offset-l1"
+                    />
                 </div>
               </CardPage>
 
@@ -282,8 +233,12 @@ class InfoBlock extends React.Component {
             <Card color={referencesColor} column_size="center col s12 m12 l4" title="Reference Checks">
 
               <CardPage>
-                <div>
-                  <StatusButton status={referencesStatus} />
+                <div className="row button-row-override">
+                  <br/>
+                  <StatusButton 
+                    status={this.state.reference_status} 
+                    column_size="center col s6 offset-s3 m6 offset-m3 l10 offset-l1"
+                    />
                 </div>
               </CardPage>
 
@@ -292,8 +247,12 @@ class InfoBlock extends React.Component {
             <Card color={offerLetterColor} column_size="center col s12 m12 l4" title="offer letter & new hire paperwork">
 
               <CardPage>
-                <div>
-                  <StatusButton status={offerLetterStatus} />
+                <div className="row button-row-override">
+                  <br/>
+                  <StatusButton 
+                    status={this.state.offerpaperwork_status} 
+                    column_size="center col s6 offset-s3 m6 offset-m3 l10 offset-l1"
+                    />
                 </div>
               </CardPage>
 
@@ -306,8 +265,12 @@ class InfoBlock extends React.Component {
             <Card color={drugTestColor} column_size="center col s12 m12 l6" title="Drug Test">
 
               <CardPage>
-                <div>
-                  <StatusButton status={drugTestStatus} />
+                <div className="row button-row-override">
+                  <br/>
+                  <StatusButton 
+                    status={this.state.drugtest_status} 
+                    column_size="center col s6 offset-s3 m6 offset-m3 l10 offset-l1"
+                    />
                 </div>
               </CardPage>
 
@@ -316,8 +279,12 @@ class InfoBlock extends React.Component {
             <Card color={fitnessTestColor} column_size="center col s12 m12 l6" title="Fitness Test">
 
               <CardPage>
-                <div>
-                  <StatusButton status={fitnessTestStatus} />
+                <div className="row button-row-override">
+                  <br/>
+                  <StatusButton 
+                    status={this.state.fitness_status} 
+                    column_size="center col s6 offset-s3 m6 offset-m3 l10 offset-l1"
+                    />
                 </div>
               </CardPage>
 

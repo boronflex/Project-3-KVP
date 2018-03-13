@@ -26,21 +26,7 @@ class HR_view extends React.Component {
       candidates: getData()
     }
 
-    // this.handleChange = this.handleChange.bind(this);
   }
-
-  // handleChange(event) {
-
-  //   const target = event.target;
-  //   const value = target.value;
-
-  //   console.log("this is the current card: ")
-
-  //   this.setState({
-  //     current: value
-  //   })
-
-  // }
 
   render() {
 
@@ -48,9 +34,7 @@ class HR_view extends React.Component {
 
       <Container>
 
-        <h2>HR View </h2>
-
-        {/* <input onChange={this.changeHandler} value="this is a value" /> */}
+        <h2>Requests for Hire</h2>
 
         {this.state.candidates
           .filter(candidate => candidate.in_hiring_process === true)
