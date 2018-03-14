@@ -10,15 +10,15 @@ const Navbar = props =>
   <nav>
     
     <Container>
-    <div className="nav-wrapper">
-      <a href="/" className="brand-logo">Total Station</a>
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><a href="/inputs">Inputs</a></li>
-        <li><a href="/search">Applicants</a></li>
-        <li><a href="/interview">Interview</a></li>
-        <li><a href="/overview">Overview</a></li>
-      </ul>
-    </div>
+      <div className="nav-wrapper">
+        <a href="/" className="brand-logo">Total Station</a>
+        <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <li><a href="/inputs">Inputs</a></li>
+          <li><a href="/search">Applicants</a></li>
+          <li><a href="/interview">Interview</a></li>
+          <li><a href="/overview">Overview</a></li>
+        </ul>
+      </div>
     </Container>
 
   </nav>;
