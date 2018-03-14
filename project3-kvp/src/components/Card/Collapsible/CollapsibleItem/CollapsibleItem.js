@@ -18,17 +18,15 @@ class CollapsibleItem extends React.Component {
     return (
 
       <li>
-        <div className={`collapsible-header ${this.state.color} white-text`}>{this.props.collapsible_heading}</div>
-        <div className={`collapsible-body ${this.state.color} white-text`}>
+        <div className={`collapsible-header ${this.state.color} ${this.props.text}`}>
+          <p className={`col s12 ${this.props.position}`}>
+            {this.props.collapsible_heading}
+          </p>
+        </div>
+        <div className={`collapsible-body ${this.state.color} ${this.props.text}`}>
 
           {this.props.children}
         
-          {/* {React.Children.map(children, (child, i) => {
-
-            return child
-
-          })} */}
-
         </div>
       </li>
 

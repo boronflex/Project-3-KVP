@@ -1,3 +1,6 @@
 .collapsible-body{
   word-wrap: break-word;
 }
+p {
+  margin: 0;
+}

@@ -2,7 +2,8 @@ import React from "react";
 
 import Container from "../components/Container";
 
-import InfoBlock from '../components/InfoBlock/InfoBlock';
+import HRInfoBlock from '../components/InfoBlock/HR_InfoBlock/HR_InfoBlock';
+import UserBlock from '../components/UserBlock/UserBlock'
 
 import testData from '../components/SampleData/hr_sampledata';
 
@@ -34,19 +35,26 @@ class HR_view extends React.Component {
 
       <Container>
 
-        <h2>Requests for Hire</h2>
+        <div className="row">
+
+          <h3 className="col s12 m7 l6">Requests for Hire</h3>
+
+          <UserBlock user_name="Kyle Palmer"/>
+
+        </div>
+
 
         {this.state.candidates
-          .filter(candidate => candidate.in_hiring_process === true)
+          .filter(candidate => candidate.job_offer === true)
           .map(candidate => {
 
-          return (
+            return (
 
-            <InfoBlock key={candidate.id} candidate_info={candidate}/>
+              <HRInfoBlock key={candidate.id} candidate_info={candidate} />
 
-          );
+            );
 
-        })}
+          })}
 
       </Container >
     )

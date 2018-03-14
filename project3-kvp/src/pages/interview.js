@@ -1,49 +1,67 @@
 import React from "react";
-//import Container from "../components/Container";
-//import Row from "../components/Row";
-import Card from "../components/Card/Card";
-import CarouselCard from "../components/Card/CarouselCard";
+
 import Container from "../components/Container";
 
-import OfferData from "../components/Inputs/OfferData";
-import NoOffer from "../components/Inputs/NoOffer";
+import UserBlock from '../components/UserBlock/UserBlock'
+import InterviewBlock from '../components/InfoBlock/InterviewBlock/InterviewBlock'
 
-const Interview = () =>
+import testData from '../components/SampleData/hr_sampledata';
 
-  <Container>
+function getData() {
+  const data = testData.map((item) => {
+    return {
+      ...item
+    }
+  })
+  return data;
+}
 
-    <h2>Interview Dashboard</h2>
+class Interview extends React.Component {
 
-    <div className="row">
+  constructor(props) {
+    super(props);
 
-      <div className="col s3">
-        <CarouselCard column_size="">
-        </CarouselCard>
-      </div>
+    this.state = {
+      candidates: getData()
+    }
 
-      <Card column_size="col s6" title="Offer Data">
-        <OfferData />
-      </Card>
+  }
 
-      <Card column_size="col s3" title="No Offer">
-        <NoOffer />
-      </Card>
+  render() {
 
-    </div>
+    return (
 
-    <div className="row">
+      <Container>
 
-      <Card column_size="col s6" title="Project Info">
-        <p>this will show the info about the project and spread</p>
-      </Card>
+        <div className="row">
 
-      <Card column_size="col s6" title="HR Update">
-        <p>this will update based on hr's application progress</p>
-      </Card>
+          <h3 className="col s12 m7 l6">Interview Dashboard</h3>
 
-    </div>
+          <UserBlock user_name="Kyle Palmer" />
+
+        </div>
+
+        <div className="row">
+
+          {this.state.candidates
+            .filter(candidate => candidate.job_offer === false && candidate.added_by)
+            .map(candidate => {
+
+              return (
+
+                <InterviewBlock key={candidate.id} candidate_info={candidate} />
+
+              );
+
+            })}
+
+        </div>
 
 
-  </Container>
+      </Container>
+    );
+  }
+
+}
 
 export default Interview;

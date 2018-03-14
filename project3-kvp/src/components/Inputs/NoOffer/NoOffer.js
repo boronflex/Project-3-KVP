@@ -56,7 +56,7 @@ class NoOffer extends React.Component {
                   name="no_offer_reason"
                   value={this.state.value}
                   onChange={this.handleChange}>
-                  <option value="" disable="true">No Offer</option>
+                  <option value="" disable="true">No Offer Reason</option>
                   <option value="not available">Not available</option>
                   <option value="not qualified">Not qualified</option>
                   <option value="too expensive">Too expensive</option>

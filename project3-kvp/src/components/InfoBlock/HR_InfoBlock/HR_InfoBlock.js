@@ -10,16 +10,16 @@
 //the query will have to get all of the relevant data from the join, I'll have to make sure I get names, dates, etc
 
 import React from "react";
-import "./InfoBlock.css";
+import "./HR_InfoBlock.css";
 
-import Card from "../Card/Card";
-import CardPage from "../Card/CardPage"
-import Collapsible from "../Card/Collapsible"
-import CollapsibleItem from "../Card/Collapsible/CollapsibleItem"
-import StatusButton from '../Buttons/StatusButton';
+import Card from "../../Card/Card";
+import CardPage from "../../Card/CardPage"
+import Collapsible from "../../Card/Collapsible"
+import CollapsibleItem from "../../Card/Collapsible/CollapsibleItem"
+import StatusButton from '../../Buttons/StatusButton';
 import { isNull } from "util";
 
-class InfoBlock extends React.Component {
+class HRInfoBlock extends React.Component {
 
   constructor(props) {
     super(props);
@@ -304,13 +304,13 @@ class InfoBlock extends React.Component {
 
               <Collapsible color={state.collapseCardColor} column_size="col s12 m12 l12">
 
-                <CollapsibleItem color={state.collapseCardColor} collapsible_heading={candidate.first_name + " " + candidate.last_name}>
+                <CollapsibleItem color={state.collapseCardColor} text="white-text" collapsible_heading={candidate.first_name + " " + candidate.last_name}>
 
                   <p>"{candidate.nick_name}"</p>
 
                 </CollapsibleItem>
 
-                <CollapsibleItem color={state.collapseCardColor} collapsible_heading="Candidate Info">
+                <CollapsibleItem color={state.collapseCardColor} text="white-text" collapsible_heading="Candidate Info">
 
                   <p className="center">phone 1:</p>
                   <p className="center">{candidate.phone_1}</p>
@@ -326,7 +326,7 @@ class InfoBlock extends React.Component {
 
                 </CollapsibleItem>
 
-                <CollapsibleItem color={state.collapseCardColor} collapsible_heading="Offer Info">
+                <CollapsibleItem color={state.collapseCardColor} text="white-text" collapsible_heading="Offer Info">
 
                   <p className="center">Requested By:</p>
                   <p className="center">{candidate.added_by}</p>
@@ -385,7 +385,6 @@ class InfoBlock extends React.Component {
 
                 <CardPage>
                   <div className="row button-row-override">
-                    <br />
                     <StatusButton
                       status={state.offerpaperwork_status}
                       column_size="center col s6 offset-s3 m6 offset-m3 l10 offset-l1"
@@ -454,7 +453,7 @@ class InfoBlock extends React.Component {
 
 }
 
-export default InfoBlock;
+export default HRInfoBlock;
 
 
 

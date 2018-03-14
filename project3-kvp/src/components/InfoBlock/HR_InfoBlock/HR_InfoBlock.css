@@ -1,0 +1,8 @@
+.button-row-override {
+  margin-bottom: 10px !important;
+}
+
+@media only screen and (max-width: 600px) {.card-panel { height: 150px !important;}}
+@media only screen and (min-width: 600px) {.card-panel { height: 150px !important;}}
+@media only screen and (min-width: 992px) {.card-panel { height: 200px !important;}}
+@media only screen and (min-width: 1200px) {.card-panel { height: 160px !important;}}

@@ -5,13 +5,11 @@ function Card(props) {
 
   return (
     <div className={props.column_size}>
-      <div className={`card ${props.color}`}>
-        <div className="card-content white-text">
+      <div className={`card-panel section ${props.color}`}>
+        <div className="white-text">
           <strong>
             {props.title}
           </strong>
-          <br />
-          <br />
           <div>{props.children}</div>
         </div>
       </div>
