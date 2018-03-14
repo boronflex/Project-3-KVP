@@ -2,13 +2,14 @@ import React from "react";
 
 import Container from "../components/Container";
 
-import UserBlock from '../components/UserBlock/UserBlock'
-import InterviewBlock from '../components/InfoBlock/InterviewBlock/InterviewBlock'
+import UserBlock from '../components/UserBlock/UserBlock';
+import InterviewBlock from '../components/InfoBlock/InterviewBlock/InterviewBlock';
+import ProjectDisplayContainer from '../components/ProjectDisplayBlock/ProjectDisplayContainer/ProjectDisplayContainer';
 
 import testData from '../components/SampleData/hr_sampledata';
 
-function getData() {
-  const data = testData.map((item) => {
+function getData(inputData) {
+  const data = inputData.map((item) => {
     return {
       ...item
     }
@@ -22,7 +23,7 @@ class Interview extends React.Component {
     super(props);
 
     this.state = {
-      candidates: getData()
+      candidates: getData(testData),
     }
 
   }
@@ -43,17 +44,27 @@ class Interview extends React.Component {
 
         <div className="row">
 
-          {this.state.candidates
-            .filter(candidate => candidate.job_offer === false && candidate.added_by)
-            .map(candidate => {
+          <div className="section col s12 m12 l8">
 
-              return (
+            {this.state.candidates
+              .filter(candidate => candidate.job_offer === false && candidate.added_by)
+              .map(candidate => {
 
-                <InterviewBlock key={candidate.id} candidate_info={candidate} />
+                return (
 
-              );
+                  <InterviewBlock key={candidate.id} candidate_info={candidate} />
 
-            })}
+                );
+
+              })}
+
+          </div>
+
+          <div >
+
+            <ProjectDisplayContainer column_size="section pinned col s12 m12 l4 offset-l7"/>
+
+          </div>
 
         </div>
 

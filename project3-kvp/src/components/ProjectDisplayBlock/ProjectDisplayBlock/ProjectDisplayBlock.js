@@ -1,21 +1,48 @@
 import React from "react";
 import "./ProjectDisplayBlock.css";
 
-function ProjectDisplayBlock(props) {
+import SpreadDisplayBlock from '../SpreadDisplayBlock/SpreadDisplayBlock'
 
-  return (
-    <div className="row">
+import ProjectDropDown from '../ProjectDropDown/ProjectDropDown'
 
-      <div className="col s6">
-        Project Number
+
+class ProjectDisplayBlock extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      projects: this.props.project_info,
+      selectedProject: null,
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+
+  }
+
+  handleChange(value) {
+    this.setState({
+      selectedProject: value
+    })
+    console.log('wtf isnt this working')
+  }
+
+  render() {
+
+    return (
+      <div className="row">
+        <div className="col s12 m12 l12">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <ProjectDropDown projects={this.state.projects}/>
+              <br/>
+              <SpreadDisplayBlock />
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className="col s6">
-        Manager
-      </div>
-
-    </div>
-  )
+    );
+  }
 }
 
 export default ProjectDisplayBlock;

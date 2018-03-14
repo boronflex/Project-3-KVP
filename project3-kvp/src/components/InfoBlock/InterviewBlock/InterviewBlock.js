@@ -16,8 +16,6 @@ import Collapsible from "../../Card/Collapsible";
 import CollapsibleItem from "../../Card/Collapsible/CollapsibleItem";
 import OfferData from '../../Inputs/OfferData/OfferData';
 import NoOffer from '../../Inputs/NoOffer/NoOffer'
-import ProjectDisplayBlock from '../../ProjectDisplayBlock/ProjectDisplayBlock/ProjectDisplayBlock';
-import SpreadDisplayBlock from '../../ProjectDisplayBlock/SpreadDisplayBlock/SpreadDisplayBlock'
 import { isNull } from "util";
 
 class InterviewBlock extends React.Component {
@@ -27,6 +25,7 @@ class InterviewBlock extends React.Component {
     this.handleinProgressClick = this.handleProgressClick.bind(this);
     this.state = {
       candidate: this.props.candidate_info,
+      projects: null,
       collapseCardColor: null,
       application_status: null,
       applicationColor: null,
@@ -69,17 +68,6 @@ class InterviewBlock extends React.Component {
     let applicationColor = null;
     let application_status = null;
 
-    let referencesColor = null;
-    let reference_status = null;
-
-    let offerLetterColor = null;
-    let offerpaperwork_status = null;
-
-    let drugTestColor = null;
-    let drugtest_status = null;
-
-    let fitnessTestColor = null;
-    let fitness_status = null;
 
     //collapsible status/color control
     if (isNull(candidate.app_sent_by)) {
@@ -92,91 +80,12 @@ class InterviewBlock extends React.Component {
       collapseCardColor = "red";
     }
 
-    //application status/control
-    if (isNull(candidate.app_sent_by)) {
-      applicationColor = "red";
-      application_status = "not started";
-    } else if (candidate.app_sent_by && isNull(candidate.app_returned)) {
-      applicationColor = "amber";
-      application_status = "in progress";
-    } else if (candidate.app_returned) {
-      applicationColor = "green";
-      application_status = "complete";
-    }
-
-    //reference status/control
-    if (candidate.app_returned && isNull(candidate.ref_checks_ip)) {
-      referencesColor = "red";
-      reference_status = "not started";
-    } else if (candidate.ref_checks_ip && isNull(candidate.ref_checks_complete)) {
-      referencesColor = "amber";
-      reference_status = "in progress";
-    } else if (candidate.ref_checks_complete) {
-      referencesColor = "green";
-      reference_status = "complete";
-    } else {
-      referencesColor = "red";
-      reference_status = "not started";
-    }
-
-    //offer letter & new hire paperwork status/control
-    if (candidate.ref_checks_complete && isNull(candidate.off_nh_pkg_sent)) {
-      offerLetterColor = "red";
-      offerpaperwork_status = "not started";
-    } else if (candidate.off_nh_pkg_sent && isNull(candidate.off_nh_pkg_returned)) {
-      offerLetterColor = "amber";
-      offerpaperwork_status = "in progress";
-    } else if (candidate.off_nh_pkg_returned) {
-      offerLetterColor = "green";
-      offerpaperwork_status = "complete";
-    } else {
-      offerLetterColor = "red";
-      offerpaperwork_status = "not started";
-    }
-
-    //drug test
-    if (candidate.off_nh_pkg_returned && isNull(candidate.drug_test)) {
-      drugTestColor = "red";
-      drugtest_status = "not started";
-    } else if (candidate.drug_test && isNull(candidate.drug_test_complete)) {
-      drugTestColor = "amber";
-      drugtest_status = "in progress";
-    } else if (candidate.drug_test_complete) {
-      drugTestColor = "green";
-      drugtest_status = "complete";
-    } else {
-      drugTestColor = "red";
-      drugtest_status = "not started";
-    }
-
-    //fitness test
-    if (candidate.off_nh_pkg_returned && isNull(candidate.fitness_test)) {
-      fitnessTestColor = "red";
-      fitness_status = "not started";
-    } else if (candidate.fitness_test && isNull(candidate.fitness_test_complete)) {
-      fitnessTestColor = "amber";
-      fitness_status = "in progress";
-    } else if (candidate.fitness_test_complete) {
-      fitnessTestColor = "green";
-      fitness_status = "complete";
-    } else {
-      fitnessTestColor = "red";
-      fitness_status = "not started";
-    }
 
     this.setState({
 
       collapseCardColor: collapseCardColor,
       application_status: application_status,
       applicationColor: applicationColor,
-      reference_status: reference_status,
-      referencesColor: referencesColor,
-      offerpaperwork_status: offerpaperwork_status,
-      offerLetterColor: offerLetterColor,
-      drugtest_status: drugtest_status,
-      drugTestColor: drugTestColor,
-      fitness_status: fitness_status,
-      fitnessTestColor: fitnessTestColor,
 
     });
 
@@ -297,11 +206,11 @@ class InterviewBlock extends React.Component {
 
       return (
 
-        <div className="section">
-
+        <div>
+          
           <div className="row">
 
-            <div className="section col s12 m5 l2">
+            <div className="section col s12 m12 l3">
 
               <Collapsible color={state.collapseCardColor} column_size="col s12 m12 l12">
 
@@ -336,7 +245,7 @@ class InterviewBlock extends React.Component {
 
             </div>
 
-            <div className="section col s12 m7 l6">
+            <div className="section col s12 m12 l9">
 
               <Collapsible color="blue-grey darken-1" column_size="col s12 m12 l12">
 
@@ -359,23 +268,6 @@ class InterviewBlock extends React.Component {
             </div>
 
             <div className="section col s12 m7 l4">
-
-              <Collapsible color="blue-grey darken-1" column_size="col s12 m12 l12">
-
-                <CollapsibleItem color="blue-grey darken-1" text="white-text" collapsible_heading="Project Details">
-
-                  <ProjectDisplayBlock />
-
-                </CollapsibleItem>
-
-                <CollapsibleItem color="blue-grey darken-1" text="white-text" collapsible_heading="Spread Details">
-
-                  <SpreadDisplayBlock />
-
-                </CollapsibleItem>
-
-              </Collapsible>
-
             </div>
 
             {/* <Card color="grey" column_size="center col s12 m6 l2" title="issue hold">
