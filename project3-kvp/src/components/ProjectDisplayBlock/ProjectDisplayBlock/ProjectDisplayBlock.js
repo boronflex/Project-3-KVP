@@ -38,14 +38,14 @@ class ProjectDisplayBlock extends React.Component {
             <div className="card-content white-text">
               <ProjectDropDown projects={this.state.projects} parentChange={this.handleParentChange}/>
               <br />
-              <Collapsible>
+              <Collapsible color="blue-grey darken-1">
                 {this.state.projects
                   .filter(projects => projects.project_idfk === this.state.selectedOption)
                   .map(projects => {
 
                     return (
 
-                      <CollapsibleItem key={projects.id} collapsible_heading={projects.spread_num}>
+                      <CollapsibleItem color="blue-grey darken-1" key={projects.id} collapsible_heading={`Spread ${projects.spread_num}`}>
                         <SpreadDisplayBlock projects={projects}/>
                       </CollapsibleItem>
 

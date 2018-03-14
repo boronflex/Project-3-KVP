@@ -35,6 +35,8 @@ class ProjectDropDown extends React.Component {
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
     //console.log(`Selected: ${selectedOption.label}`); broken
+
+    //this is coming up null need a handler here
     this.props.parentChange(selectedOption.label)
   }
 
