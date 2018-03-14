@@ -13,28 +13,29 @@ class ProjectDisplayBlock extends React.Component {
 
     this.state = {
       projects: this.props.project_info,
-      selectedProject: null,
+      selectedOption: '',
     }
-
-    this.handleChange = this.handleChange.bind(this);
 
   }
 
-  handleChange(value) {
-    this.setState({
-      selectedProject: value
-    })
-    console.log('wtf isnt this working')
+  handleOuterChange = (dataFromChild) => {
+    //console.log(dataFromChild);
+    this.setState({ selectedOption: dataFromChild });
+    console.log("parent changed to: " + this.state.selectedOption)
   }
 
   render() {
+
+    //console.log(this.state.selectedOption)
 
     return (
       <div className="row">
         <div className="col s12 m12 l12">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-              <ProjectDropDown projects={this.state.projects}/>
+              <ProjectDropDown 
+                projects={this.state.projects} 
+                handleParentChange={this.handleOuterChange}/>
               <br/>
               <SpreadDisplayBlock />
             </div>

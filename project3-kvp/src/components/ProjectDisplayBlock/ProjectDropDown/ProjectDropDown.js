@@ -32,19 +32,19 @@ class ProjectDropDown extends React.Component {
 
   }
 
-
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
+    console.log(`Selected: ${selectedOption.label}`);
+    this.props.handleParentChange(selectedOption.label)
   }
 
   render() {
-    
+
     const { selectedOption } = this.state;
     const value = selectedOption && selectedOption.value;
 
     return (
       <div>
-        {console.log(this.myOptions())}
         <Select
           name="form-field-name"
           value={value}
