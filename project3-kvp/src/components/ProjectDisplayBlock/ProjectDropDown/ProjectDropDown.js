@@ -18,32 +18,27 @@ class ProjectDropDown extends React.Component {
     }
 
     let projectNums = this.props.projects
-
       .map(projects => {
-
-        let option = {}
-
         let projectID = projects.project_idfk
+        return projectID
+      }).filter(onlyUnique)
 
-        option = { value: projectID, label: projectID }
+    let feedOptions = projectNums.map(vals => {
+      let options = { value: vals, label: vals }
+      return options
+    })
 
-        return option
-
-      })
-
-    projectNums = projectNums.filter( onlyUnique );
-
-    return projectNums
+    return feedOptions
 
   }
 
 
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Selected: ${selectedOption.label}`);
   }
 
   render() {
+    
     const { selectedOption } = this.state;
     const value = selectedOption && selectedOption.value;
 
