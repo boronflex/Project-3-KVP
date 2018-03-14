@@ -9,7 +9,7 @@ function SpreadDisplayBlock(props) {
       <div className="row">
 
         <div className="col s6">
-          Spread
+          {props.projects.spread_num}
       </div>
 
         <div className="col s6">

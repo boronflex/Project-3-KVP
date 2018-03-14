@@ -3,6 +3,10 @@ import "./ProjectDisplayBlock.css";
 
 import SpreadDisplayBlock from '../SpreadDisplayBlock/SpreadDisplayBlock'
 
+import Collapsible from '../../Card/Collapsible/Collapsible'
+import CollapsibleItem from '../../Card/Collapsible/CollapsibleItem'
+
+
 import ProjectDropDown from '../ProjectDropDown/ProjectDropDown'
 
 
@@ -18,26 +22,37 @@ class ProjectDisplayBlock extends React.Component {
 
   }
 
-  handleOuterChange = (dataFromChild) => {
-    //console.log(dataFromChild);
+  handleParentChange = (dataFromChild) => {
     this.setState({ selectedOption: dataFromChild });
-    console.log("parent changed to: " + this.state.selectedOption)
   }
+
 
   render() {
 
-    //console.log(this.state.selectedOption)
+    console.log(this.state.selectedOption)
 
     return (
       <div className="row">
         <div className="col s12 m12 l12">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-              <ProjectDropDown 
-                projects={this.state.projects} 
-                handleParentChange={this.handleOuterChange}/>
-              <br/>
-              <SpreadDisplayBlock />
+              <ProjectDropDown projects={this.state.projects} parentChange={this.handleParentChange}/>
+              <br />
+              <Collapsible>
+                {this.state.projects
+                  .filter(projects => projects.project_idfk === this.state.selectedOption)
+                  .map(projects => {
+
+                    return (
+
+                      <CollapsibleItem key={projects.id} collapsible_heading={projects.spread_num}>
+                        <SpreadDisplayBlock projects={projects}/>
+                      </CollapsibleItem>
+
+                    );
+
+                  })}
+              </Collapsible>
             </div>
           </div>
         </div>
