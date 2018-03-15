@@ -25,8 +25,6 @@ class OfferData extends React.Component {
       projects: getData(projectSampleData),
       offer_project: '',
       offer_spread: '',
-      offer_project: 0,
-      offer_spread: 0,
       offer_title: 0,
       offer_pay: 0,
       requested_start_date: ''

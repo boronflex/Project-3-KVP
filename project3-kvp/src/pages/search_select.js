@@ -4,13 +4,21 @@ import React from "react";
 
 import SelectableTable from "../components/Table/SelectableTable";
 
+import UserBlock from '../components/UserBlock/UserBlock';
+
 import Container from "../components/Container";
 
 const Search_Select = () =>
 
   <Container>
 
-    <h1>Applicants</h1>
+    <div className="row">
+
+      <h3 className="col s12 m7 l6">Search and Select Candidates</h3>
+
+      <UserBlock user_name="Kyle Palmer" />
+
+    </div>
 
     <SelectableTable />
 

@@ -3,13 +3,21 @@ import React from "react";
 //import Row from "../components/Row";
 import Container from "../components/Container";
 
+import UserBlock from '../components/UserBlock/UserBlock';
+
 import SelectableTable from "../components/Table/SelectableTable";
 
 const Overview = () =>
 
   <Container>
 
-    <h2>Overview page for candidates</h2>
+    <div className="row">
+
+      <h3 className="col s12 m7 l6">Overview</h3>
+
+      <UserBlock user_name="Kyle Palmer" />
+
+    </div>
 
     <SelectableTable />
 

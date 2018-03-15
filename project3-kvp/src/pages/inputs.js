@@ -3,8 +3,10 @@ import React from "react";
 //import Row from "../components/Row";
 //import Col from "../components/Col";
 
-import Card from "../components/Card/Card";
+import Collapsible from "../components/Card/Collapsible/Collapsible"
+import CollapsibleItem from "../components/Card/Collapsible/CollapsibleItem/CollapsibleItem"
 import Container from "../components/Container";
+import UserBlock from '../components/UserBlock/UserBlock';
 
 import NewProspect from "../components/Inputs/ProspectInput";
 import NewProject from "../components/Inputs/ProjectInput";
@@ -14,23 +16,41 @@ const Inputs = () =>
 
   <Container>
 
-    <h2>Inputs Dashboard</h2>
+    <div className="row">
+
+      <h3 className="col s12 m7 l6">Input Dashboard</h3>
+
+      <UserBlock user_name="Kyle Palmer" />
+
+    </div>
 
     <div className="row">
 
       <div className="col s12">
 
-        <Card column_size="col s12" title="New Prospect">
-          <NewProspect />
-        </Card>
 
-        <Card column_size="col s4" title="New Project">
-          <NewProject />
-        </Card>
+        <div class="row">
+          <div class="col s12 m12 l6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">New Prospect</span>
+                <NewProspect />
+              </div>
+            </div>
+          </div>
 
-        <Card column_size="col s8" title="New Spread">
-          <NewSpread />
-        </Card>
+          <Collapsible color="blue-grey darken-1" column_size="col s12 m12 l6">
+            <CollapsibleItem color="blue-grey darken-1 white-text" collapsible_heading="New Project">
+              <NewProject />
+            </CollapsibleItem>
+            <CollapsibleItem color="blue-grey darken-1 white-text" collapsible_heading="New Spread">
+              <NewSpread />
+            </CollapsibleItem>
+          </Collapsible>
+
+        </div>
+
+
 
       </div>
 

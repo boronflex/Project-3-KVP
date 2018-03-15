@@ -44,7 +44,13 @@ class Interview extends React.Component {
 
         <div className="row">
 
-          <div className="section col s12 m12 l8">
+          <div className="col s12 m12 l4 push-l8" >
+
+            <ProjectDisplayBlock column_size="section col s12 m12 l12" />
+
+          </div>
+
+          <div className="section col s12 m12 l8 pull-l4">
 
             {this.state.candidates
               .filter(candidate => candidate.job_offer === false && candidate.added_by)
@@ -60,11 +66,7 @@ class Interview extends React.Component {
 
           </div>
 
-          <div >
 
-            <ProjectDisplayBlock column_size="section pinned col s12 m12 l4 offset-l7"/>
-
-          </div>
 
         </div>
 

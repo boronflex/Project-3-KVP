@@ -47,6 +47,7 @@ class NewProspect extends React.Component {
 
     alert('A name was submitted: ' + this.state.state);
     event.preventDefault();
+    
   }
 
 
@@ -119,7 +120,7 @@ class NewProspect extends React.Component {
                   name="state"
                   value={this.state.value}
                   onChange={this.handleChange}>
-                  <option value="" disable="true" >Choose a State</option>
+                  <option value="" disable="true" >State</option>
                   <option value="1">Texas</option>
                   <option value="2">Oklahoma</option>
                   <option value="3">Louisiana</option>
