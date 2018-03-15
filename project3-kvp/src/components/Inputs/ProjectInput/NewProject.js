@@ -11,7 +11,7 @@ class NewProject extends React.Component {
       project_number: 0,
       project_name: '',
       project_manager: '',
-      number_of_spreads: 0,
+      number_of_spreads: 1,
     }
 
     this.handleChange = this.handleChange.bind(this);

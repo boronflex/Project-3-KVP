@@ -55,6 +55,7 @@ class ProjectDropDown extends React.Component {
         <div>
           <Select
             name="form-field-name"
+            placeholder="Select Project..."
             value={value}
             onChange={this.handleChange}
             options={this.myOptions()}

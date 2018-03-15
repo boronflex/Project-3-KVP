@@ -16,6 +16,7 @@ const Navbar = props =>
           <li><a href="/inputs">Inputs</a></li>
           <li><a href="/search">Applicants</a></li>
           <li><a href="/interview">Interview</a></li>
+          <li><a href="/hr">HR Process</a></li>
           <li><a href="/overview">Overview</a></li>
         </ul>
       </div>

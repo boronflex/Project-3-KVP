@@ -51,6 +51,7 @@ class SpreadDropDown extends React.Component {
         <div>
           <Select
             name="form-field-name"
+            placeholder="Select Spread..."
             value={value}
             onChange={this.handleChange}
             options={this.myOptions()}

@@ -29,11 +29,11 @@ const Inputs = () =>
       <div className="col s12">
 
 
-        <div class="row">
-          <div class="col s12 m12 l6">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <span class="card-title">New Prospect</span>
+        <div className="row">
+          <div className="col s12 m12 l6">
+            <div className="card blue-grey darken-1">
+              <div className="card-content white-text">
+                <span className="card-title">New Prospect</span>
                 <NewProspect />
               </div>
             </div>
