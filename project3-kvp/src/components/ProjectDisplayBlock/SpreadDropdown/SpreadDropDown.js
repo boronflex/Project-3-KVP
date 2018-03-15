@@ -3,7 +3,7 @@ import "./SpreadDropDown.css";
 
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-//import { isNull } from "util";
+import { isNull } from "util";
 
 
 class SpreadDropDown extends React.Component {
@@ -14,17 +14,14 @@ class SpreadDropDown extends React.Component {
 
   myOptions = () => {
 
-    function onlyUnique(value, index, self) {
-      return self.indexOf(value) === index;
-    }
-
-    let projectNums = this.props.projects
+    let spreadNums = this.props.projects
+      .filter(projects => projects.project_idfk === this.props.selectedProject)
       .map(projects => {
-        let projectID = projects.project_idfk
-        return projectID
-      }).filter(onlyUnique)
+        let spreadNum = projects.spread_num
+        return spreadNum
+      })
 
-    let feedOptions = projectNums.map(vals => {
+    let feedOptions = spreadNums.map(vals => {
       let options = { value: vals, label: vals }
       return options
     })
@@ -37,6 +34,12 @@ class SpreadDropDown extends React.Component {
 
     this.setState({ selectedOption });
     //console.log(`Selected: ${selectedOption.label}`); broken
+
+    if (isNull(selectedOption)) {
+      selectedOption = '';
+    } else {
+      this.props.parentChange(selectedOption.label)
+    }
   }
 
     render() {

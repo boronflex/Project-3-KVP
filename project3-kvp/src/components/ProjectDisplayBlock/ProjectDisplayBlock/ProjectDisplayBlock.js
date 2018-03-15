@@ -31,7 +31,6 @@ class ProjectDisplayBlock extends React.Component {
 
   }
 
-
   handleParentChange = (dataFromChild) => {
     this.setState({ selectedOption: dataFromChild });
     console.log("state changed inparent")
