@@ -1,6 +1,9 @@
 import React from "react";
 import "./OfferData.css";
 
+import ProjectDropDown from '../../ProjectDisplayBlock/ProjectDropDown/ProjectDropDown'
+import SpreadDropDown from '../../ProjectDisplayBlock/SpreadDropdown/SpreadDropDown'
+
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
 class OfferData extends React.Component {
 
@@ -55,27 +58,15 @@ class OfferData extends React.Component {
 
             <div className="section">
               <div className="input-field col s6">
-                <select
-                  name="offer_project"
-                  value={this.state.value}
-                  onChange={this.handleChange}>
-                  <option value="" disable="true">Project</option>
-                  <option value="project 1">Project 1</option>
-                  <option value="project 2">Project 2</option>
-                  <option value="project 3">Project 3</option>
-                </select>
+
+                {/* <ProjectDropDown /> */}
+
               </div>
 
               <div className="input-field col s6">
-                <select
-                  name="offer_spread"
-                  value={this.state.value}
-                  onChange={this.handleChange}>
-                  <option value="" disable="true">Spread</option>
-                  <option value="spread 1">spread 1</option>
-                  <option value="spread 2">spread 2</option>
-                  <option value="spread 3">spread 3</option>
-                </select>
+
+                {/* <SpreadDropDown /> */}
+
               </div>
             </div>
 

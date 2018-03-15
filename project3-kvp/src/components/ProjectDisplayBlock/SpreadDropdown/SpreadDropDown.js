@@ -1,12 +1,12 @@
 import React from "react";
-import "./ProjectDropDown.css";
+import "./SpreadDropDown.css";
 
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import { isNull } from "util";
+//import { isNull } from "util";
 
 
-class ProjectDropDown extends React.Component {
+class SpreadDropDown extends React.Component {
 
   state = {
     selectedOption: '',
@@ -37,13 +37,6 @@ class ProjectDropDown extends React.Component {
 
     this.setState({ selectedOption });
     //console.log(`Selected: ${selectedOption.label}`); broken
-
-    if (isNull(selectedOption)) {
-      selectedOption = '';
-    } else {
-      this.props.parentChange(selectedOption.label)
-    }
-
   }
 
     render() {
@@ -65,5 +58,5 @@ class ProjectDropDown extends React.Component {
   }
 
 
-  export default ProjectDropDown;
+  export default SpreadDropDown;
 

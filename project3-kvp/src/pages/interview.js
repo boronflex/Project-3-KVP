@@ -4,7 +4,7 @@ import Container from "../components/Container";
 
 import UserBlock from '../components/UserBlock/UserBlock';
 import InterviewBlock from '../components/InfoBlock/InterviewBlock/InterviewBlock';
-import ProjectDisplayContainer from '../components/ProjectDisplayBlock/ProjectDisplayContainer/ProjectDisplayContainer';
+import ProjectDisplayBlock from '../components/ProjectDisplayBlock/ProjectDisplayBlock/ProjectDisplayBlock';
 
 import testData from '../components/SampleData/hr_sampledata';
 
@@ -62,7 +62,7 @@ class Interview extends React.Component {
 
           <div >
 
-            <ProjectDisplayContainer column_size="section pinned col s12 m12 l4 offset-l7"/>
+            <ProjectDisplayBlock column_size="section pinned col s12 m12 l4 offset-l7"/>
 
           </div>
 

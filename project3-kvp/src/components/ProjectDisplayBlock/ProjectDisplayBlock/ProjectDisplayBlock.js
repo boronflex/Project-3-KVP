@@ -5,10 +5,18 @@ import SpreadDisplayBlock from '../SpreadDisplayBlock/SpreadDisplayBlock'
 
 import Collapsible from '../../Card/Collapsible/Collapsible'
 import CollapsibleItem from '../../Card/Collapsible/CollapsibleItem'
-
-
 import ProjectDropDown from '../ProjectDropDown/ProjectDropDown'
 
+import projectSampleData from '../../SampleData/project_sampledata';
+
+function getData(inputData) {
+  const data = inputData.map((item) => {
+    return {
+      ...item
+    }
+  })
+  return data;
+}
 
 class ProjectDisplayBlock extends React.Component {
 
@@ -16,14 +24,17 @@ class ProjectDisplayBlock extends React.Component {
     super(props);
 
     this.state = {
-      projects: this.props.project_info,
+      projects: getData(projectSampleData),
       selectedOption: '',
+      manager: '',
     }
 
   }
 
+
   handleParentChange = (dataFromChild) => {
     this.setState({ selectedOption: dataFromChild });
+    console.log("state changed inparent")
   }
 
 
@@ -33,11 +44,22 @@ class ProjectDisplayBlock extends React.Component {
 
     return (
       <div className="row">
-        <div className="col s12 m12 l12">
+        <div className={this.props.column_size}>
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <ProjectDropDown projects={this.state.projects} parentChange={this.handleParentChange}/>
-              <br />
+              <br/>
+              <p>{"Survey Manager: " + 
+                this.state.projects
+                  .filter(projects => projects.project_idfk === this.state.selectedOption && projects.spread_num === 1)
+                  .map(projects => {
+                    return(
+                      projects.survey_manager
+                    )
+
+                  })
+                }
+              </p>
               <Collapsible color="blue-grey darken-1">
                 {this.state.projects
                   .filter(projects => projects.project_idfk === this.state.selectedOption)
