@@ -7,6 +7,8 @@ import Interview from "./pages/interview";
 import LoginPage from "./pages/login";
 import Search_Select from "./pages/search_select";
 
+import Request_tests from "./pages/request-tests";
+
 import Navbar from "./components/Navbar";
 //import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
@@ -29,6 +31,7 @@ const App = () =>
         <Route exact path="/interview" component={Interview} />
         <Route exact path="/overview" component={Overview} />
         <Route exact path="/hr" component={HR_view} />
+        <Route exact path="/requesttesting" component={Request_tests} />
       </Wrapper>
       {/* <Footer /> */}
     </div>
