@@ -31,40 +31,40 @@ class Request_tests extends React.Component {
 
     var that = this;
 
-    // var getUsers = new Request('http://localhost:3000/api/users', {
-    //   method: 'GET',
-    //   headers: new Headers({ 'Content-Type': 'application/json' })
-    // });
+    var getUsers = new Request('http://localhost:3000/api/users', {
+      method: 'GET',
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    });
 
-    // const request = async () => {
+    const request = async () => {
 
-    //   const response = await fetch('http://localhost:3000/api/users')
+      const response = await fetch(getUsers)
 
-    //   const json = await response.json();
+      const json = await response.json();
 
-    //   //const data = JSON.stringify(json);
+      //const data = JSON.stringify(json);
 
-    //   console.log(json);
+      console.log(json);
 
-    //   that.setState({
-    //     users: json
-    //   })
-
-    // }
-
-    // request();
-
-    fetch('http://localhost:3000/api/users')
-      .then(function (response) {
-        response.json()
-          .then(function (data) {
-            //console.log(data);
-            that.setState({
-              users: data
-            })
-
-          })
+      that.setState({
+        users: json
       })
+
+    }
+
+    request();
+
+    // fetch('http://localhost:3000/api/users')
+    //   .then(function (response) {
+    //     response.json()
+    //       .then(function (data) {
+    //         //console.log(data);
+    //         that.setState({
+    //           users: data
+    //         })
+
+    //       })
+    //   })
   }
 
   addUser(event) {
