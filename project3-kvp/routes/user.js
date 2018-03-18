@@ -10,6 +10,12 @@ const router = new Router()
 // export our router to be mounted by the parent application
 module.exports = router
 
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 router.get('/', async (req, res) => {
   //const { id } = req.params
   const { rows } = await db.query('SELECT * FROM users') //WHERE id = $1', [id])
