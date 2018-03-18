@@ -10,17 +10,6 @@ const mountRoutes = require('./routes')
 const app = express()
 mountRoutes(app)
 
-const { Pool, Client } = require('pg')
-
-const pool = new Pool({
-  user: 'postgres',
-  database: 'totalstation',
-  password: 'seamus',
-  host: 'localhost',
-  port: 5432,
-});
-
-
 
 // ... more express setup stuff can follow
 
