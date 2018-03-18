@@ -30,32 +30,41 @@ class Request_tests extends React.Component {
     console.log('component has mounted');
 
     var that = this;
-    const request = async () => {
 
-      const response = await fetch('http://localhost:3000/api/users')
+    // var getUsers = new Request('http://localhost:3000/api/users', {
+    //   method: 'GET',
+    //   headers: new Headers({ 'Content-Type': 'application/json' })
+    // });
 
-      const json = await response.json();
+    // const request = async () => {
 
-      //const data = JSON.stringify(json);
-  
-      console.log(json);
+    //   const response = await fetch('http://localhost:3000/api/users')
 
-      that.setState({
-        users: json
+    //   const json = await response.json();
+
+    //   //const data = JSON.stringify(json);
+
+    //   console.log(json);
+
+    //   that.setState({
+    //     users: json
+    //   })
+
+    // }
+
+    // request();
+
+    fetch('http://localhost:3000/api/users')
+      .then(function (response) {
+        response.json()
+          .then(function (data) {
+            //console.log(data);
+            that.setState({
+              users: data
+            })
+
+          })
       })
-
-    }
-
-    request();
-
-      // .then(function(response) {
-      //   response.json()
-      //     .then(function(data){
-      //       //console.log(data);
-      //       let users = that.state.users;
-
-      //     })
-      // })
   }
 
   addUser(event) {
@@ -82,19 +91,19 @@ class Request_tests extends React.Component {
 
 
     fetch(request)
-    .then(function(response){
-      response.json()
-      .then(function(data){
-        let users = that.state.users;
-        users.push(user_data);
-        that.setState({
-          users: users
-        })
+      .then(function (response) {
+        response.json()
+          .then(function (data) {
+            let users = that.state.users;
+            users.push(user_data);
+            that.setState({
+              users: users
+            })
+          })
       })
-    })
-    .catch(function(err){
-      console.log(err)
-    })
+      .catch(function (err) {
+        console.log(err)
+      })
 
   }
 
@@ -121,12 +130,12 @@ class Request_tests extends React.Component {
 
           <form ref="userForm" className="col s6">
 
-            <input type="number" ref="employee_id" placeholder="employee id"/>
-            <input type="text" ref="last_name" placeholder="last name"/>
-            <input type="text" ref="first_name" placeholder="first name"/>
-            <input type="text" ref="user_type" placeholder="user type"/>
-            <input type="text" ref="user_name" placeholder="user name"/>
-            <input type="text" ref="user_pword" placeholder="password"/>
+            <input type="number" ref="employee_id" placeholder="employee id" />
+            <input type="text" ref="last_name" placeholder="last name" />
+            <input type="text" ref="first_name" placeholder="first name" />
+            <input type="text" ref="user_type" placeholder="user type" />
+            <input type="text" ref="user_name" placeholder="user name" />
+            <input type="text" ref="user_pword" placeholder="password" />
             <button onClick={this.addUser.bind(this)}>Add employee</button>
 
           </form>
