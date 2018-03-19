@@ -43,33 +43,7 @@ class Request_tests extends React.Component {
           users: res
         })
       )
-
-
-    // var that = this;
-
-    // var getUsers = new Request('http://localhost:3000/api/users', {
-    //   method: 'GET',
-    //   headers: new Headers({ 'Content-Type': 'application/json' })
-    // });
-
-    // const request = async () => {
-
-    //   const response = await fetch(getUsers)
-
-    //   const json = await response.json();
-
-    //   //const data = JSON.stringify(json);
-
-    //   //console.log(json);
-
-    //   that.setState({
-    //     users: json
-    //   })
-
-    // }
-
-    // request();
-
+      
   }
 
   addUser(event) {

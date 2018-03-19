@@ -7,7 +7,7 @@ export default {
   //   return axios.get("api/users")
   // }
     
-    var getUsers = new Request('http://localhost:3000/api/users', {
+    var getUsers = new Request('/api/users', {
       method: 'GET',
       headers: new Headers({ 'Content-Type': 'application/json' })
     });
