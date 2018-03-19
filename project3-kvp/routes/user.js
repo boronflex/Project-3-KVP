@@ -21,6 +21,7 @@ router
   .use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT");
     next();
   })
 
@@ -45,7 +46,48 @@ router
 
     let values = [employee_id, last_name, first_name, user_type, user_name, user_pword];
 
-    const { rows } = await db.query('INSERT INTO users (employee_id, last_name, first_name, user_type, user_name, user_pword) VALUES($1, $2, $3, $4, $5, $6)', [...values])
+    const { rows } = await db.query(
+      `INSERT INTO users (
+        employee_id, 
+        last_name, 
+        first_name, 
+        user_type, 
+        user_name, 
+        user_pword) 
+        VALUES($1, $2, $3, $4, $5, $6)`,
+        [...values])
+
+    res.send({ message: "data inserted" })
+
+    console.log("data inserted");
+
+  })
+
+  .put('/update-user', async (req, res) => {
+
+    console.log(req.body);
+
+    var employee_id = req.body.employee_id;
+    var last_name = req.body.last_name;
+    var first_name = req.body.first_name;
+    var user_type = req.body.user_type;
+    var user_name = req.body.user_name;
+    var user_pword = req.body.user_pword;
+
+    employee_id
+
+    let values = [last_name, first_name, user_type, user_name, user_pword, employee_id];
+
+    const { rows } = await db.query(
+      `UPDATE users SET last_name = $1,
+        first_name = $2,
+        user_type = $3,
+        user_name = $4,
+        user_pword = $5
+        WHERE employee_id = $6 `,
+      [...values])
+
+    res.send({ message: "data updated" })
 
     console.log("data inserted");
 

@@ -113,6 +113,55 @@ class Request_tests extends React.Component {
 
   }
 
+  updateUser(event) {
+    
+    var that = this;
+    event.preventDefault();
+    console.log('in method');
+
+    let user_data = {
+
+      employee_id: this.refs.employee_id.value,
+      last_name: this.refs.last_name.value,
+      first_name: this.refs.first_name.value,
+      user_type: this.refs.user_type.value,
+      user_name: this.refs.user_name.value,
+      user_pword: this.refs.user_pword.value,
+
+    };
+
+    const addUser = new Request('http://localhost:3000/api/update-user', {
+      method: 'PUT',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify(user_data)
+    });
+
+    //console.log(addUser);
+
+    const putrequest = async () => {
+
+      const response = await fetch(addUser)
+
+      const json = await response.json();
+
+      //const data = JSON.stringify(json);
+
+      let users = that.state.users;
+      users.push(user_data);
+
+      console.log(json);
+
+      that.setState({
+
+        users: users
+      })
+
+    }
+
+    putrequest();
+
+  }
+
 
   render() {
 
@@ -143,6 +192,7 @@ class Request_tests extends React.Component {
             <input type="text" ref="user_name" placeholder="user name" />
             <input type="text" ref="user_pword" placeholder="password" />
             <button onClick={this.addUser.bind(this)}>Add employee</button>
+            <button onClick={this.updateUser.bind(this)}>update user</button>
 
           </form>
 
