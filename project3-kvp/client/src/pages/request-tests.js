@@ -35,15 +35,6 @@ class Request_tests extends React.Component {
 
   }
 
-  loadBooks = () => {
-    API.getBooks()
-      .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-      )
-      .catch(err => console.log(err));
-  };
-
-
   getUsers = () => {
 
     API.getUsers()
