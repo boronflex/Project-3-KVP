@@ -2,6 +2,8 @@
 
 export default {
 
+  //user start############
+
   getUsers: function() {
 
   //   return axios.get("api/users")
@@ -27,6 +29,36 @@ export default {
 
   saveUser: function() {
 
+  },
+
+  //User end ###################
+
+  //inputs page##################
+
+  addCandidate: function (candidateData){
+
+    const addUser = new Request('http://localhost:3000/api/new-candidate', {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify(candidateData)
+    });
+
+    //console.log(addUser);
+
+    const postrequest = async () => {
+
+      const response = await fetch(addUser)
+
+      const status = await response.status
+
+      return status;
+
+    }
+
+    postrequest();
+
   }
+
+  //inputs page###################
 
 };

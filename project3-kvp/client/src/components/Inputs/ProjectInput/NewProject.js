@@ -10,8 +10,10 @@ class NewProject extends React.Component {
     this.state = {
       project_number: 0,
       project_name: '',
+      project_city: '',
+      project_state: '',
       project_manager: '',
-      number_of_spreads: 1,
+      number_of_spreads: 0,
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -74,6 +76,32 @@ class NewProject extends React.Component {
                   type="text"
                   className="validate" />
                 <label htmlFor="project_name">name</label>
+              </div>
+            </div>
+
+            <div className="section">
+              <div className="input-field col s12">
+                <input
+                  id="project_city"
+                  name="project_city"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  type="text"
+                  className="validate" />
+                <label htmlFor="project_city">City</label>
+              </div>
+            </div>
+
+            <div className="section">
+              <div className="input-field col s12">
+                <input
+                  id="project_state"
+                  name="project_state"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  type="text"
+                  className="validate" />
+                <label htmlFor="project_state">State</label>
               </div>
             </div>
 

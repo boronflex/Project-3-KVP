@@ -8,6 +8,7 @@ class NewProspect extends React.Component {
     super(props);
 
     this.state = {
+
       first_name: '',
       last_name: '',
       nick_name: '',
@@ -43,9 +44,7 @@ class NewProspect extends React.Component {
 
   handleSubmit(event) {
 
-    console.log(this.state)
-
-    alert('A name was submitted: ' + this.state.state);
+    //console.log(this.state)
     event.preventDefault();
     
   }
