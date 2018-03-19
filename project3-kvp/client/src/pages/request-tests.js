@@ -3,7 +3,7 @@ import React from "react";
 //import Row from "../components/Row";
 import Container from "../components/Container";
 
-//import API from "../utils/API";
+import API from "../utils/API";
 
 import UserBlock from '../components/UserBlock/UserBlock';
 
@@ -35,32 +35,49 @@ class Request_tests extends React.Component {
 
   }
 
+  loadBooks = () => {
+    API.getBooks()
+      .then(res =>
+        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+      )
+      .catch(err => console.log(err));
+  };
+
+
   getUsers = () => {
 
-    var that = this;
+    API.getUsers()
+      .then(res =>
+        this.setState({
+          users: res
+        })
+      )
 
-    var getUsers = new Request('http://localhost:3000/api/users', {
-      method: 'GET',
-      headers: new Headers({ 'Content-Type': 'application/json' })
-    });
 
-    const request = async () => {
+    // var that = this;
 
-      const response = await fetch(getUsers)
+    // var getUsers = new Request('http://localhost:3000/api/users', {
+    //   method: 'GET',
+    //   headers: new Headers({ 'Content-Type': 'application/json' })
+    // });
 
-      const json = await response.json();
+    // const request = async () => {
 
-      //const data = JSON.stringify(json);
+    //   const response = await fetch(getUsers)
 
-      //console.log(json);
+    //   const json = await response.json();
 
-      that.setState({
-        users: json
-      })
+    //   //const data = JSON.stringify(json);
 
-    }
+    //   //console.log(json);
 
-    request();
+    //   that.setState({
+    //     users: json
+    //   })
+
+    // }
+
+    // request();
 
   }
 
