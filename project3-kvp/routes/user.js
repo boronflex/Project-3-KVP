@@ -10,19 +10,19 @@ const router = new Router()
 // export our router to be mounted by the parent application
 module.exports = router
 
-router.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// router.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 router
 
-  // .use(function (req, res, next) {
-  //   res.header("Access-Control-Allow-Origin", "*");
-  //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  //   next();
-  // })
+  .use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  })
 
   .get('/users', async (req, res) => {
     //const { id } = req.params
@@ -30,8 +30,6 @@ router
     res.send(rows)//[0])
     //console.log(rows)
   })
-
-router
 
   .post('/new-user', async (req, res) => {
 
