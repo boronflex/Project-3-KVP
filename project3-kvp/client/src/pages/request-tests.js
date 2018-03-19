@@ -3,6 +3,8 @@ import React from "react";
 //import Row from "../components/Row";
 import Container from "../components/Container";
 
+//import API from "../utils/API";
+
 import UserBlock from '../components/UserBlock/UserBlock';
 
 
@@ -29,6 +31,12 @@ class Request_tests extends React.Component {
 
     console.log('component has mounted');
 
+    this.getUsers();
+
+  }
+
+  getUsers = () => {
+
     var that = this;
 
     var getUsers = new Request('http://localhost:3000/api/users', {
@@ -44,7 +52,7 @@ class Request_tests extends React.Component {
 
       //const data = JSON.stringify(json);
 
-      console.log(json);
+      //console.log(json);
 
       that.setState({
         users: json
@@ -54,20 +62,10 @@ class Request_tests extends React.Component {
 
     request();
 
-    // fetch('http://localhost:3000/api/users')
-    //   .then(function (response) {
-    //     response.json()
-    //       .then(function (data) {
-    //         //console.log(data);
-    //         that.setState({
-    //           users: data
-    //         })
-
-    //       })
-    //   })
   }
 
   addUser(event) {
+
     var that = this;
     event.preventDefault();
     console.log('in method');
@@ -83,27 +81,35 @@ class Request_tests extends React.Component {
 
     };
 
-    var request = new Request('http://localhost:3000/api/new-user', {
+    const addUser = new Request('http://localhost:3000/api/new-user', {
       method: 'POST',
       headers: new Headers({ 'Content-Type': 'application/json' }),
       body: JSON.stringify(user_data)
     });
 
+    //console.log(addUser);
 
-    fetch(request)
-      .then(function (response) {
-        response.json()
-          .then(function (data) {
-            let users = that.state.users;
-            users.push(user_data);
-            that.setState({
-              users: users
-            })
-          })
+    const postrequest = async () => {
+
+      const response = await fetch(addUser)
+
+      const json = await response.json();
+
+      //const data = JSON.stringify(json);
+
+      let users = that.state.users;
+      users.push(user_data);
+
+      console.log(json);
+
+      that.setState({
+
+        users: users
       })
-      .catch(function (err) {
-        console.log(err)
-      })
+
+    }
+
+    postrequest();
 
   }
 

@@ -4,17 +4,17 @@ const pg = require("pg");
 const morgan = require('morgan');
 const PORT = process.env.PORT || 3000;
 
-//import routes from "./routes"
-const mountRoutes = require('./routes')
-
 const app = express()
-mountRoutes(app)
-
 
 // ... more express setup stuff can follow
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
+
+//import routes from "./routes"
+const mountRoutes = require('./routes')
+
+mountRoutes(app)
 
 app.use(morgan('dev'));
 

@@ -6,11 +6,11 @@ const candidates = require('./candidates')
 const candidate_history = require('./candidate_history')
 
 module.exports = (app) => {
-  app.use('/api/users', users)
-  app.use('/api/projects', projects)
-  app.use('/api/spreads', spreads)
-  app.use('/api/candidates', candidates)
-  app.use('/api/candidate-history', candidate_history)
+  app.use('/api', users)
+  app.use('/api', projects)
+  app.use('/api', spreads)
+  app.use('/api', candidates)
+  app.use('/api', candidate_history)
 
   // etc..
 }

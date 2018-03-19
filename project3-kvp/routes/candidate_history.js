@@ -10,7 +10,7 @@ const router = new Router()
 // export our router to be mounted by the parent application
 module.exports = router
 
-router.get('/', async (req, res) => {
+router.get('/candidate-history', async (req, res) => {
   //const { id } = req.params
   const { rows } = await db.query('SELECT * FROM candidate_history') //WHERE id = $1', [id])
   res.send(rows)//[0])
