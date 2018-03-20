@@ -12,6 +12,8 @@
 import React from "react";
 import "./HR_InfoBlock.css";
 
+import API from '../../../utils/API'
+
 import Card from "../../Card/Card";
 import CardPage from "../../Card/CardPage"
 import Collapsible from "../../Card/Collapsible"
@@ -83,7 +85,7 @@ class HRInfoBlock extends React.Component {
     //collapsible status/color control
     if (isNull(candidate.app_sent_by)) {
       collapseCardColor = "red";
-    } else if (candidate.app_sent_by && !(candidate.hired)) {
+    } else if (candidate.app_sent_by && isNull(candidate.hired)) {
       collapseCardColor = "amber";
     } else if (candidate.hired) {
       collapseCardColor = "green";
@@ -204,12 +206,46 @@ class HRInfoBlock extends React.Component {
 
         if (state.application_status === "not started") {
 
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+      
+          API.appInProgress(candidateData)
+            .then(function (res) {
+              if (res === 200) {
+                  that.setState()
+                }
+              }
+            )
+            .catch(err => console.log(err));
+
           this.setState({
             application_status: "in progress",
             applicationColor: "amber"
           })
 
         } else if (state.application_status === "in progress") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.appComplete(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
 
           this.setState({
             application_status: "complete",
@@ -225,7 +261,22 @@ class HRInfoBlock extends React.Component {
 
         if (state.reference_status === "not started") {
 
-          //replace with api call next, just fleshing out logic here
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.referencesInProgress(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
 
           this.setState({
             reference_status: "in progress",
@@ -233,6 +284,23 @@ class HRInfoBlock extends React.Component {
           })
 
         } else if (state.reference_status === "in progress") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.referencesComplete(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
 
           this.setState({
             reference_status: "complete",
@@ -246,17 +314,133 @@ class HRInfoBlock extends React.Component {
 
         console.log("offer and paperwork stage clicked")
 
+        if (state.offerpaperwork_status === "not started") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.offerPaperworkInProgress(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
+
+          this.setState({
+            offerpaperwork_status: "in progress",
+            offerLetterColor: "amber"
+          })
+
+        } else if (state.offerpaperwork_status === "in progress") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.offerPaperworkCompleted(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
+
+          this.setState({
+            offerpaperwork_status: "complete",
+            offerLetterColor: "green"
+          })
+        }
+
         break;
 
       case 'drugTest':
 
         console.log("drug test stage clicked")
 
-        //if drug test and fitness test complete changed hired status to true 
-
         if (state.drugtest_status === "complete" && state.fitness_status === "complete") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.hired(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
+
           this.setState({
             isHired: true
+          })
+        }
+
+        //if drug test and fitness test complete changed hired status to true 
+
+        if (state.drugtest_status === "not started") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.drugTestinProgress(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
+
+          this.setState({
+            drugtest_status: "in progress",
+            drugTestColor: "amber"
+          })
+
+        } else if (state.drugtest_status === "in progress") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.drugTestCompleted(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
+
+          this.setState({
+            drugtest_status: "complete",
+            drugTestColor: "green"
           })
         }
 
@@ -267,8 +451,75 @@ class HRInfoBlock extends React.Component {
         console.log("fitness test stage clicked")
 
         if (state.drugtest_status === "complete" && state.fitness_status === "complete") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.hired(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
+
           this.setState({
             isHired: true
+          })
+        }
+
+        if (state.fitness_status === "not started") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.fitnessTestInProgress(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
+
+          this.setState({
+            fitness_status: "in progress",
+            fitnessTestColor: "amber"
+          })
+
+        } else if (state.fitness_status === "in progress") {
+
+          let candidateData = {
+
+            id: this.state.candidate.id
+  
+          }
+  
+          let that = this;
+
+          API.fitnessTestComplete(candidateData)
+          .then(function (res) {
+            if (res === 200) {
+                that.setState()
+              }
+            }
+          )
+          .catch(err => console.log(err));
+
+          this.setState({
+            fitness_status: "complete",
+            fitnessTestColor: "green"
           })
         }
 

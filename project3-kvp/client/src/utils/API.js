@@ -224,5 +224,50 @@ export default {
 
   //serch select page ##############
 
+  //HR############## page##############
+
+  appInProgress: function (candidateData) {
+    return axios.put("api/app-inprogress", candidateData)
+  },
+
+  appComplete: function (candidateData) {
+    return axios.put("api/app-complete", candidateData)
+  },
+
+  referencesInProgress: function (candidateData) {
+    return axios.put("api/refs-inprogress", candidateData)
+  },
+
+  referencesComplete: function (candidateData) {
+    return axios.put("api/refs-complete", candidateData)
+  },
+
+  offerPaperworkInProgress: function (candidateData) {
+    return axios.put("api/off-inprogress", candidateData)
+  },
+
+  offerPaperworkCompleted: function (candidateData) {
+    return axios.put("api/off-complete", candidateData)
+  },
+
+  drugTestinProgress: function (candidateData) {
+    return axios.put("api/drugtest-inprogress", candidateData)
+  },
+
+  drugTestCompleted: function (candidateData) {
+    return axios.put("api/drugtest-complete", candidateData)
+  },
+
+  fitnessTestInProgress: function (candidateData) {
+    return axios.put("api/fitnesstest-inprogress", candidateData)
+  },
+
+  fitnessTestComplete: function (candidateData) {
+    return axios.put("api/fitnesstest-complete", candidateData)
+  },
+
+  hired: function (candidateData) {
+    return axios.put("api/hired", candidateData)
+  },
 
 };

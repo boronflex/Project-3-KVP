@@ -2,6 +2,8 @@ const Router = require('express-promise-router')
 
 const moment = require('moment');
 
+let currentDate = moment().format();
+
 const db = require('../db')
 
 // create a new express-promise-router
@@ -34,7 +36,7 @@ router
   //console.log(req.body.item);
 
   var candidateID = req.body.candidate_idfk;
-  var currentDate = moment().format();
+  //var currentDate = moment().format();
 
   //console.log(currentDate)
   var added_by = 76759;// need to grab this from login later
@@ -112,6 +114,291 @@ router
       no_offer_reason = $2,
       no_offer_note = $3 
       WHERE id = $4`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/app-inprogress', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var app_sent_by = 76759;
+
+  let values = [app_sent_by, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      app_sent_by = $1,
+      app_sent_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/app-complete', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var app_returned = 76759;
+
+  let values = [app_returned, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      app_returned = $1,
+      app_returned_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/refs-inprogress', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var ref_checks_ip = 76759;
+
+  let values = [ref_checks_ip, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      ref_checks_ip = $1,
+      ref_checks_ip_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/refs-complete', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var ref_checks_complete = 76759;
+
+  let values = [ref_checks_complete, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      ref_checks_complete = $1,
+      ref_checks_complete_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/off-inprogress', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var off_nh_pkg_sent = 76759;
+
+  let values = [off_nh_pkg_sent, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      off_nh_pkg_sent = $1,
+      off_nh_pkg_sent_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/off-complete', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var off_nh_pkg_returned = 76759;
+
+  let values = [off_nh_pkg_returned, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      off_nh_pkg_returned = $1,
+      off_nh_pkg_returned_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/drugtest-inprogress', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var drug_test = 76759;
+
+  let values = [drug_test, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      drug_test = $1,
+      drug_test_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/drugtest-complete', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var drug_test_complete = 76759;
+
+  let values = [drug_test_complete, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      drug_test_complete = $1,
+      drug_test_complete_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/fitnesstest-inprogress', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var fitness_test = 76759;
+
+  let values = [fitness_test, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      fitness_test = $1,
+      fitness_test_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/fitnesstest-complete', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var fitness_test_complete = 76759;
+
+  let values = [fitness_test_complete, currentDate, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      fitness_test_complete = $1,
+      fitness_test_complete_date = $2
+      WHERE id = $3`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
+
+.put('/hired', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+  var id = req.body.id;
+  var hired = true;
+
+  let values = [hired, id];
+
+  console.log(values)
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      hired = $1,
+      WHERE id = $2`,
     [...values])
 
   res.send({ message: "data inserted" })
