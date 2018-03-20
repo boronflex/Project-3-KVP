@@ -90,3 +90,32 @@ router
   console.log("data inserted");
 
 })
+
+.put('/no-offer', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+
+  var id = req.body.candidateID;
+  var job_offer = false;
+  var no_offer_reason = req.body.no_offer_reason
+  var no_offer_note = req.body.no_offer_notes;
+
+
+  let values = [job_offer, no_offer_reason, no_offer_note, id];
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      job_offer = $1,
+      no_offer_reason = $2,
+      no_offer_note = $3 
+      WHERE id = $4`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})

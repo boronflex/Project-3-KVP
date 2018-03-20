@@ -1,6 +1,8 @@
 import React from "react";
 import "./NoOffer.css";
 
+import API from "../../../utils/API"
+
 import { Input } from "react-materialize"
 
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
@@ -11,6 +13,7 @@ class NoOffer extends React.Component {
     super(props);
 
     this.state = {
+      candidateID: this.props.candidateID,
       no_offer_reason: "",
       no_offer_notes: "",
     }
@@ -35,10 +38,20 @@ class NoOffer extends React.Component {
 
   handleSubmit(event) {
 
-    console.log(this.state)
-
-    alert('A name was submitted: ' + this.state.state);
     event.preventDefault();
+
+    let candidateData = this.state;
+
+    let that = this;
+
+    API.noOffer(candidateData)
+      .then(function (res) {
+        if (res === 200) {
+            that.setState()
+          }
+        }
+      )
+      .catch(err => console.log(err));
   }
 
 

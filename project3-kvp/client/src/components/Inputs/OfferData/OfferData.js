@@ -60,14 +60,14 @@ class OfferData extends React.Component {
   }
 
   handleProjectChange = (dataFromChild) => {
-    console.log(dataFromChild)
+
     this.setState({ offer_project: dataFromChild });
     
   }
 
   handleSpreadChange = (dataFromChild) => {
     this.setState({ offer_spread: dataFromChild });
-    console.log("spread changed triggerd")
+
   }
 
 
@@ -97,8 +97,6 @@ class OfferData extends React.Component {
       requested_start_date: this.state.requested_start_date
     } 
 
-    console.log(candidateData)
-
     let that = this;
 
     API.makeOffer(candidateData)
@@ -117,9 +115,6 @@ class OfferData extends React.Component {
     return (
 
       <form onSubmit={this.handleSubmit}>
-
-        {console.log("project selected" + this.state.offer_project)}
-        {console.log("spread selected" + this.state.offer_spread)}
 
         <div className="row col s12">
 

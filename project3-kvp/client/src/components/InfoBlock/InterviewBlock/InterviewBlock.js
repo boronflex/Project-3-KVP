@@ -52,8 +52,12 @@ class InterviewBlock extends React.Component {
   //needs to be refactored but this is the state handler for color and text displays whenever the data comes in
   getCandidateStatus() {
 
+    console.log(this.props.candidate_info)
+
     //will use api to grab this and set state
-    const candidate = this.state.candidate;
+    const candidate = this.props.candidate_info;
+
+    console.log(candidate.job_offer && isNull(candidate.hired))
 
     //#############begin color control/status control block###############
 
@@ -70,9 +74,7 @@ class InterviewBlock extends React.Component {
 
 
     //collapsible status/color control
-    if (isNull(candidate.app_sent_by)) {
-      collapseCardColor = "red";
-    } else if (candidate.job_offer && !(candidate.hired)) {
+    if (candidate.job_offer && isNull(candidate.hired)) {
       collapseCardColor = "amber";
     } else if (candidate.hired) {
       collapseCardColor = "green";
@@ -236,10 +238,10 @@ class InterviewBlock extends React.Component {
 
                 </CollapsibleItem>
 
-                <CollapsibleItem color={state.collapseCardColor} text="white-text" collapsible_heading="Hiring Status">
+                {/* <CollapsibleItem color={state.collapseCardColor} text="white-text" collapsible_heading="Hiring Status">
 
 
-                </CollapsibleItem>
+                </CollapsibleItem> */}
 
               </Collapsible>
 
@@ -257,7 +259,7 @@ class InterviewBlock extends React.Component {
 
                 <CollapsibleItem color="blue-grey darken-1" text="white-text" collapsible_heading="No Offer">
 
-                  <NoOffer />
+                  <NoOffer candidateID={this.state.candidate.id}/>
 
                 </CollapsibleItem>
 

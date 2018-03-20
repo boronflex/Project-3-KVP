@@ -23,12 +23,12 @@ router
   //const { id } = req.params
   const { rows } = await db.query('SELECT * FROM spreads, projects WHERE spreads.project_idfk = projects.project_number') //WHERE id = $1', [id])
   res.send(rows)//[0])
-  console.log(rows)
+  //console.log(rows)
 })
 
 .post('/new-spread', async (req, res) => {
 
-  console.log(req.body);
+  //console.log(req.body);
 
   var project_idfk = req.body.project_idfk;
   var spread_num = req.body.spread_num;
