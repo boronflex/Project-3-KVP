@@ -11,3 +11,7 @@ form.search button[type="submit"] {
 label {
   color: white !important;
 }
+
+.input-field {
+  margin-top: 0 !important;
+}

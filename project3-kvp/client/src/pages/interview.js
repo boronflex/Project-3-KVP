@@ -72,7 +72,7 @@ class Interview extends React.Component {
           <div className="section col s12 m12 l8 pull-l4">
 
             {this.state.candidates
-              .filter(candidate => isNull(candidate.job_offer) && candidate.added_by)
+              .filter(candidate => candidate.in_hiring_process && candidate.added_by)
               .map(candidate => {
 
                 return (

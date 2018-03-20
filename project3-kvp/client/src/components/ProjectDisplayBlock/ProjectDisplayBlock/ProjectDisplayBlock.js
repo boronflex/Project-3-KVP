@@ -53,8 +53,8 @@ class ProjectDisplayBlock extends React.Component {
 
 
   handleParentChange = (dataFromChild) => {
+    console.log(dataFromChild);
     this.setState({ selectedOption: dataFromChild });
-    //console.log("state changed inparent")
   }
 
 
@@ -75,7 +75,7 @@ class ProjectDisplayBlock extends React.Component {
               <br />
               <p>{"Survey Manager: " +
                 this.state.projects
-                  .filter(projects => projects.project_idfk === this.state.selectedOption && projects.spread_num === 1)
+                  .filter(projects => projects.project_idfk === parseInt(this.state.selectedOption, 10) && projects.spread_num === 1)
                   .map(projects => {
                     return (
                       projects.survey_manager
@@ -86,7 +86,7 @@ class ProjectDisplayBlock extends React.Component {
               </p>
               <Collapsible color="blue-grey darken-1">
                 {this.state.projects
-                  .filter(projects => projects.project_idfk === this.state.selectedOption)
+                  .filter(projects => projects.project_idfk === parseInt(this.state.selectedOption, 10))
                   .map(projects => {
 
                     return (

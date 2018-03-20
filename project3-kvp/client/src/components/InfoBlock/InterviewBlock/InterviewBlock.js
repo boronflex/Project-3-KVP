@@ -72,7 +72,7 @@ class InterviewBlock extends React.Component {
     //collapsible status/color control
     if (isNull(candidate.app_sent_by)) {
       collapseCardColor = "red";
-    } else if (candidate.app_sent_by && !(candidate.hired)) {
+    } else if (candidate.job_offer && !(candidate.hired)) {
       collapseCardColor = "amber";
     } else if (candidate.hired) {
       collapseCardColor = "green";
@@ -252,8 +252,6 @@ class InterviewBlock extends React.Component {
                 <CollapsibleItem color="blue-grey darken-1" text="white-text" collapsible_heading="Offer Details">
 
                   <OfferData />
-                  use onchange to pass to this see on click from hr block
-                  can call a function in interview block to change state in component from offerdata block
 
                 </CollapsibleItem>
 

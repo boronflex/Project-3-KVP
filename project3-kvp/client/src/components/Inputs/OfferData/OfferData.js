@@ -1,19 +1,25 @@
 import React from "react";
 import "./OfferData.css";
 
+import { Input } from "react-materialize"
+
+import API from "../../../utils/API"
+
 import ProjectDropDown from '../../ProjectDisplayBlock/ProjectDropDown/ProjectDropDown'
 import SpreadDropDown from '../../ProjectDisplayBlock/SpreadDropdown/SpreadDropDown'
 
-import projectSampleData from '../../SampleData/project_sampledata';
+// import projectSampleData from '../../SampleData/project_sampledata';
 
-function getData(inputData) {
-  const data = inputData.map((item) => {
-    return {
-      ...item
-    }
-  })
-  return data;
-}
+// function getData(inputData) {
+//   const data = inputData.map((item) => {
+//     return {
+//       ...item
+//     }
+//   })
+//   return data;
+// }
+
+
 
 class OfferData extends React.Component {
 
@@ -22,7 +28,7 @@ class OfferData extends React.Component {
     super(props);
 
     this.state = {
-      projects: getData(projectSampleData),
+      projects: [],
       offer_project: '',
       offer_spread: '',
       offer_title: 0,
@@ -34,14 +40,33 @@ class OfferData extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+
+    //console.log('component has mounted');
+  
+    this.getProjectData();
+  
+  }
+  
+  getProjectData = () => {
+  
+    API.getSpreads()
+      .then(res =>
+        this.setState({
+          projects: res.data
+        })
+      )
+  }
+
   handleProjectChange = (dataFromChild) => {
+    console.log(dataFromChild)
     this.setState({ offer_project: dataFromChild });
-    console.log("state changed inparent")
+    
   }
 
   handleSpreadChange = (dataFromChild) => {
     this.setState({ offer_spread: dataFromChild });
-    console.log("state changed inparent")
+    console.log("spread changed triggerd")
   }
 
 
@@ -73,6 +98,8 @@ class OfferData extends React.Component {
 
       <form onSubmit={this.handleSubmit}>
 
+        {console.log("project selected" + this.state.offer_project)}
+
         <div className="row col s12">
 
           <div className="input-field col s6">
@@ -97,7 +124,8 @@ class OfferData extends React.Component {
 
           <div className="section">
             <div className="input-field col s6">
-              <select
+              <Input
+                type='select'
                 name="offer_title"
                 value={this.state.value}
                 onChange={this.handleChange}>
@@ -105,7 +133,7 @@ class OfferData extends React.Component {
                 <option value="PC">PC</option>
                 <option value="IM">IM</option>
                 <option value="RM">RM</option>
-              </select>
+              </Input>
             </div>
 
             <div className="input-field col s6">

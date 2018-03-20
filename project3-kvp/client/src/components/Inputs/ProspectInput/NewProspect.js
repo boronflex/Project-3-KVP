@@ -1,6 +1,8 @@
 import React from "react";
 import "./NewProspect.css";
 
+import { Input } from "react-materialize"
+
 import API from "../../../utils/API";
 
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
@@ -129,7 +131,8 @@ class NewProspect extends React.Component {
                 <label htmlFor="city">City</label>
               </div>
               <div className="input-field col s2">
-                <select
+                <Input
+                  type='select'
                   name="address_state"
                   value={this.state.value}
                   onChange={this.handleChange}>
@@ -137,7 +140,7 @@ class NewProspect extends React.Component {
                   <option value="1">Texas</option>
                   <option value="2">Oklahoma</option>
                   <option value="3">Louisiana</option>
-                </select>
+                </Input>
               </div>
               <div className="input-field col s2">
                 <input
@@ -196,7 +199,8 @@ class NewProspect extends React.Component {
                 <label htmlFor="years_experience">Years Experience</label>
               </div>
               <div className="input-field col s4">
-                <select
+                <Input
+                  type='select'
                   name="prev_position"
                   value={this.state.value}
                   onChange={this.handleChange}>
@@ -204,7 +208,7 @@ class NewProspect extends React.Component {
                   <option value="1">PC</option>
                   <option value="2">IM</option>
                   <option value="3">RM</option>
-                </select>
+                </Input>
                 {/* <label>Previous Position</label> */}
               </div>
               <div className="input-field col s4">

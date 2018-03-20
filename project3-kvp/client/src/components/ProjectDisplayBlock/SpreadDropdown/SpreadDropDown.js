@@ -15,7 +15,7 @@ class SpreadDropDown extends React.Component {
   myOptions = () => {
 
     let spreadNums = this.props.projects
-      .filter(projects => projects.project_idfk === this.props.selectedProject)
+      .filter(projects => projects.project_idfk === parseInt(this.props.selectedProject, 10))
       .map(projects => {
         let spreadNum = projects.spread_num
         return spreadNum

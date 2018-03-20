@@ -1,6 +1,8 @@
 import React from "react";
 import "./NewSpread.css";
 
+import { Input } from "react-materialize"
+
 import ProjectDropDown from '../../ProjectDisplayBlock/ProjectDropDown/ProjectDropDown'
 
 import API from "../../../utils/API";
@@ -145,7 +147,8 @@ class NewSpread extends React.Component {
               <label htmlFor="spread_city">City</label>
             </div>
             <div className="input-field col s4">
-              <select
+              <Input
+                type='select'
                 name="spread_state"
                 value={this.state.value}
                 onChange={this.handleChange}>
@@ -153,7 +156,7 @@ class NewSpread extends React.Component {
                 <option value="1">Texas</option>
                 <option value="2">Oklahoma</option>
                 <option value="3">Louisiana</option>
-              </select>
+              </Input>
             </div>
 
             <div className="input-field col s4">

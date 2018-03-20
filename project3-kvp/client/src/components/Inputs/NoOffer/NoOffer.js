@@ -1,6 +1,8 @@
 import React from "react";
 import "./NoOffer.css";
 
+import { Input } from "react-materialize"
+
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
 class NoOffer extends React.Component {
 
@@ -51,8 +53,9 @@ class NoOffer extends React.Component {
           <div className="col s12">
 
             <div className="section">
-              <div className="input-field col s12">
-                <select
+              <div className="input-field">
+                <Input
+                  type='select'
                   name="no_offer_reason"
                   value={this.state.value}
                   onChange={this.handleChange}>
@@ -62,7 +65,7 @@ class NoOffer extends React.Component {
                   <option value="too expensive">Too expensive</option>
                   <option value="not interested">Not Interested</option>
                   <option value="other">Other (see notes)</option>
-                </select>
+                </Input>
               </div>
             </div>
 
