@@ -2,20 +2,22 @@ import React from "react";
 
 import Container from "../components/Container";
 
+import API from "../utils/API";
+
 import UserBlock from '../components/UserBlock/UserBlock';
 import InterviewBlock from '../components/InfoBlock/InterviewBlock/InterviewBlock';
 import ProjectDisplayBlock from '../components/ProjectDisplayBlock/ProjectDisplayBlock/ProjectDisplayBlock';
 
-import testData from '../components/SampleData/hr_sampledata';
+// import testData from '../components/SampleData/hr_sampledata';
 
-function getData(inputData) {
-  const data = inputData.map((item) => {
-    return {
-      ...item
-    }
-  })
-  return data;
-}
+// function getData(inputData) {
+//   const data = inputData.map((item) => {
+//     return {
+//       ...item
+//     }
+//   })
+//   return data;
+// }
 
 class Interview extends React.Component {
 
@@ -23,56 +25,80 @@ class Interview extends React.Component {
     super(props);
 
     this.state = {
-      candidates: getData(testData),
+      candidates: [],
+      dataLoaded: false,
     }
 
   }
 
+  componentDidMount() {
+    this.getCandidatesHistory();
+    // this.setState({ dataLoaded: true });
+    console.log(this.state)
+  }
+
+  getCandidatesHistory = () => {
+
+    API.getCandidatesHistory()
+      .then(res =>
+        this.setState({
+          candidates: res,
+        })
+      )
+  }
+
   render() {
 
-    return (
+    if (!this.state.dataLoaded) {
 
-      <Container>
+      return <div>Loading...</div>
 
-        <div className="row">
+    } else {
 
-          <h3 className="col s12 m7 l6">Interview Dashboard</h3>
+      return (
 
-          <UserBlock user_name="Kyle Palmer" />
+        <Container>
 
-        </div>
+          <div className="row">
 
-        <div className="row">
+            <h3 className="col s12 m7 l6">Interview Dashboard</h3>
 
-          <div className="col s12 m12 l4 push-l8" >
-
-            <ProjectDisplayBlock column_size="section col s12 m12 l12" />
+            <UserBlock user_name="Kyle Palmer" />
 
           </div>
 
-          <div className="section col s12 m12 l8 pull-l4">
+          <div className="row">
 
-            {this.state.candidates
-              .filter(candidate => candidate.job_offer === false && candidate.added_by)
-              .map(candidate => {
+            <div className="col s12 m12 l4 push-l8" >
 
-                return (
+              <ProjectDisplayBlock column_size="section col s12 m12 l12" />
 
-                  <InterviewBlock key={candidate.id} candidate_info={candidate} />
+            </div>
 
-                );
+            <div className="section col s12 m12 l8 pull-l4">
 
-              })}
+              {this.state.candidates
+                .filter(candidate => candidate.job_offer === false && candidate.added_by)
+                .map(candidate => {
+
+                  return (
+
+                    <InterviewBlock key={candidate.id} candidate_info={candidate} />
+
+                  );
+
+                })}
+
+            </div>
+
+
 
           </div>
 
 
-
-        </div>
-
-
-      </Container>
-    );
+        </Container>
+      );
+    }
   }
 
 }

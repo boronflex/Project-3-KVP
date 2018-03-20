@@ -2,11 +2,11 @@ export default {
 
   //user start############
 
-  getUsers: function() {
+  getUsers: function () {
 
-  //   return axios.get("api/users")
-  // }
-    
+    //   return axios.get("api/users")
+    // }
+
     var getUsers = new Request('/api/users', {
       method: 'GET',
       headers: new Headers({ 'Content-Type': 'application/json' })
@@ -25,7 +25,7 @@ export default {
     return getrequest();
   },
 
-  saveUser: function() {
+  saveUser: function () {
 
   },
 
@@ -33,7 +33,7 @@ export default {
 
   //inputs page##################
 
-  addCandidate: function (candidateData){
+  addCandidate: function (candidateData) {
 
     const addUser = new Request('/api/new-candidate', {
       method: 'POST',
@@ -55,7 +55,7 @@ export default {
 
   },
 
-  addProject: function (projectData){
+  addProject: function (projectData) {
 
     const addUser = new Request('/api/new-project', {
       method: 'POST',
@@ -77,7 +77,7 @@ export default {
 
   },
 
-  addSpread: function (spreadData){
+  addSpread: function (spreadData) {
 
     const addUser = new Request('/api/new-spread', {
       method: 'POST',
@@ -99,111 +99,134 @@ export default {
 
   },
 
-  getProjects: function() {
+  getProjects: function () {
 
     //   return axios.get("api/users")
     // }
-      
-      var getProjects = new Request('/api/projects', {
-        method: 'GET',
-        headers: new Headers({ 'Content-Type': 'application/json' })
-      });
-  
-      const getrequest = async () => {
-  
-        const response = await fetch(getProjects)
-  
-        const json = await response.json()
-  
-        return json;
-  
-      }
-  
-      return getrequest();
-    },
-  
+
+    var getProjects = new Request('/api/projects', {
+      method: 'GET',
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    });
+
+    const getrequest = async () => {
+
+      const response = await fetch(getProjects)
+
+      const json = await response.json()
+
+      return json;
+
+    }
+
+    return getrequest();
+  },
+
 
   //inputs page###################
 
   //search select page#############
 
-  getCandidates: function() {
+  getCandidates: function () {
 
     //   return axios.get("api/users")
     // }
-      
-      var getCandidates = new Request('/api/candidates', {
-        method: 'GET',
-        headers: new Headers({ 'Content-Type': 'application/json' })
+
+    var getCandidates = new Request('/api/candidates', {
+      method: 'GET',
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    });
+
+    const getrequest = async () => {
+
+      const response = await fetch(getCandidates)
+
+      const json = await response.json()
+
+      return json;
+
+    }
+
+    return getrequest();
+  },
+
+  getCandidatesHistory: function () {
+
+    //   return axios.get("api/users")
+    // }
+
+    var getCandidatesHistory = new Request('/api/candidates-history', {
+      method: 'GET',
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    });
+
+    const getrequest = async () => {
+
+      const response = await fetch(getCandidatesHistory)
+
+      const json = await response.json()
+
+      return json;
+
+    }
+
+    return getrequest();
+  },
+
+  selectForInterview: function (candidatePicks) {
+
+    //console.log(candidatePicks);
+
+    candidatePicks.forEach(function (item) {
+
+      //console.log(item)
+
+      const addInterviewees = new Request('/api/pick-interviewees', {
+        method: 'POST',
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ "candidate_idfk": item })
       });
-  
-      const getrequest = async () => {
-  
-        const response = await fetch(getCandidates)
-  
-        const json = await response.json()
-  
-        return json;
-  
+
+      const postrequest = async () => {
+
+        const response = await fetch(addInterviewees)
+
+        const status = await response.status
+
+        return status;
+
       }
-  
-      return getrequest();
-    },
 
-    selectForInterview: function (candidatePicks){
+      //return postrequest();
 
-      //console.log(candidatePicks);
-
-      candidatePicks.forEach(function(item){
-
-        //console.log(item)
-
-        const addInterviewees = new Request('/api/pick-interviewees', {
-          method: 'POST',
-          headers: new Headers({ 'Content-Type': 'application/json' }),
-          body: JSON.stringify({ "candidate_idfk": item })
-        });
-    
-        const postrequest = async () => {
-    
-          const response = await fetch(addInterviewees)
-    
-          const status = await response.status
-    
-          return status;
-    
-        }
-
-        //return postrequest();
-
-        const moveCandidate = new Request('/api/in-hiring-process', {
-          method: 'PUT',
-          headers: new Headers({ 'Content-Type': 'application/json' }),
-          body: JSON.stringify({ "candidate_idfk": item })
-        });
-    
-        const putrequest = async () => {
-    
-          const response = await fetch(moveCandidate)
-    
-          const status = await response.status
-    
-          return status;
-    
-
-        }
-
-        return {
-
-          put: putrequest(),
-          post: postrequest()
-
-        }
-
+      const moveCandidate = new Request('/api/in-hiring-process', {
+        method: 'PUT',
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ "candidate_idfk": item })
       });
-  
-    },
-  
+
+      const putrequest = async () => {
+
+        const response = await fetch(moveCandidate)
+
+        const status = await response.status
+
+        return status;
+
+
+      }
+
+      return {
+
+        put: putrequest(),
+        post: postrequest()
+
+      }
+
+    });
+
+  },
+
   //serch select page ##############
 
 

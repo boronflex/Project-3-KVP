@@ -22,9 +22,9 @@ router
 })
 
 
-.get('/candidate-history', async (req, res) => {
+.get('/candidates-history', async (req, res) => {
   //const { id } = req.params
-  const { rows } = await db.query('SELECT * FROM candidates, candidate_history WHERE id = candidate_idfk') //WHERE id = $1', [id])
+  const { rows } = await db.query('SELECT * FROM candidates, candidate_history WHERE candidates.id = candidate_idfk') //WHERE id = $1', [id])
   res.send(rows)//[0])
   //console.log(rows)
 })
