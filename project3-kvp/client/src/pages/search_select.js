@@ -2,26 +2,60 @@ import React from "react";
 //import Container from "../components/Container";
 //import Row from "../components/Row";
 
+import API from "../utils/API";
+
 import SelectableTable from "../components/Table/SelectableTable";
 
 import UserBlock from '../components/UserBlock/UserBlock';
 
 import Container from "../components/Container";
 
-const Search_Select = () =>
+class Search_Select extends React.Component {
 
-  <Container>
+  constructor() {
+    super();
+    this.state = {
+      candidates: [],
+    }
+  }
 
-    <div className="row">
+  componentDidMount() {
+    this.getCandidates();
+  }
 
-      <h3 className="col s12 m7 l6">Search and Select Candidates</h3>
+  getCandidates = () => {
 
-      <UserBlock user_name="Kyle Palmer" />
+    API.getCandidates()
+      .then(res =>
+        this.setState({
+          candidates: res
+        })
+      )
+      
+  }
 
-    </div>
+  render() {
 
-    <SelectableTable />
+    return (
 
-  </Container>
+      <Container>
+
+        <div className="row">
+
+          <h3 className="col s12 m7 l6">Search and Select Candidates</h3>
+
+          <UserBlock user_name="Kyle Palmer" />
+
+        </div>
+
+        <SelectableTable candidates={this.state.candidates}/>
+
+      </Container>
+
+    )
+
+  }
+
+}
 
 export default Search_Select;

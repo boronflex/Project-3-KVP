@@ -3,16 +3,7 @@ import "./NewSpread.css";
 
 import ProjectDropDown from '../../ProjectDisplayBlock/ProjectDropDown/ProjectDropDown'
 
-import projectSampleData from '../../SampleData/project_sampledata';
-
-function getData(inputData) {
-  const data = inputData.map((item) => {
-    return {
-      ...item
-    }
-  })
-  return data;
-}
+import API from "../../../utils/API";
 
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
 class NewSpread extends React.Component {
@@ -21,7 +12,7 @@ class NewSpread extends React.Component {
     super(props);
 
     this.state = {
-      projects: getData(projectSampleData),
+      projects: [],
       project_idfk: 0,
       spread_num: 0,
       spread_city: '',
@@ -30,14 +21,33 @@ class NewSpread extends React.Component {
       supervisor_id: 0,
       per_diem: 0,
       mileage: 0,
-      vehicle: '',
-      computer: '',
-      phone: '',
-      utv: ''
+      vehicle: false,
+      computer: false,
+      phone: false,
+      utv: false
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+
+    //console.log('component has mounted');
+
+    this.getProjectData();
+
+  }
+
+  getProjectData= () => {
+
+    API.getProjects()
+      .then(res =>
+        this.setState({
+          projects: res
+        })
+      )
+      
   }
 
   handleProjectChange = (dataFromChild) => {
@@ -60,10 +70,20 @@ class NewSpread extends React.Component {
 
   handleSubmit(event) {
 
-    console.log(this.state)
-
-    alert('A name was submitted: ' + this.state.state);
     event.preventDefault();
+
+    let spreadData = this.state;
+
+    let that = this;
+
+    API.addSpread(spreadData)
+      .then(function (res) {
+        if (res === 200) {
+          that.setState()
+        }
+      }
+      )
+      .catch(err => console.log(err));
   }
 
 
@@ -152,7 +172,7 @@ class NewSpread extends React.Component {
                 name="mileage"
                 value={this.state.value}
                 onChange={this.handleChange}
-                type="number"
+                type="text"
                 className="validate" />
               <label htmlFor="mileage">mileage</label>
             </div>
@@ -162,8 +182,8 @@ class NewSpread extends React.Component {
                 value={this.state.value}
                 onChange={this.handleChange}>
                 <option value="" disable="true">vehicle</option>
-                <option value="true">yes</option>
-                <option value="false">no</option>
+                <option value={true}>yes</option>
+                <option value={false}>no</option>
               </select>
             </div>
 
@@ -174,8 +194,8 @@ class NewSpread extends React.Component {
                 value={this.state.value}
                 onChange={this.handleChange}>
                 <option value="" disable="true">computer</option>
-                <option value="true">yes</option>
-                <option value="false">no</option>
+                <option value={true}>yes</option>
+                <option value={false}>no</option>
               </select>
             </div>
             <div className="input-field col s4">
@@ -184,8 +204,8 @@ class NewSpread extends React.Component {
                 value={this.state.value}
                 onChange={this.handleChange}>
                 <option value="" disable="true">phone</option>
-                <option value="true">yes</option>
-                <option value="false">no</option>
+                <option value={true}>yes</option>
+                <option value={false}>no</option>
               </select>
             </div>
             <div className="input-field col s4">
@@ -194,8 +214,8 @@ class NewSpread extends React.Component {
                 value={this.state.value}
                 onChange={this.handleChange}>
                 <option value="" disable="true">utv</option>
-                <option value="true">yes</option>
-                <option value="false">no</option>
+                <option value={true}>yes</option>
+                <option value={false}>no</option>
               </select>
             </div>
 

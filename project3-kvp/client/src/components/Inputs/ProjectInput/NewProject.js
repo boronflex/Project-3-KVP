@@ -1,5 +1,6 @@
 import React from "react";
 import "./NewProject.css";
+import API from "../../../utils/API";
 
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
 class NewProject extends React.Component {
@@ -8,18 +9,22 @@ class NewProject extends React.Component {
     super(props);
 
     this.state = {
-      project_number: 0,
+
       project_name: '',
+      project_number: 0,
+      client_name: '',
+      survey_manager: '',
+      survey_manager_empid: '',
+      number_spreads: 0,
       project_city: '',
       project_state: '',
-      project_manager: '',
-      number_of_spreads: 0,
+
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
 
   handleChange(event) {
 
@@ -36,10 +41,21 @@ class NewProject extends React.Component {
 
   handleSubmit(event) {
 
-    console.log(this.state)
-
-    alert('A name was submitted: ' + this.state.state);
     event.preventDefault();
+
+    let projectData = this.state;
+
+    let that = this;
+
+    API.addProject(projectData)
+      .then(function (res) {
+        if (res === 200) {
+          that.setState()
+        }
+      }
+      )
+      .catch(err => console.log(err));
+
   }
 
 
@@ -52,6 +68,19 @@ class NewProject extends React.Component {
         <div className="row">
 
           <div className="col s12">
+
+            <div className="section">
+              <div className="input-field col s12">
+                <input
+                  id="project_name"
+                  name="project_name"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  type="text"
+                  className="validate" />
+                <label htmlFor="project_name">name</label>
+              </div>
+            </div>
 
             <div className="section">
               <div className="input-field col s12">
@@ -68,14 +97,53 @@ class NewProject extends React.Component {
 
             <div className="section">
               <div className="input-field col s12">
+                <label htmlFor="client_name">client name</label>
                 <input
-                  id="project_name"
-                  name="project_name"
+                  id="client_name"
+                  name="client_name"
                   value={this.state.value}
                   onChange={this.handleChange}
                   type="text"
                   className="validate" />
-                <label htmlFor="project_name">name</label>
+              </div>
+            </div>
+
+            <div className="section">
+              <div className="input-field col s12">
+                <input
+                  id="survey_manager"
+                  name="survey_manager"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  type="text"
+                  className="validate" />
+                <label htmlFor="survey_manager">manager</label>
+              </div>
+            </div>
+
+            <div className="section">
+              <div className="input-field col s12">
+                <input
+                  id="survey_manager_empid"
+                  name="survey_manager_empid"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  type="number"
+                  className="validate" />
+                <label htmlFor="survey_manager_empid">manager id#</label>
+              </div>
+            </div>
+
+            <div className="section">
+              <div className="input-field col s12">
+                <input
+                  id="number_spreads"
+                  name="number_spreads"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  type="number"
+                  className="validate" />
+                <label htmlFor="number_spreads">number of spreads</label>
               </div>
             </div>
 
@@ -102,32 +170,6 @@ class NewProject extends React.Component {
                   type="text"
                   className="validate" />
                 <label htmlFor="project_state">State</label>
-              </div>
-            </div>
-
-            <div className="section">
-              <div className="input-field col s12">
-                <input
-                  id="project_manager"
-                  name="project_manager"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                  type="tel"
-                  className="validate" />
-                <label htmlFor="project_manager">manager</label>
-              </div>
-            </div>
-
-            <div className="section">
-              <div className="input-field col s12">
-                <input
-                  id="number_of_spreads"
-                  name="number_of_spreads"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                  type="number"
-                  className="validate" />
-                <label htmlFor="number_of_spreads">number of spreads</label>
               </div>
             </div>
 

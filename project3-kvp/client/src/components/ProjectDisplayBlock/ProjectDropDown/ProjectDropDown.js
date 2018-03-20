@@ -20,7 +20,7 @@ class ProjectDropDown extends React.Component {
 
     let projectNums = this.props.projects
       .map(projects => {
-        let projectID = projects.project_idfk
+        let projectID = projects.project_number
         return projectID
       }).filter(onlyUnique)
 

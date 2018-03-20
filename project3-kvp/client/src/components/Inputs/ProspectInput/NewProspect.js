@@ -1,6 +1,8 @@
 import React from "react";
 import "./NewProspect.css";
 
+import API from "../../../utils/API";
+
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
 class NewProspect extends React.Component {
 
@@ -12,14 +14,14 @@ class NewProspect extends React.Component {
       first_name: '',
       last_name: '',
       nick_name: '',
-      street: '',
+      address_st: '',
       city: '',
-      state: '',
+      address_state: '',
       zip: '',
       phone_1: '',
       phone_2: '',
       email: '',
-      years_exp: '',
+      years_experience: '',
       prev_position: '',
       comments: ''
     }
@@ -27,7 +29,7 @@ class NewProspect extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
 
   handleChange(event) {
 
@@ -44,9 +46,21 @@ class NewProspect extends React.Component {
 
   handleSubmit(event) {
 
-    //console.log(this.state)
     event.preventDefault();
-    
+
+    let candidateData = this.state;
+
+    let that = this;
+
+    API.addCandidate(candidateData)
+      .then(function (res) {
+        if (res === 200) {
+            that.setState()
+          }
+        }
+      )
+      .catch(err => console.log(err));
+
   }
 
 
@@ -82,7 +96,7 @@ class NewProspect extends React.Component {
                   className="validate" />
               </div>
               <div className="input-field col s4">
-                <label htmlFor="last_name">Nick Name</label>
+                <label htmlFor="nick_name">Nick Name</label>
                 <input
                   id="nick_name"
                   name="nick_name"
@@ -96,13 +110,13 @@ class NewProspect extends React.Component {
             <div className="section">
               <div className="input-field col s4">
                 <input
-                  id="street"
-                  name="street"
+                  id="address_st"
+                  name="address_st"
                   value={this.state.value}
                   onChange={this.handleChange}
                   type="text"
                   className="validate" />
-                <label htmlFor="first_name">Street</label>
+                <label htmlFor="address_st">Street</label>
               </div>
               <div className="input-field col s4">
                 <input
@@ -116,7 +130,7 @@ class NewProspect extends React.Component {
               </div>
               <div className="input-field col s2">
                 <select
-                  name="state"
+                  name="address_state"
                   value={this.state.value}
                   onChange={this.handleChange}>
                   <option value="" disable="true" >State</option>
@@ -173,13 +187,13 @@ class NewProspect extends React.Component {
             <div className="section">
               <div className="input-field col s4">
                 <input
-                  id="years_exp"
-                  name="years_exp"
+                  id="years_experience"
+                  name="years_experience"
                   value={this.state.value}
                   onChange={this.handleChange}
                   type="text"
                   className="validate" />
-                <label htmlFor="years_exp">Years Experience</label>
+                <label htmlFor="years_experience">Years Experience</label>
               </div>
               <div className="input-field col s4">
                 <select
