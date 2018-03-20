@@ -28,10 +28,11 @@ class OfferData extends React.Component {
     super(props);
 
     this.state = {
+      candidateID: this.props.candidateID,
       projects: [],
-      offer_project: '',
-      offer_spread: '',
-      offer_title: 0,
+      offer_project: 0,
+      offer_spread: 0,
+      offer_title: '',
       offer_pay: 0,
       requested_start_date: ''
     }
@@ -85,10 +86,29 @@ class OfferData extends React.Component {
 
   handleSubmit(event) {
 
-    console.log(this.state)
-
-    alert('A name was submitted: ' + this.state.state);
     event.preventDefault();
+
+    let candidateData = {
+      candidateID: this.state.candidateID,
+      offer_project: parseInt(this.state.offer_project, 10),
+      offer_spread: this.state.offer_spread,
+      offer_title: this.state.offer_title,
+      offer_pay: parseInt(this.state.offer_pay, 10),
+      requested_start_date: this.state.requested_start_date
+    } 
+
+    console.log(candidateData)
+
+    let that = this;
+
+    API.makeOffer(candidateData)
+      .then(function (res) {
+        if (res === 200) {
+            that.setState()
+          }
+        }
+      )
+      .catch(err => console.log(err));
   }
 
 
@@ -99,6 +119,7 @@ class OfferData extends React.Component {
       <form onSubmit={this.handleSubmit}>
 
         {console.log("project selected" + this.state.offer_project)}
+        {console.log("spread selected" + this.state.offer_spread)}
 
         <div className="row col s12">
 

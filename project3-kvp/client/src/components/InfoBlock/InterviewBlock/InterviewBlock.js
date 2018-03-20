@@ -251,7 +251,7 @@ class InterviewBlock extends React.Component {
 
                 <CollapsibleItem color="blue-grey darken-1" text="white-text" collapsible_heading="Offer Details">
 
-                  <OfferData />
+                  <OfferData candidateID={this.state.candidate.id}/>
 
                 </CollapsibleItem>
 

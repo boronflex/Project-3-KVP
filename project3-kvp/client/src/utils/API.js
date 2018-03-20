@@ -214,6 +214,14 @@ export default {
 
   },
 
+  makeOffer: function (candidateData) {
+    return axios.put("api/make-offer", candidateData)
+  },
+
+  noOffer: function (candidateData) {
+    return axios.put("api/no-offer", candidateData)
+  },
+
   //serch select page ##############
 
 

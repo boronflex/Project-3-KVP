@@ -3,7 +3,7 @@ import API from "../utils/API";
 
 import Container from "../components/Container";
 
-import { isNull } from "util";
+//import { isNull } from "util";
 
 import UserBlock from '../components/UserBlock/UserBlock';
 import InterviewBlock from '../components/InfoBlock/InterviewBlock/InterviewBlock';

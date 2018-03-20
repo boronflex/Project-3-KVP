@@ -56,3 +56,37 @@ router
   console.log("data inserted");
 
 })
+
+.put('/make-offer', async (req, res) => {
+
+  //console.log(req.body);
+
+  console.log(req.body);
+
+
+  var id = req.body.candidateID;
+  var job_offer = true;
+  var offer_project = req.body.offer_project;
+  var offer_spread = req.body.offer_spread;
+  var offer_title = req.body.offer_title;
+  var offer_pay = req.body.offer_pay;
+  var requested_start_date = req.body.requested_start_date;
+
+  let values = [job_offer, offer_project, offer_spread, offer_title, offer_pay, requested_start_date, id];
+
+  const { rows } = await db.query(
+    `UPDATE candidate_history SET
+      job_offer = $1,
+      offer_project = $2,
+      offer_spread = $3,
+      offer_title = $4,
+      offer_pay = $5,
+      requested_start_date = $6
+      WHERE id = $7`,
+    [...values])
+
+  res.send({ message: "data inserted" })
+
+  console.log("data inserted");
+
+})
