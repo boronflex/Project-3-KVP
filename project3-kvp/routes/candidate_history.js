@@ -24,7 +24,7 @@ router
 
 .get('/candidate-history', async (req, res) => {
   //const { id } = req.params
-  const { rows } = await db.query('SELECT * FROM candidate_history') //WHERE id = $1', [id])
+  const { rows } = await db.query('SELECT * FROM candidates, candidate_history WHERE id = candidate_idfk') //WHERE id = $1', [id])
   res.send(rows)//[0])
   //console.log(rows)
 })
