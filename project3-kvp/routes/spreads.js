@@ -21,7 +21,7 @@ router
 
 .get('/spreads', async (req, res) => {
   //const { id } = req.params
-  const { rows } = await db.query('SELECT * FROM spreads') //WHERE id = $1', [id])
+  const { rows } = await db.query('SELECT * FROM spreads, projects WHERE spreads.project_idfk = projects.project_number') //WHERE id = $1', [id])
   res.send(rows)//[0])
   console.log(rows)
 })

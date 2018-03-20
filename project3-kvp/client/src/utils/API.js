@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default {
 
   //user start############
@@ -99,6 +101,10 @@ export default {
 
   },
 
+  getSpreads: function () {
+    return axios.get("api/spreads")
+  },
+
   getProjects: function () {
 
     //   return axios.get("api/users")
@@ -151,26 +157,7 @@ export default {
   },
 
   getCandidatesHistory: function () {
-
-    //   return axios.get("api/users")
-    // }
-
-    var getCandidatesHistory = new Request('/api/candidates-history', {
-      method: 'GET',
-      headers: new Headers({ 'Content-Type': 'application/json' })
-    });
-
-    const getrequest = async () => {
-
-      const response = await fetch(getCandidatesHistory)
-
-      const json = await response.json()
-
-      return json;
-
-    }
-
-    return getrequest();
+    return axios.get("/api/candidates-history")
   },
 
   selectForInterview: function (candidatePicks) {

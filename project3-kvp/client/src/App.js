@@ -32,6 +32,7 @@ const App = () =>
         <Route exact path="/overview" component={Overview} />
         <Route exact path="/hr" component={HR_view} />
         <Route exact path="/requesttesting" component={Request_tests} />
+        <Route exact path="/login" component={LoginPage} />
       </Wrapper>
       {/* <Footer /> */}
     </div>

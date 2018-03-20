@@ -1,8 +1,9 @@
 import React from "react";
 import "./Collapsible.css";
+import { Collapsible } from 'react-materialize'
 
 
-class Collapsible extends React.Component {
+class CollapsibleComponent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,12 +16,13 @@ class Collapsible extends React.Component {
 
     return (
 
-      <ul className={`${this.state.color} collapsible ${this.props.column_size}`} data-collapsible="expandable">
+      <Collapsible
+        className={`${this.state.color} collapsible ${this.props.column_size}`} data-collapsible="expandable">
         {this.props.children}
-      </ul>
+      </Collapsible>
     )
   }
 
 }
 
-export default Collapsible;
+export default CollapsibleComponent;
