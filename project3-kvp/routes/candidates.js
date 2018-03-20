@@ -21,14 +21,14 @@ router
 
   .get('/candidates', async (req, res) => {
     //const { id } = req.params
-    const { rows } = await db.query('SELECT * FROM candidates') //WHERE id = $1', [id])
+    const { rows } = await db.query('SELECT * FROM candidates WHERE in_hiring_process = false') //WHERE id = $1', [id])
     res.send(rows)//[0])
-    console.log(rows)
+    //console.log(rows)
   })
 
   .post('/new-candidate', async (req, res) => {
 
-    console.log(req.body);
+    //console.log(req.body);
 
     var first_name = req.body.first_name;
     var last_name = req.body.last_name;
@@ -67,6 +67,22 @@ router
       [...values])
 
     res.send({ message: "data inserted" })
+
+    console.log("data inserted");
+
+  })
+
+  .put('/in-hiring-process', async (req, res) => {
+
+    //console.log(req.body);
+
+    var candidateID = req.body.candidate_idfk;
+
+    const { rows } = await db.query(
+      `UPDATE candidates SET in_hiring_process = NOT in_hiring_process WHERE id = $1 `, [candidateID]
+    )
+
+    res.send({ message: "data updated" })
 
     console.log("data inserted");
 

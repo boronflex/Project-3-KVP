@@ -23,12 +23,12 @@ router
     //const { id } = req.params
     const { rows } = await db.query('SELECT * FROM projects') //WHERE id = $1', [id])
     res.send(rows)//[0])
-    console.log(rows)
+    //console.log(rows)
   })
 
   .post('/new-project', async (req, res) => {
 
-    console.log(req.body);
+    //console.log(req.body);
 
     var project_name = req.body.project_name;
     var project_number = req.body.project_number;

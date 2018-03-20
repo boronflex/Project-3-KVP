@@ -2,6 +2,8 @@ import React from "react";
 //import Container from "../components/Container";
 //import Row from "../components/Row";
 
+// import Moment from "moment";
+
 import API from "../utils/API";
 
 import SelectableTable from "../components/Table/SelectableTable";
@@ -16,6 +18,8 @@ class Search_Select extends React.Component {
     super();
     this.state = {
       candidates: [],
+      selected: [],
+      // date: ''
     }
   }
 
@@ -31,29 +35,59 @@ class Search_Select extends React.Component {
           candidates: res
         })
       )
-      
+
+  }
+
+  handleParentChange = (dataFromChild) => {
+
+    this.setState({ selected: dataFromChild });
+
+    //let selected = this.state.selected
+
+    //let that = this;
+
+    API.selectForInterview(dataFromChild)
+    // .then(function (res) {
+    //   if (res === 200) {
+    //       that.setState()
+    //     }
+    //   }
+    // )
+    // .catch(err => console.log(err));
+
   }
 
   render() {
 
-    return (
+    const candidateArray = this.state.candidates;
 
-      <Container>
+    if (candidateArray.length === 0) {
 
-        <div className="row">
+      return <div>Loading...</div>;
 
-          <h3 className="col s12 m7 l6">Search and Select Candidates</h3>
+    } else {
 
-          <UserBlock user_name="Kyle Palmer" />
+      return (
 
-        </div>
+        <Container>
 
-        <SelectableTable candidates={this.state.candidates}/>
+          {/* {console.log(this.state.candidates)} */}
 
-      </Container>
+          <div className="row">
 
-    )
+            <h3 className="col s12 m7 l6">Search and Select Candidates</h3>
 
+            <UserBlock user_name="Kyle Palmer" />
+
+          </div>
+
+          <SelectableTable propsData={this.state.candidates} parentChange={this.handleParentChange}/>
+
+        </Container>
+
+      )
+
+    }
   }
 
 }

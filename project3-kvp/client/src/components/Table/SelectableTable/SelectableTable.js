@@ -4,23 +4,21 @@ import React from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
-import Chance from 'chance';
+//import Chance from 'chance';
 import checkboxHOC from 'react-table/lib/hoc/selectTable';
 import { Logo, Tips } from "./data";
-//import testData from './test_data';
-import testData from '../../SampleData/prospects';
 
 const CheckboxTable = checkboxHOC(ReactTable);
 
-const chance = new Chance();
+//const chance = new Chance();
 
-function getData()
+function getData(inputData)
 {
-  const data = testData.map((item)=>{
+  const data = inputData.map((item)=>{
     // using chancejs to generate guid
     // shortid is probably better but seems to have performance issues
     // on codesandbox.io
-    const _id = chance.guid();
+    const _id = item.id;
     return {
       _id,
       ...item,
@@ -34,7 +32,7 @@ function getColumns(data)
   const columns = [];
   const sample = data[0];
   Object.keys(sample).forEach((key)=>{
-    if(key!=='_id') 
+    if(key!=='_id' && key!=='id') 
     {
       columns.push({
         accessor: key,
@@ -47,9 +45,10 @@ function getColumns(data)
 
 class SelectableTable extends React.Component {
 
-  constructor() {
-    super();
-    const data = getData();
+  constructor(props) {
+    super(props);
+    const inputData = this.props.propsData;
+    const data = getData(inputData);
     const columns = getColumns(data);
     this.state = {
       data,
@@ -129,10 +128,13 @@ class SelectableTable extends React.Component {
   }
 
   logSelection = () => {
-    console.log('selection:', this.state.selection);
+    //console.log('selection:', this.state.selection);
+    this.props.parentChange(this.state.selection)
   }
   
   render() {
+
+    //console.log(this.inputData);
     const { toggleSelection, toggleAll, isSelected, logSelection } = this;
     const { data, columns, selectAll, } = this.state;
 

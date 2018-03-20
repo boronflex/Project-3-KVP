@@ -149,6 +149,60 @@ export default {
   
       return getrequest();
     },
+
+    selectForInterview: function (candidatePicks){
+
+      //console.log(candidatePicks);
+
+      candidatePicks.forEach(function(item){
+
+        //console.log(item)
+
+        const addInterviewees = new Request('/api/pick-interviewees', {
+          method: 'POST',
+          headers: new Headers({ 'Content-Type': 'application/json' }),
+          body: JSON.stringify({ "candidate_idfk": item })
+        });
+    
+        const postrequest = async () => {
+    
+          const response = await fetch(addInterviewees)
+    
+          const status = await response.status
+    
+          return status;
+    
+        }
+
+        //return postrequest();
+
+        const moveCandidate = new Request('/api/in-hiring-process', {
+          method: 'PUT',
+          headers: new Headers({ 'Content-Type': 'application/json' }),
+          body: JSON.stringify({ "candidate_idfk": item })
+        });
+    
+        const putrequest = async () => {
+    
+          const response = await fetch(moveCandidate)
+    
+          const status = await response.status
+    
+          return status;
+    
+
+        }
+
+        return {
+
+          put: putrequest(),
+          post: postrequest()
+
+        }
+
+      });
+  
+    },
   
   //serch select page ##############
 

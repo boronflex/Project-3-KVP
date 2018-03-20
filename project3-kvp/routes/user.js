@@ -34,7 +34,7 @@ router
 
   .post('/new-user', async (req, res) => {
 
-    console.log(req.body);
+    //console.log(req.body);
 
     var employee_id = req.body.employee_id;
     var last_name = req.body.last_name;
@@ -65,7 +65,7 @@ router
 
   .put('/update-user', async (req, res) => {
 
-    console.log(req.body);
+    //console.log(req.body);
 
     var employee_id = req.body.employee_id;
     var last_name = req.body.last_name;
